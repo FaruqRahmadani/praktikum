@@ -13,7 +13,7 @@ class CreateTabelBerita extends Migration
      */
     public function up()
     {
-      Schema::create('Tabel_Gallery', function (Blueprint $table) {
+      Schema::create('Tabel_Berita', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('id_admin');
           $table->string('judul', 50);
