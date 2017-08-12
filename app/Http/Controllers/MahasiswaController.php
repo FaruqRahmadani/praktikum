@@ -9,6 +9,6 @@ class MahasiswaController extends Controller
   public function dashboard()
   {
       // return view('depan.index');
-      die('Dashboard Mahasiswa !!!');
+      die('Dashboard Mahasiswaasd !!!');
   }
 }
