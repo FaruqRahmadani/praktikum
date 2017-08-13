@@ -30,6 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // });
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/{code1}/{code2}/{code3}/{code4}', 'DashboardController@login');
 
 Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen', 'DosenController@dashboard');
