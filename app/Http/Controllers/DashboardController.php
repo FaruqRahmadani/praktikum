@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -10,12 +11,10 @@ class DashboardController extends Controller
 
   public function index()
   {
-    if (1==1){
-      die($name);
-    }else {
-      die('dashboard Mahasiswa !!!');
+    if (Auth::user()->tipe == 1){
+      return redirect('/dosen');
+    } else {
+      return redirect('/mahasiswa');
     }
-      // return view('depan.index');
-
   }
 }
