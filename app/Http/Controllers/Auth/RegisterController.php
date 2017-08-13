@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'nama'       => 'required|string|max:255',
             'no_hp'      => 'required|numeric',
             'email'      => 'required|string|email|max:255',
-            'foto'       => 'required|string',
+            'foto'       => 'required|image',
             'username'   => 'required|string|max:255|unique:users',
             'password'   => 'required|string|min:6|confirmed',
         ]);
@@ -72,7 +72,14 @@ class RegisterController extends Controller
       $dosen     = new Dosen;
       $mahasiswa = new Mahasiswa;
 
-      $iduser = (User::all()->last()->id + 1);
+
+      if (count(User::all()) < 1) {
+        $iduser = 1;
+      } else {
+        $iduser = (User::all()->last()->id + 1);
+      }
+
+      $namagambar = $data['nomorinduk'].'.'.$data['foto']->getClientOriginalExtension();
 
         if ($data['tipe']==1)
         {
@@ -80,8 +87,9 @@ class RegisterController extends Controller
           $dosen->NIDN    = $data['nomorinduk'];
           $dosen->nama    = $data['nama'];
           $dosen->no_hp   = $data['no_hp'];
-          $dosen->foto    = $data['foto'];
+          $dosen->foto    = $namagambar;
           $dosen->email   = $data['email'];
+          $data['foto']->move(public_path('images/dosen'), $namagambar);
 
           $dosen->save();
         } else
@@ -91,8 +99,9 @@ class RegisterController extends Controller
           $mahasiswa->NPM     = $data['nomorinduk'];
           $mahasiswa->nama    = $data['nama'];
           $mahasiswa->no_hp   = $data['no_hp'];
-          $mahasiswa->foto    = $data['foto'];
+          $mahasiswa->foto    = $namagambar;
           $mahasiswa->email   = $data['email'];
+          $data['foto']->move(public_path('images/mahasiswa'), $namagambar);
 
           $mahasiswa->save();
         }

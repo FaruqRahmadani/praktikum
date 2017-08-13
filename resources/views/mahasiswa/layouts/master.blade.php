@@ -27,11 +27,11 @@
             </li>
             <li class="xn-profile">
               <a href="#" class="profile-mini">
-                  <img src="public-mahasiswa/assets/images/users/no-image.jpg" alt="John Doe"/>
+                  <img src="/images/mahasiswa/{{$data->foto}}" alt="{{$data->nama}}"/>
               </a>
               <div class="profile">
                 <div class="profile-image">
-                  <img src="public-mahasiswa/assets/images/users/no-image.jpg" alt="{{$data->nama}}"/>
+                  <img src="/images/mahasiswa/{{$data->foto}}" alt="{{$data->nama}}"/>
                 </div>
                 <div class="profile-data">
                     <div class="profile-data-name">{{$data->nama}}</div>

@@ -1,4 +1,4 @@
-@extends('mahasiswa.layouts.master');
+@extends('mahasiswa.layouts.master')
 @section('tittle')
   Mahasiswa -  {{$data->nama}}
 @endsection
