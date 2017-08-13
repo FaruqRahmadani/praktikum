@@ -29,10 +29,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 //   }
 // });
 
+Route::get('/dashboard', 'DashboardController@index');
 
 Route::group(['middleware' => 'dosen'], function(){
-  Route::get('/dashboard', 'DosenController@dashboard');
+  Route::get('/dosen', 'DosenController@dashboard');
 });
 Route::group(['middleware' => 'mahasiswa'], function(){
-  Route::get('/dashboard', 'MahasiswaController@dashboard');
+  Route::get('/mahasiswa', 'MahasiswaController@dashboard');
 });

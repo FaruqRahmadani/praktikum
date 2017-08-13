@@ -8,6 +8,6 @@ class DepanController extends Controller
 {
     public function index()
     {
-        return view('depan.index');
+      return view('depan.index');
     }
 }

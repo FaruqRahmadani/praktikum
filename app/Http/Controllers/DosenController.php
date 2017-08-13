@@ -9,6 +9,6 @@ class DosenController extends Controller
   public function dashboard()
   {
       // return view('depan.index');
-      die('Dashboard Dosen testing !!!');
+      dd('Dashboard Dosen testing !!!');
   }
 }
