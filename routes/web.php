@@ -38,3 +38,6 @@ Route::group(['middleware' => 'dosen'], function(){
 Route::group(['middleware' => 'mahasiswa'], function(){
   Route::get('/mahasiswa', 'MahasiswaController@dashboard');
 });
+
+Route::get('/admin', 'AdminController@dashboard');
+Route::get('/admin/datamahasiswa', 'AdminController@datamahasiswa');
