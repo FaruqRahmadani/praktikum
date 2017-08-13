@@ -49,18 +49,6 @@
                       </td>
                     </tr>
                 @endforeach
-								<tr>
-									<td><center>2</center></td>
-                  <td><center>15630121</center></td>
-                  <td><center>Junaidi Ramadani</center></td>
-                  <td><center>5</center></td>
-                  <td>
-                    <center>
-											<a href="mahasiswa_detail.php" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-info"
-												 aria-hidden="true"></span>Detail</a>
-										</center>
-									</td>
-                </tr>
               </tbody>
             </table>
           </div>
