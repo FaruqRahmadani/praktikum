@@ -48,8 +48,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-table"></span> <span class="xn-text">Master Data</span></a>
                         <ul>
-                           <li><a href="mahasiswa_data.php"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
-                            <li><a href="dosen_data.php"><span class="fa fa-users"></span>Data Dosen</a></li>
+                           <li><a href="/admin/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
+                            <li><a href="/admin/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
 							<li><a href="materi_data.php"><span class="fa fa-users"></span>Data Materi</a></li>
                             <li><a href="#"><span class="fa fa-users"></span>Data Berita</a></li>
 							<li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li>

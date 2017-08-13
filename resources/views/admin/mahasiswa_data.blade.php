@@ -30,6 +30,7 @@
                 </tr>
               </thead>
               <tbody>
+                <?php $no = 0 ?>
                 @foreach ($data as $datas)
                   @if (date("n") >= 9)
                     {{$semester = ((date("y") - substr($datas->NPM,0,2))*2)+1}}
@@ -37,7 +38,7 @@
                     {{$semester = (date("y") - substr($datas->NPM,0,2))*2}}
                   @endif
                   <tr>
-                    <td><center>1</center></td>
+                    <td><center>{{$no = $no + 1}}</center></td>
                     <td><center>{{$datas->NPM}}</center></td>
                     <td><center>{{$datas->nama}}</center></td>
                     <td><center>{{$semester}}</center></td>
