@@ -1,134 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- META SECTION -->
-        <title>Praktikum UNISKA FTI Banjarbaru</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="/public-admin/css/bootstrap.css" rel="stylesheet">
+  <head>
+    <!-- META SECTION -->
+    <title>Praktikum UNISKA FTI Banjarbaru</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/public-admin/css/bootstrap.css" rel="stylesheet">
 
-        <link rel="icon" href="uniska.ico" type="image/x-icon" />
-        <!-- END META SECTION -->
+    <link rel="icon" href="uniska.ico" type="image/x-icon" />
+    <!-- END META SECTION -->
 
-        <!-- CSS INCLUDE -->
-        <link rel="stylesheet" type="text/css" id="theme" href="/public-admin/css/theme-default.css"/>
-        <!-- EOF CSS INCLUDE -->
-    </head>
-    <body>
-        <!-- START PAGE CONTAINER -->
-        <div class="page-container">
-
-            <!-- START PAGE SIDEBAR -->
-            <div class="page-sidebar">
-                <!-- START X-NAVIGATION -->
-                <ul class="x-navigation">
-                    <li class="xn-logo">
-                        <a href="admin_home.php">Admin</a>
-                        <a href="#" class="x-navigation-control"></a>
-                    </li>
-                    <li class="xn-profile">
-                        <div class="profile">
-                            <div class="profile-image">
-                                <img src="/public-admin/assets/images/users/no-image.jpg" alt="John Doe"/>
-                            </div>
-                            <div class="profile-data">
-                                <div class="profile-data-name">Junaidi Ramadani</div>
-                                <div class="profile-data-title">Admin</div>
-                            </div>
-                            <div class="profile-controls">
-                                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-pencil"></span></a>
-                                <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-info"></span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="active">
-                        <a href="admin_home.php"><span class="fa fa-home"></span> <span class="xn-text">Beranda</span></a>
-                    </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-table"></span> <span class="xn-text">Master Data</span></a>
-                        <ul>
-                           <li><a href="/admin/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
-                            <li><a href="/admin/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
-							<li><a href="materi_data.php"><span class="fa fa-users"></span>Data Materi</a></li>
-                            <li><a href="#"><span class="fa fa-users"></span>Data Berita</a></li>
-							<li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li>
-						</ul>
-                    </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Laporan</span></a>
-                        <ul>
-                            <li><a href="laporan_data.php">Laporan Pelaksanaan Praktikum</a></li>
-                            <li><a href="#">Laporan Detail Pelaksanaan Praktikum</a></li>
-							<li><a href="laporan_mahasiswa_data.php">Laporan Data Mahasiswa</a></li>
-                            <li><a href="laporan_absen.php">Laporan Data Absen Praktikum</a></li>
-                        </ul>
-                    </li>
-                     <li class="xn-icon-button">
-                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span><span class="xn-text">Log Out</span></a>
-                    </li>
-                </ul>
-                <!-- END X-NAVIGATION -->
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" type="text/css" id="theme" href="/public-admin/css/theme-default.css"/>
+    <!-- EOF CSS INCLUDE -->
+  </head>
+  <body>
+    <!-- START PAGE CONTAINER -->
+    <div class="page-container">
+      <!-- START PAGE SIDEBAR -->
+      <div class="page-sidebar">
+        <!-- START X-NAVIGATION -->
+        <ul class="x-navigation">
+          <li class="xn-logo">
+            <a href="admin_home.php">Admin</a>
+            <a href="#" class="x-navigation-control"></a>
+          </li>
+          <li class="xn-profile">
+            <div class="profile">
+              <div class="profile-image">
+                <img src="/public-admin/assets/images/users/no-image.jpg" alt="John Doe"/>
+              </div>
+              <div class="profile-data">
+                <div class="profile-data-name">Junaidi Ramadani</div>
+                <div class="profile-data-title">Admin</div>
+              </div>
+              <div class="profile-controls">
+                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-pencil"></span></a>
+                <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-info"></span></a>
+              </div>
             </div>
-            <!-- END PAGE SIDEBAR -->
-
-            <!-- PAGE CONTENT -->
-            <div class="page-content">
-
-                <!-- START X-NAVIGATION VERTICAL -->
-                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <!-- TOGGLE NAVIGATION -->
-                    <li class="xn-icon-button">
-                        <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
-                    </li>
-                    <!-- END TOGGLE NAVIGATION -->
-                </ul>
-                <!-- END X-NAVIGATION VERTICAL -->
-@yield('content')
-<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-content">
-    <ul class="list-inline item-details">
-      <li><a href="http://themifycloud.com/downloads/janux-premium-responsive-bootstrap-admin-dashboard-template/">Admin templates</a></li>
-      <li><a href="http://themescloud.org">Bootstrap themes</a></li>
-    </ul>
-  </div>
-</div>
-
-</div>
-
-        <!-- START DASHBOARD CHART -->
-<div class="chart-holder" id="dashboard-area-1" style="height: 200px;"></div>
-<div class="block-full-width">
-
+          </li>
+          <li class="active">
+            <a href="/admin"><span class="fa fa-home"></span> <span class="xn-text">Beranda</span></a>
+          </li>
+          <li class="xn-openable">
+            <a href="#"><span class="fa fa-table"></span> <span class="xn-text">Master Data</span></a>
+            <ul>
+              <li><a href="/admin/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
+              <li><a href="/admin/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
+		          <li><a href="materi_data.php"><span class="fa fa-users"></span>Data Materi</a></li>
+              <li><a href="#"><span class="fa fa-users"></span>Data Berita</a></li>
+		          <li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li>
+		        </ul>
+          </li>
+          <li class="xn-openable">
+            <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Laporan</span></a>
+            <ul>
+              <li><a href="laporan_data.php">Laporan Pelaksanaan Praktikum</a></li>
+              <li><a href="#">Laporan Detail Pelaksanaan Praktikum</a></li>
+		          <li><a href="laporan_mahasiswa_data.php">Laporan Data Mahasiswa</a></li>
+              <li><a href="laporan_absen.php">Laporan Data Absen Praktikum</a></li>
+            </ul>
+          </li>
+          <li class="xn-icon-button">
+            <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span><span class="xn-text">Log Out</span></a>
+          </li>
+        </ul>
+        <!-- END X-NAVIGATION -->
+      </div>
+      <!-- END PAGE SIDEBAR -->
+      <!-- PAGE CONTENT -->
+      <div class="page-content">
+        <!-- START X-NAVIGATION VERTICAL -->
+        <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+          <!-- TOGGLE NAVIGATION -->
+          <li class="xn-icon-button">
+            <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+          </li>
+          <!-- END TOGGLE NAVIGATION -->
+        </ul>
+        <!-- END X-NAVIGATION VERTICAL -->
+        @yield('content')
+        <div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <ul class="list-inline item-details">
+              <li><a href="http://themifycloud.com/downloads/janux-premium-responsive-bootstrap-admin-dashboard-template/">Admin templates</a></li>
+              <li><a href="http://themescloud.org">Bootstrap themes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- START DASHBOARD CHART -->
+      <div class="chart-holder" id="dashboard-area-1" style="height: 200px;"></div>
+        <div class="block-full-width">
         </div>
         <!-- END DASHBOARD CHART -->
-
+      </div>
+      <!-- END PAGE CONTENT WRAPPER -->
     </div>
-    <!-- END PAGE CONTENT WRAPPER -->
-</div>
-<!-- END PAGE CONTENT -->
-</div>
-<!-- END PAGE CONTAINER -->
+    <!-- END PAGE CONTENT -->
+  </div>
+  <!-- END PAGE CONTAINER -->
 
-<!-- MESSAGE BOX-->
-<div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
-<div class="mb-container">
-    <div class="mb-middle">
+  <!-- MESSAGE BOX-->
+  <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+    <div class="mb-container">
+      <div class="mb-middle">
         <div class="mb-title">
-        <span class="fa fa-sign-out"></span> Keluar ?
+          <span class="fa fa-sign-out"></span> Keluar ?
         </div>
         <div class="mb-content">
-                <h4 style="color: #ffffff";>Anda yakin ingin keluar?</h4>
-                <h4 style="color: #ffffff";>Tekan No untuk melanjutkan. Tekan Yes untuk keluar.</h4>
+          <h4 style="color: #ffffff";>Anda yakin ingin keluar?</h4>
+          <h4 style="color: #ffffff";>Tekan No untuk melanjutkan. Tekan Yes untuk keluar.</h4>
         </div>
         <div class="mb-footer">
-            <div class="pull-right">
-                <a href="login_dosen.php" class="btn btn-success btn-lg">Yes</a>
-                <button class="btn btn-default btn-lg mb-control-close">No</button>
-            </div>
+          <div class="pull-right">
+            <a href="login_dosen.php" class="btn btn-success btn-lg">Yes</a>
+            <button class="btn btn-default btn-lg mb-control-close">No</button>
+          </div>
         </div>
     </div>
-</div>
+  </div>
 </div>
 <!-- END MESSAGE BOX-->
 
