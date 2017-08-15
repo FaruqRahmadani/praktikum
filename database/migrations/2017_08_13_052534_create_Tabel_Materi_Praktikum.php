@@ -15,6 +15,7 @@ class CreateTabelMateriPraktikum extends Migration
     {
       Schema::create('Tabel_Materi_Praktikum', function (Blueprint $table) {
           $table->increments('id');
+          $table->string('kode_mk', 10);
           $table->string('materi_praktikum', 50);
           $table->tinyInteger('semester');
           $table->timestamps();
