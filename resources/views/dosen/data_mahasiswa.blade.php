@@ -75,7 +75,7 @@
                       <td><img src="/images/mahasiswa/{{$datas->foto}}" width="80" height="100"></td>
                       <td>{{$datas->NPM}}</td>
                       <td>
-                        <a href="detail_mahasiswa.php">
+                        <a href="/dosen/datamahasiswa/{{Crypt::encryptString($datas->id)}}">
                             <span class="fa fa-user"></span>
                             {{$datas->nama}}
                         </a>

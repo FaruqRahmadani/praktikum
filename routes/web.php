@@ -34,6 +34,7 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen', 'DosenController@dashboard');
   Route::get('/dosen/datamahasiswa', 'DosenController@datamahasiswa');
+  Route::get('/dosen/datamahasiswa/{id}', 'DosenController@datamahasiswadetail');
 });
 
 Route::group(['middleware' => 'mahasiswa'], function(){

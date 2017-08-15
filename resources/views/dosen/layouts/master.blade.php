@@ -49,7 +49,7 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Master Data</span></a>
                         <ul>
-                            <li><a href="dosen/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
+                            <li><a href="/dosen/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
                             <li><a href="data_dosen.php"><span class="fa fa-users"></span>Data Dosen</a></li>
                         </ul>
                     </li>
@@ -159,11 +159,11 @@
         <script type="text/javascript" src="/public-dosen/js/demo_tables.js"></script>
         <script type="text/javascript" src="/public-dosen/js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="/public-dosen/js/plugins/summernote/summernote.js"></script>
-        <script type="text/javascript" src="/public-dosen/js/plugins/datatables/jquery.dataTables.min.js"></script> 
-        <script type="text/javascript" src="/public-dosen/js/plugins/bootstrap/bootstrap-datepicker.js"></script>     
+        <script type="text/javascript" src="/public-dosen/js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/public-dosen/js/plugins/bootstrap/bootstrap-datepicker.js"></script>
         <script type="text/javascript" src="/public-dosen/js/plugins/bootstrap/bootstrap-file-input.js"></script>
         <script type="text/javascript" src="/public-dosen/js/plugins/bootstrap/bootstrap-select.js"></script>
-        <script type="text/javascript" src="/public-dosen/js/plugins/tagsinput/jquery.tagsinput.min.js"></script> 
+        <script type="text/javascript" src="/public-dosen/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
         <!-- END PAGE PLUGINS -->
 
         <!-- START TEMPLATE -->

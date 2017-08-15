@@ -11,7 +11,7 @@
         <h1>Praktikun FTI UNISKA</h1>
           <div class="panel panel-default">
             <div class="panel-body">
-              <h2>Selamat Datang [NAMA]</h2>
+              <h2>Selamat Datang {{$datauser->nama}}</h2>
               <h3>Selamat Datang di Praktikum UNISKA</h3>
             </div>
           </div>
