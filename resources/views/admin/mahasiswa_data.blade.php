@@ -33,9 +33,9 @@
                 <?php $no = 0 ?>
                 @foreach ($data as $datas)
                   @if (date("n") >= 9)
-                    {{$semester = ((date("y") - substr($datas->NPM,0,2))*2)+1}}
+                    <?php $semester = ((date("y") - substr($datas->NPM,0,2))*2)+1 ?>
                   @else
-                    {{$semester = (date("y") - substr($datas->NPM,0,2))*2}}
+                    <?php $semester = (date("y") - substr($datas->NPM,0,2))*2 ?>
                   @endif
                   <tr>
                     <td><center>{{$no = $no + 1}}</center></td>

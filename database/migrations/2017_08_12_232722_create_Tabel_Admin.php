@@ -20,6 +20,7 @@ class CreateTabelAdmin extends Migration
           $table->string('password', 100);
           $table->string('foto', 255);
           $table->string('email', 50);
+          $table->rememberToken();
           $table->timestamps();
       });
     }

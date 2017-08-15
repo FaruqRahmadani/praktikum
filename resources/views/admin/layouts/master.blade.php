@@ -23,7 +23,7 @@
         <!-- START X-NAVIGATION -->
         <ul class="x-navigation">
           <li class="xn-logo">
-            <a href="admin_home.php">Admin</a>
+            <a href="{{Request::url()}}">Admin</a>
             <a href="#" class="x-navigation-control"></a>
           </li>
           <li class="xn-profile">
@@ -32,7 +32,7 @@
                 <img src="/public-admin/assets/images/users/no-image.jpg" alt="John Doe"/>
               </div>
               <div class="profile-data">
-                <div class="profile-data-name">Junaidi Ramadani</div>
+                <div class="profile-data-name">{{Auth::guard('admin')->user()->nama}}</div>
                 <div class="profile-data-title">Admin</div>
               </div>
               <div class="profile-controls">
@@ -49,7 +49,7 @@
             <ul>
               <li><a href="/admin/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
               <li><a href="/admin/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
-		          <li><a href="materi_data.php"><span class="fa fa-users"></span>Data Materi</a></li>
+		          <li><a href="/admin/datamateri"><span class="fa fa-users"></span>Data Materi</a></li>
               <li><a href="#"><span class="fa fa-users"></span>Data Berita</a></li>
 		          <li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li>
 		        </ul>
@@ -116,7 +116,14 @@
         </div>
         <div class="mb-footer">
           <div class="pull-right">
-            <a href="login_dosen.php" class="btn btn-success btn-lg">Yes</a>
+            <a href="{{ route('logout') }}" class="btn btn-success btn-lg"
+              onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+              Yes
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
             <button class="btn btn-default btn-lg mb-control-close">No</button>
           </div>
         </div>

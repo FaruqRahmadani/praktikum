@@ -21,7 +21,7 @@ class CreateTabelJadwalDosen extends Migration
           $table->tinyInteger('tipe');
           $table->timestamps();
         //
-      }
+      });
     }
 
     /**

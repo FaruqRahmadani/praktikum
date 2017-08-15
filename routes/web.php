@@ -30,7 +30,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 // });
 
 Route::get('/dashboard', 'DashboardController@index');
-Route::get('/{code1}/{code2}/{code3}/{code4}', 'DashboardController@login');
 
 Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen', 'DosenController@dashboard');
@@ -39,6 +38,13 @@ Route::group(['middleware' => 'mahasiswa'], function(){
   Route::get('/mahasiswa', 'MahasiswaController@dashboard');
 });
 
-Route::get('/admin', 'AdminController@dashboard');
-Route::get('/admin/datamahasiswa', 'AdminController@datamahasiswa');
-Route::get('/admin/datadosen', 'AdminController@datadosen');
+Route::get('/{code1}/{code2}/{code3}/{code4}', 'Auth\AdminLoginController@LoginForm');
+Route::POST('/admin/angkaacakkawakahkada', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+Route::group(['middleware' => 'admin'], function(){
+  Route::get('/admin', 'AdminController@dashboard');
+  Route::get('/admin/datamahasiswa', 'AdminController@datamahasiswa');
+  Route::get('/admin/datadosen', 'AdminController@datadosen');
+  Route::get('/admin/datamateri', 'AdminController@datamateri');
+  Route::get('/admin/tambahmateri', 'AdminController@formtambahmateri');
+  Route::POST('/admin/tambahmateri', 'AdminController@storetambahmateri');
+});

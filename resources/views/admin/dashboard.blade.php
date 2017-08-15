@@ -18,7 +18,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <!-- START HEADING -->
-            <h1><center>Selamat Datang Admin [NAMA] Di Praktikum UNISKA</center></h1>
+            <h1><center>Selamat Datang Admin {{Auth::guard('admin')->user()->nama}} Di Praktikum UNISKA</center></h1>
             <!-- EOF HEADING -->
 
           </div>

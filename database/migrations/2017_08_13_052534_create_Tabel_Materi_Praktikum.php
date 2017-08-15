@@ -19,7 +19,7 @@ class CreateTabelMateriPraktikum extends Migration
           $table->tinyInteger('semester');
           $table->timestamps();
         //
-      }
+      });
     }
 
     /**

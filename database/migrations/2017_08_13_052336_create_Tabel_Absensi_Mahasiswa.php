@@ -20,7 +20,7 @@ class CreateTabelAbsensiMahasiswa extends Migration
           $table->tinyInteger('status');
           $table->timestamps();
         //
-      }
+      });
     }
 
     /**
