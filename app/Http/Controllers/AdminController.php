@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Crypt;
 use App\Mahasiswa;
 use App\Dosen;
 use App\Admin;
@@ -57,5 +58,24 @@ class AdminController extends Controller
     $materi->save();
 
     return redirect('/admin/datamateri')->with('status', 'Data Materi '.$request->materi.' Telah di Simpan');
+  }
+
+  public function formeditmateri($id)
+  {
+    $data = Materi::find(Crypt::decryptString($id));
+    return view('admin.tambah_materi', ['data' => $data]);
+  }
+
+  public function storeeditmateri(Request $request, $id)
+  {
+    $materi = Materi::find(Crypt::decryptString($id));
+
+    $materi->kode_mk          = $request->kode_mk;
+    $materi->materi_praktikum = $request->materi;
+    $materi->semester         = $request->semester;
+
+    $materi->save();
+
+    return redirect('/admin/datamateri')->with('status', 'Data Materi '.$request->materi.' Telah di Update');
   }
 }

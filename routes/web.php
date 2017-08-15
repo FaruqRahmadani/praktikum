@@ -34,6 +34,7 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen', 'DosenController@dashboard');
 });
+
 Route::group(['middleware' => 'mahasiswa'], function(){
   Route::get('/mahasiswa', 'MahasiswaController@dashboard');
 });
@@ -47,4 +48,6 @@ Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin/datamateri', 'AdminController@datamateri');
   Route::get('/admin/tambahmateri', 'AdminController@formtambahmateri');
   Route::POST('/admin/tambahmateri', 'AdminController@storetambahmateri');
+  Route::get('/admin/editmateri/{id}', 'AdminController@formeditmateri');
+  Route::POST('/admin/editmateri/{id}', 'AdminController@storeeditmateri');
 });

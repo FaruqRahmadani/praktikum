@@ -50,7 +50,7 @@
                     <td><center>{{$datas->semester}}</center></td>
                     <td>
                       <center>
-    										<a href="#" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
+    										<a href="editmateri/{{Crypt::encryptString($datas->id)}}" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
     										   aria-hidden="true"></span>Edit</a>
   										</center>
   									</td>
