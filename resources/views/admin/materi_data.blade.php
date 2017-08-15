@@ -1,6 +1,5 @@
 @extends('admin.layouts.master')
 @section('content')
-  <!DOCTYPE html>
   <!-- START BREADCRUMB -->
   <ul class="breadcrumb">
     <li><a href="#">Beranda</a></li>

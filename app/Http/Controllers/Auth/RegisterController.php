@@ -49,15 +49,27 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+      if($data['tipe'] == 1){
         return Validator::make($data, [
-            'nomorinduk' => 'required|numeric',
-            'nama'       => 'required|string|max:255',
-            'no_hp'      => 'required|numeric',
-            'email'      => 'required|string|email|max:255',
-            'foto'       => 'required|image',
-            'username'   => 'required|string|max:255|unique:users',
-            'password'   => 'required|string|min:6|confirmed',
+          'nomorinduk' => 'required|numeric|unique:tabel_dosen,NIDN',
+          'nama'       => 'required|string|max:255',
+          'no_hp'      => 'required|numeric',
+          'email'      => 'required|string|email|max:255',
+          'foto'       => 'required|image',
+          'username'   => 'required|string|max:255|unique:users,username',
+          'password'   => 'required|string|min:6|confirmed',
         ]);
+      }else{
+        return Validator::make($data, [
+          'nomorinduk' => 'required|numeric|unique:tabel_mahasiswa,NPM',
+          'nama'       => 'required|string|max:255',
+          'no_hp'      => 'required|numeric',
+          'email'      => 'required|string|email|max:255',
+          'foto'       => 'required|image',
+          'username'   => 'required|string|max:255|unique:users,username',
+          'password'   => 'required|string|min:6|confirmed',
+        ]);
+      }
     }
 
     /**

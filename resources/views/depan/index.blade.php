@@ -140,7 +140,7 @@
 
                         <div class="form-group" style="margin-bottom: 0px;">
                             <label for="">Foto</label>
-                            <input type="text" name="foto" class="form-control" placeholder="Nama" required/>
+                            <input type="file" name="foto" class="form-control" placeholder="Nama" required/>
                         </div>
 
                         <hr>
