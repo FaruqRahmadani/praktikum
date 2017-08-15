@@ -29,7 +29,6 @@ class AdminLoginController extends Controller
     } catch (DecryptException $e) {
       abort(404);
     }
-
   }
 
   public function login(Request $request){

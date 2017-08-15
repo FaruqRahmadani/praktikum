@@ -26,6 +26,9 @@
                   <th><center>NPM</center></th>
                   <th><center>Nama</center></th>
                   <th><center>Semester</center></th>
+                  <th><center>No HP</center></th>
+                  <th><center>E-Mail</center></th>
+                  <th><center>Username</center></th>
                   <th><center>Tools<center></th>
                 </tr>
               </thead>
@@ -42,6 +45,9 @@
                     <td><center>{{$datas->NPM}}</center></td>
                     <td><center>{{$datas->nama}}</center></td>
                     <td><center>{{$semester}}</center></td>
+                    <td><center>{{$datas->no_hp}}</center></td>
+                    <td><center>{{$datas->email}}</center></td>
+                    <td><center>{{$datas->user->username}}</center></td>
                     <td>
                       <center>
                         <a href="mahasiswa_detail.php" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-info"

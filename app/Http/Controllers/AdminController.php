@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Validation\Rule;
 use App\Mahasiswa;
 use App\Dosen;
 use App\Admin;
@@ -20,13 +23,13 @@ class AdminController extends Controller
 
   public function datamahasiswa()
   {
-    $data = Mahasiswa::all();
+    $data = Mahasiswa::with('user')->get();
     return view('admin.mahasiswa_data', ['data' => $data]);
   }
 
   public function datadosen()
   {
-    $data = Dosen::all();
+    $data = Dosen::with('user')->get();
     return view('admin.dosen_data', ['data' => $data]);
   }
 
@@ -62,20 +65,38 @@ class AdminController extends Controller
 
   public function formeditmateri($id)
   {
-    $data = Materi::find(Crypt::decryptString($id));
-    return view('admin.tambah_materi', ['data' => $data]);
+    try {
+      $data = Materi::find(Crypt::decryptString($id));
+      return view('admin.tambah_materi', ['data' => $data]);
+    } catch (DecryptException $e) {
+      return back();
+    }
   }
 
   public function storeeditmateri(Request $request, $id)
   {
-    $materi = Materi::find(Crypt::decryptString($id));
+    try {
+      $idmateri = Crypt::decryptString($id);
+      $materi   = Materi::find($idmateri);
 
-    $materi->kode_mk          = $request->kode_mk;
-    $materi->materi_praktikum = $request->materi;
-    $materi->semester         = $request->semester;
+      $this->validate($request, [
+        'kode_mk' => [
+          'required',
+          Rule::unique('tabel_materi_praktikum')->ignore($idmateri),
+        ],
+        'materi' => 'required',
+        'semester' => 'required|numeric',
+      ]);
 
-    $materi->save();
+      $materi->kode_mk          = $request->kode_mk;
+      $materi->materi_praktikum = $request->materi;
+      $materi->semester         = $request->semester;
 
-    return redirect('/admin/datamateri')->with('status', 'Data Materi '.$request->materi.' Telah di Update');
+      $materi->save();
+
+      return redirect('/admin/datamateri')->with('status', 'Data Materi '.$request->materi.' Telah di Update');
+    } catch (DecryptException $e) {
+      return back();
+    }
   }
 }
