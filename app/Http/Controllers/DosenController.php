@@ -32,10 +32,31 @@ class DosenController extends Controller
     try {
       $iduser   = Auth::user()->id;
       $datauser = Dosen::where('id_user', $iduser)->first();
-      $data = Mahasiswa::find(Crypt::decryptString($id));
+      $data     = Mahasiswa::find(Crypt::decryptString($id));
       return view('dosen.detail_mahasiswa', ['datauser' => $datauser, 'data' => $data]);
     } catch (DecryptException $e) {
       return back();
     }
   }
+
+  public function datadosen()
+  {
+    $iduser   = Auth::user()->id;
+    $datauser = Dosen::where('id_user', $iduser)->first();
+    $data     = Dosen::all();
+    return view('dosen.data_dosen', ['datauser' => $datauser, 'data' => $data]);
+  }
+
+  public function datadosendetail($id)
+  {
+    try {
+      $iduser   = Auth::user()->id;
+      $datauser = Dosen::where('id_user', $iduser)->first();
+      $data     = Dosen::find(Crypt::decryptString($id));
+      return view('dosen.detail_dosen', ['datauser' => $datauser, 'data' => $data]);
+    } catch (DecryptException $e) {
+      return back();
+    }
+  }
+
 }

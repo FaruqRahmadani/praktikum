@@ -50,7 +50,7 @@
                         <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Master Data</span></a>
                         <ul>
                             <li><a href="/dosen/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
-                            <li><a href="data_dosen.php"><span class="fa fa-users"></span>Data Dosen</a></li>
+                            <li><a href="/dosen/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">
