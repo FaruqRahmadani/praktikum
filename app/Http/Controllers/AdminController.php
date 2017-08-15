@@ -43,17 +43,19 @@ class AdminController extends Controller
   public function storetambahmateri(Request $request)
   {
     $this->validate($request, [
+      'kode_mk' => 'required|unique:tabel_materi_praktikum,kode_mk',
       'materi' => 'required',
       'semester' => 'required|numeric',
     ]);
 
     $materi = new Materi;
 
+    $materi->kode_mk          = $request->kode_mk;
     $materi->materi_praktikum = $request->materi;
     $materi->semester         = $request->semester;
 
     $materi->save();
 
-    return redirect('/admin/datamateri');
+    return redirect('/admin/datamateri')->with('status', 'Data Materi '.$request->materi.' Telah di Simpan');
   }
 }

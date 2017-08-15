@@ -12,6 +12,11 @@
   <div class="page-title">
       <h2>Data Materi </h2>
   </div>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <!-- END PAGE TITLE -->
   <!-- PAGE CONTENT WRAPPER -->
   <div class="page-content-wrap">
@@ -36,10 +41,11 @@
                 </tr>
               </thead>
               <tbody>
+                <?php $no = 0?>
                 @foreach ($data as $datas)
                   <tr>
-                    <td><center>1</center></td>
-                    <td><center>MK 01</center></td>
+                    <td><center>{{$no = $no+1}}</center></td>
+                    <td><center>{{$datas->kode_mk}}</center></td>
                     <td><center>{{$datas->materi_praktikum}}</center></td>
                     <td><center>{{$datas->semester}}</center></td>
                     <td>
@@ -50,18 +56,6 @@
   									</td>
                   </tr>
                 @endforeach
-                <tr>
-                  <td><center>1</center></td>
-                  <td><center>MK 01</center></td>
-                  <td><center>WEB 2</center></td>
-                  <td><center>5</center></td>
-                  <td>
-                    <center>
-  										<a href="#" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
-  										   aria-hidden="true"></span>Edit</a>
-										</center>
-									</td>
-                </tr>
               </tbody>
             </table>
           </div>

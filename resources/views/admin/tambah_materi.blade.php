@@ -11,10 +11,18 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">Kode MK</label>
+
+                            <div class="col-md-6">
+                                <input id="materi" type="text" class="form-control" name="kode_mk" value="{{ old('kode_mk') }}" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Nama Materi Praktikum</label>
 
                             <div class="col-md-6">
-                                <input id="materi" type="text" class="form-control" name="materi" value="{{ old('materi') }}" required autofocus>
+                                <input id="materi" type="text" class="form-control" name="materi" value="{{ old('materi') }}" required>
                             </div>
                         </div>
 
