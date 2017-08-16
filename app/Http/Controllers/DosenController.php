@@ -16,7 +16,22 @@ class DosenController extends Controller
       $iduser   = Auth::user()->id;
       $datauser = Dosen::where('id_user', $iduser)->first();
       return view('dosen.dashboard', ['datauser' => $datauser]);
-      // dd('Dashboard Dosen testing !!!');
+  }
+
+  public function viewprofil()
+  {
+      $username = Auth::user()->username;
+      $iduser   = Auth::user()->id;
+      $datauser = Dosen::where('id_user', $iduser)->first();
+      return view('dosen.detail_dosen', ['datauser' => $datauser, 'data' => $datauser, 'username' => $username]);
+  }
+
+  public function editprofil()
+  {
+      $username = Auth::user()->username;
+      $iduser   = Auth::user()->id;
+      $datauser = Dosen::where('id_user', $iduser)->first();
+      return view('dosen.detail_dosen', ['datauser' => $datauser, 'data' => $datauser, 'username' => $username]);
   }
 
   public function datamahasiswa()

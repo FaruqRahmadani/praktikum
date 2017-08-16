@@ -28,6 +28,12 @@
                         <th>Nama</th>
                         <td>{{$data->nama}}</td>
                     </tr>
+                    @if ((substr(url()->current(),-6,6) == 'profil'))
+                      <tr>
+                          <th>Username</th>
+                          <td>{{$username}}</td>
+                      </tr>
+                    @endif
                     <tr>
                         <th>Email</th>
                         <td>{{$data->email}}</td>
@@ -37,14 +43,6 @@
                         <td>{{$data->no_hp}}</td>
                     </tr>
                     </table>
-
-                        <a href="home.php" class="btn btn-primary btn-rounded"><span class="fa fa-arrow-circle-left
-                        Close" aria-hidden="true"></span>Kembali</a>
-                        <a href="edit_dosen.php" class="btn btn-success btn-rounded"><span class="fa fa-edit Close"
-                        aria-hidden="true"></span> Edit Data </a>
-                        <a href="#" title="Hapus Data" onclick="return confirm('Anda yakin akan menghapus data<?php
-                                            //echo $row['nama']; ?>?')" class="btn btn-danger btn-rounded"><span class=
-                                            "glyphicon glyphicon-trash" aria-hidden="true"></span> Hapus Data</a>
                     </div>
                 </div>
             </div>

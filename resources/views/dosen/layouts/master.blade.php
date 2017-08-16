@@ -37,8 +37,8 @@
                                 <div class="profile-data-title">{{$datauser->NIDN}}</div>
                             </div>
                             <div class="profile-controls">
-                                <a href="detail_dosen.php" data-toggle="tooltip" title="Profil" data-placement="bottom" class="profile-control-left"><span class="glyphicon glyphicon-user"></span></a>
-                                <a href="#" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                                <a href="/dosen/profil" data-toggle="tooltip" title="Profil" data-placement="bottom" class="profile-control-left"><span class="glyphicon glyphicon-user"></span></a>
+                                <a href="/dosen/editprofil" data-toggle="tooltip" title="Edit Profil" data-placement="bottom" class="profile-control-right"><span class="fa fa-pencil"></span></a>
                             </div>
                         </div>
                     </li>

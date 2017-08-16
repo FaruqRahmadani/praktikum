@@ -2,7 +2,7 @@
 <html lang="en">
     <head>        
         <!-- META SECTION -->
-        <title>Praktikum UNISKA FTI Banjarbaru</title>            
+        <title>Praktikum FTI UNISKA Banjarbaru</title>             
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,7 +37,7 @@
                             </div>
                             <div class="profile-controls">
                                 <a href="detail_dosen.php" data-toggle="tooltip" title="Profil" data-placement="bottom" class="profile-control-left"><span class="glyphicon glyphicon-user"></span></a>
-                                <a href="#" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                                <a href="edit_dosen.php" data-toggle="tooltip" title="Edit Profil" data-placement="bottom" class="profile-control-right"><span class="fa fa-pencil"></span></a>
                             </div>
                         </div> 
                     </li>    
@@ -64,9 +64,6 @@
                         <ul>
                             <li><a href="absen.php"><span class="fa fa-print"></span>Cetak Absensi</a></li>
                         </ul>
-                    </li>
-                    <li class="xn-icon-button">
-                        <a href="home.php" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span><span class="xn-text">Log Out</span></a>
                     </li>
                 </ul>
                 <!-- END X-NAVIGATION -->
@@ -110,45 +107,48 @@
                                 <h2>Tambah Data</h2>
                                 <hr>
                                 <div class="alert alert-success" role="alert">
+                                  <div class=class="col-md-5">
                                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                    <strong>Data Jadwal Dosen Berhasil Disimpan.</strong> 
+                                    <h4>Data Jadwal Dosen Berhasil Disimpan.</h4> 
+                                  </div>
                                 </div>                                
                                 <form class="form-horizontal" role="form">                
                                     <div class="form-group">
                                         <label class="col-md-5 control-label"><h4><b>Materi Praktikum:</b></h4></label>  
                                         <div class="col-md-5">
                                             <select class="form-control select">
-                                                <option value="">-Pilih-</option>
-                                                <option value="0">Algo 1</option>
-                                                <option value="1">Basis Data</option>
-                                                <option value="2">Delphi</option>
-                                                <option value="3">Web 1</option>
+                                                <option>-Pilih-</option>
+                                                <option>PPN</option>
+                                                <option>Web 1</option>
+                                                <option>Basis Data</option>
                                             </select>
                                         </div>
                                     </div>
                             
                                     <div class="form-group">
-                                        <label class="col-md-5 control-label"><h4><b>Semester Minimal:</b></h4></label>  
+                                        <label class="col-md-5 control-label"><h4><b>Pertemuan:</b></h4></label>  
                                         <div class="col-md-5">
                                            <select class="form-control select">
-                                                <option value="">-Pilih-</option>
-                                                <option value="0">1</option>
-                                                <option value="1">2</option>
+                                                <option>-Pilih-</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-5 control-label"><h4><b>Nama Kelas:</b></h4></label>  
+                                        <label class="col-md-5 control-label"><h4><b>Nama Kelas:</b></h4></label>
                                         <div class="col-md-5">
-                                           <select class="form-control select">
-                                                <option value="">-Pilih-</option>
-                                                <option>Reguler Pagi A </option>
-                                                <option>Reguler Pagi B</option>
-                                                <option>Reguler Pagi C</option>
-                                                <option>Reguler Malam A</option>
-                                                <option>NonReguler Pagi A</option>
-                                            </select>
+                                            <input type="text" class="form-control" value=" "/>
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label"><h4><b>Ruangan:</b></h4></label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" value=" "/>
                                         </div>
                                     </div> 
 
@@ -156,7 +156,7 @@
                                         <label class="col-md-5 control-label"><h4><b>Tanggal:</b></h4></label>
                                         <div class="col-md-5">
                                             <div class="input-group">
-                                                <input type="text" id="dp-3" class="form-control" value="06-06-2014" data-date="06-06-2014" data-date-format="dd-mm-yyyy" data-date-viewmode="years"/>
+                                                <input type="text" class="form-control datepicker" data-date="2017-08-07" data-date-format="dd-mm-yyyy" data-date-viewmode=""/>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                             </div>
                                         </div>

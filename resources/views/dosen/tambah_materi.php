@@ -2,7 +2,7 @@
 <html lang="en">
     <head>        
         <!-- META SECTION -->
-        <title>Praktikum UNISKA FTI Banjarbaru</title>            
+        <title>Praktikum FTI UNISKA Banjarbaru</title>             
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,7 +37,7 @@
                             </div>
                             <div class="profile-controls">
                                 <a href="detail_dosen.php" data-toggle="tooltip" title="Profil" data-placement="bottom" class="profile-control-left"><span class="glyphicon glyphicon-user"></span></a>
-                                <a href="#" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                                <a href="edit_dosen.php" data-toggle="tooltip" title="Edit Profil" data-placement="bottom" class="profile-control-right"><span class="fa fa-pencil"></span></a>
                             </div>
                         </div> 
                     </li>    
@@ -48,8 +48,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Master Data</span></a>
                         <ul>
-                            <li><a href="#"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
-                            <li><a href="#"><span class="fa fa-users"></span>Data Dosen</a></li>
+                            <li><a href="data_mahasiswa.php"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
+                            <li><a href="data_dosen.php"><span class="fa fa-users"></span>Data Dosen</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">
@@ -118,24 +118,23 @@
                                         <label class="col-md-5 control-label"><h3>Materi Praktikum:</h3></label>  
                                         <div class="col-md-5">
                                             <select class="form-control select">
-                                                <option value="">-Pilih-</option>
-                                                <option value="0">Algo 1</option>
-                                                <option value="1">Basis Data</option>
-                                                <option value="2">Delphi</option>
-                                                <option value="3">Web 1</option>
+                                                <option>-Pilih-</option>
+                                                <option>Orkom</option>
+                                                <option>Web 1</option>
+                                                <option>Basis Data</option>
                                             </select>
                                         </div>
                                     </div>
                             
                                     <div class="form-group">
-                                        <label class="col-md-5 control-label"><h3>Semester Minimal:</h3></label>  
+                                        <label class="col-md-5 control-label"><h3>Semester Maksimal:</h3></label>  
                                         <div class="col-md-5">
                                            <select class="form-control select">
-                                                <option value="">-Pilih-</option>
-                                                <option value="0">1</option>
-                                                <option value="1">3</option>
-                                                <option value="2">5</option>
-                                                <option value="3">7</option>
+                                                <option>-Pilih-</option>
+                                                <option>1</option>
+                                                <option>3</option>
+                                                <option>5</option>
+                                                <option>7</option>
                                             </select>
                                         </div>
                                         
