@@ -4,6 +4,11 @@
   <ul class="breadcrumb">
       <li><a href="home.php" data-toggle="tooltip" title="Go to Home" data-placement="bottom">Beranda</a></li>
   </ul>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <!-- END BREADCRUMB -->
    <div class="page-content-wrap">
     <div class="row">

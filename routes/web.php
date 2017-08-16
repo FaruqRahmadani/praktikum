@@ -35,6 +35,7 @@ Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen', 'DosenController@dashboard');
   Route::get('/dosen/profil', 'DosenController@viewprofil');
   Route::get('/dosen/editprofil', 'DosenController@editprofil');
+  Route::POST('/dosen/editprofil', 'DosenController@storeeditprofil');
   Route::get('/dosen/datamahasiswa', 'DosenController@datamahasiswa');
   Route::get('/dosen/datamahasiswa/{id}', 'DosenController@datamahasiswadetail');
   Route::get('/dosen/datadosen', 'DosenController@datadosen');
