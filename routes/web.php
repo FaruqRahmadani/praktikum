@@ -40,6 +40,10 @@ Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen/datamahasiswa/{id}', 'DosenController@datamahasiswadetail');
   Route::get('/dosen/datadosen', 'DosenController@datadosen');
   Route::get('/dosen/datadosen/{id}', 'DosenController@datadosendetail');
+  Route::get('/dosen/materi', 'DosenController@datamateri');
+  Route::DELETE('/dosen/materi/{id}', 'DosenController@deletemateri');
+  Route::get('/dosen/materi/add', 'DosenController@tambahmateri');
+  Route::POST('/dosen/materi/add', 'DosenController@storetambahmateri');
 });
 
 Route::group(['middleware' => 'mahasiswa'], function(){

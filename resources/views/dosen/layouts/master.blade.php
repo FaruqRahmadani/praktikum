@@ -56,7 +56,7 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Proses Data</span></a>
                         <ul>
-                            <li><a href="materi_dosen.php"><span class="fa fa-file"></span>Materi Dosen</a></li>
+                            <li><a href="/dosen/materi"><span class="fa fa-file"></span>Materi Dosen</a></li>
                             <li><a href="jdwl_dosen.php"><span class="fa fa-file"></span>Jadwal Dosen</a></li>
                         </ul>
                     </li>

@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Dosen;
 use App\Mahasiswa;
+use App\Materi;
+use App\JadwalDosen;
+use App\Periode;
 use Auth;
 
 class DosenController extends Controller
@@ -127,6 +131,53 @@ class DosenController extends Controller
     } catch (DecryptException $e) {
       return back();
     }
+  }
+
+  public function datamateri()
+  {
+    $iduser   = Auth::user()->id;
+    $datauser = Dosen::where('id_user', $iduser)->first();
+    $data     = JadwalDosen::with('materi')->where('id_dosen', $datauser->id)->get();
+    return view('dosen.materi_dosen', ['datauser' => $datauser, 'data' => $data]);
+  }
+
+  public function deletemateri($id)
+  {
+    $idx = Crypt::decryptString($id);
+    $data = JadwalDosen::find($idx);
+    $materi = JadwalDosen::with('materi')->where('id', $idx)->first();
+    $data->delete();
+    return redirect('/dosen/materi')->with('status', 'Data Materi '.$materi->materi->materi_praktikum.' Telah di Hapus');
+  }
+
+  public function tambahmateri(){
+    $iduser   = Auth::user()->id;
+    $datauser = Dosen::where('id_user', $iduser)->first();
+    $data = Materi::all();
+    $jadwaldosen = JadwalDosen::where('id_dosen', $datauser->id)->get();
+    return view('dosen.tambahmateri', ['datauser' => $datauser, 'data' => $data, 'jadwaldosen' => $jadwaldosen]);
+  }
+
+  public function storetambahmateri(Request $request){
+    $iduser   = Auth::user()->id;
+    $datauser = Dosen::where('id_user', $iduser)->first();
+    $periode  = Periode::all()->last();
+    $data  = Materi::all();
+    foreach ($data as $datas) {
+      $idx = $datas->id;
+      $id  = 'data'.$idx;
+      if ($request->$id == 'true')
+      {
+        //pakai query builder - insert data mutiple
+        DB::table('tabel_jadwal_dosen')->insert([
+          'id_praktikum' => $idx,
+          'id_dosen'     => $datauser->id,
+          'id_periode'   => $periode->id,
+          'tipe'         => 0,
+        ]);
+      }
+    }
+    return redirect('/dosen/materi')->with('status', 'Data Materi Telah di Tambahkan');
   }
 
 }
