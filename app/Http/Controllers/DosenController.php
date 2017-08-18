@@ -7,12 +7,13 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\User;
 use App\Dosen;
 use App\Mahasiswa;
 use App\Materi;
 use App\JadwalDosen;
+use App\JadwalPraktikum;
 use App\Periode;
 use Auth;
 
@@ -158,26 +159,76 @@ class DosenController extends Controller
     return view('dosen.tambahmateri', ['datauser' => $datauser, 'data' => $data, 'jadwaldosen' => $jadwaldosen]);
   }
 
-  public function storetambahmateri(Request $request){
+  public function storetambahmateri($id){
+    $idx = Crypt::decryptString($id);
     $iduser   = Auth::user()->id;
     $datauser = Dosen::where('id_user', $iduser)->first();
     $periode  = Periode::all()->last();
-    $data  = Materi::all();
-    foreach ($data as $datas) {
-      $idx = $datas->id;
-      $id  = 'data'.$idx;
-      if ($request->$id == 'true')
-      {
-        //pakai query builder - insert data mutiple
-        DB::table('tabel_jadwal_dosen')->insert([
-          'id_praktikum' => $idx,
-          'id_dosen'     => $datauser->id,
-          'id_periode'   => $periode->id,
-          'tipe'         => 0,
-        ]);
-      }
+    $data  = Materi::find($idx);
+    $store = new JadwalDosen;
+    $store->id_praktikum = $idx;
+    $store->id_dosen = $datauser->id;
+    $store->id_periode = $periode->id;
+    $store->save();
+    return redirect('/dosen/materi/add')->with('status', 'Data Materi '.$data->materi_praktikum.' Telah di Tambahkan');
+  }
+
+  public function datajadwal(){
+    $iduser        = Auth::user()->id;
+    $datauser      = Dosen::where('id_user', $iduser)->first();
+    $data = JadwalDosen::with('JadwalPraktikum', 'materi')->where('id_dosen', $datauser->id)->get();
+    return view('dosen.jadwal_dosen', ['datauser' => $datauser, 'data' => $data]);
+  }
+
+  public function tambahjadwal(){
+    $iduser   = Auth::user()->id;
+    $datauser = Dosen::where('id_user', $iduser)->first();
+    $data     = JadwalDosen::with('materi')->where('id_dosen', $datauser->id)->get();
+    $datapraktikum = JadwalPraktikum::all();
+    return view('dosen.tambah_jadwal', ['datauser' => $datauser, 'data' => $data, 'datapraktikum' => $datapraktikum]);
+  }
+
+  public function storetambahjadwal(Request $request){
+    $this->validate($request, [
+      'materi_praktikum' => 'required|digits_between:1,35',
+      'pertemuan'        => 'required|digits_between:1,35',
+      'nama_kelas'       => 'required|string|min:6',
+      'ruangan'          => 'required|string|min:6',
+      'tanggal'          => 'required||date_format:Y-m-d|after:'.date('Y-m-d'),
+      'waktu_mulai'      => 'required|date_format:g:i A',
+      'waktu_selesai'    => 'required|date_format:g:i A|after:waktu_mulai',
+    ]);
+    $waktumulai   = Carbon::parse($request->waktu_mulai)->format('H:i:s');
+    $waktuselesai = Carbon::parse($request->waktu_selesai)->format('H:i:s');
+
+    $store = new JadwalPraktikum;
+    $store->id_jadwal_dosen = $request->materi_praktikum;
+    $store->pertemuan       = $request->pertemuan;
+    $store->nama_kelas      = $request->nama_kelas;
+    $store->ruangan         = $request->ruangan;
+    $store->tanggal         = $request->tanggal;
+    $store->waktu_mulai     = $waktumulai;
+    $store->waktu_selesai   = $waktuselesai;
+    $store->save();
+
+    return redirect('/dosen/jadwal/add')->with('status', 'Jadwal Materi Telah di Tambahkan');
+  }
+
+  public function ubahstatusjadwal($id,$status){
+    // dd(Crypt::decryptString($status));
+    $tipe = Crypt::decryptString($status);
+    $store = JadwalPraktikum::find(Crypt::decryptString($id));
+
+    $store->tipe = $tipe;
+    $store->save();
+
+    if ($tipe == 0)
+    {
+      $message = 'Jadwal Kelas '.$store->nama_kelas.' Pertemuan Ke-'.$store->pertemuan.' Telah di Non-Aktifkan';
+    }else{
+      $message = 'Jadwal Kelas '.$store->nama_kelas.' Pertemuan Ke-'.$store->pertemuan.' Telah di Aktifkan';
     }
-    return redirect('/dosen/materi')->with('status', 'Data Materi Telah di Tambahkan');
+    return redirect('/dosen/jadwal')->with('status', $message);
   }
 
 }

@@ -57,7 +57,7 @@
                         <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Proses Data</span></a>
                         <ul>
                             <li><a href="/dosen/materi"><span class="fa fa-file"></span>Materi Dosen</a></li>
-                            <li><a href="jdwl_dosen.php"><span class="fa fa-file"></span>Jadwal Dosen</a></li>
+                            <li><a href="/dosen/jadwal"><span class="fa fa-file"></span>Jadwal Dosen</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">
@@ -164,6 +164,12 @@
         <script type="text/javascript" src="/public-dosen/js/plugins/bootstrap/bootstrap-file-input.js"></script>
         <script type="text/javascript" src="/public-dosen/js/plugins/bootstrap/bootstrap-select.js"></script>
         <script type="text/javascript" src="/public-dosen/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+        <script type="text/javascript" src="/public-dosen/js/plugins/bootstrap/bootstrap-timepicker.min.js"></script>
+        <script type="text/javascript" src="/public-dosen/js/plugins/bootstrap/bootstrap-colorpicker.js"></script>
+        <script type='text/javascript' src='/public-dosen/js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+        <script type='text/javascript' src='/public-dosen/js/plugins/validationengine/jquery.validationEngine.js'></script>
+        <script type='text/javascript' src='/public-dosen/js/plugins/jquery-validation/jquery.validate.js'></script>
+        <script type='text/javascript' src='/public-dosen/js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
         <!-- END PAGE PLUGINS -->
 
         <!-- START TEMPLATE -->

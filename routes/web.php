@@ -43,7 +43,11 @@ Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen/materi', 'DosenController@datamateri');
   Route::DELETE('/dosen/materi/{id}', 'DosenController@deletemateri');
   Route::get('/dosen/materi/add', 'DosenController@tambahmateri');
-  Route::POST('/dosen/materi/add', 'DosenController@storetambahmateri');
+  Route::get('/dosen/materi/add/{id}', 'DosenController@storetambahmateri');
+  Route::get('/dosen/jadwal', 'DosenController@datajadwal');
+  Route::get('/dosen/jadwal/add', 'DosenController@tambahjadwal');
+  Route::POST('/dosen/jadwal/add', 'DosenController@storetambahjadwal');
+  Route::get('/dosen/jadwal/{id}/{status}', 'DosenController@ubahstatusjadwal');
 });
 
 Route::group(['middleware' => 'mahasiswa'], function(){

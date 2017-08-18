@@ -1,0 +1,123 @@
+@extends('dosen.layouts.master')
+@section('content')
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                <li class="active">Menu</li>
+                <li class="active">Proses Data</li>
+                <li><a href="jdwl_dosen.php" data-toggle="tooltip" title="Go to Jadwal Dosen" data-placement="bottom">Jadwal Dosen</a></li>
+
+                </ul>
+                <!-- END BREADCRUMB -->
+
+                <!-- PAGE TITLE -->
+                <div class="page-title">
+                    <h2>Data Jadwal</h2>
+                </div>
+                <!-- END PAGE TITLE -->
+
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                          @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                          @endif
+
+                            <!-- START DEFAULT DATATABLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="/dosen/jadwal/add">
+                                    <h3 class="panel-title"><span class="fa fa-plus"></span> Tambah Data</h3></a>
+
+                                    <ul class="panel-controls">
+                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body">
+                                <div class="form-group">
+                                        <label class="col-md-0 col-xs-0 control-label"></label>
+                                        <div class="col-md-3 col-xs-0">
+                                            <select class="form-control select">
+                                                <option>Filter Jadwal Praktikum</option>
+                                                <option>Reguler Pagi A </option>
+                                                <option>Reguler Pagi B</option>
+                                                <option>Reguler Pagi C</option>
+                                                <option>Reguler Malam A</option>
+                                                <option>NonReguler Pagi A</option>
+                                            </select>
+                                        </div>
+                                        <label class="col-md-0 col-xs-0 control-label"></label>
+                                        <div class="col-md-2 col-xs-0">
+                                            <select class="form-control select">
+                                                <option>Periode</option>
+                                                <option>2017/2018 Ganjil</option>
+                                                <option>2017/2018 Genap</option>
+                                            </select>
+                                        </div>
+                                    <table class="table datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Materi Praktikum</th>
+                                                <th>Pertemuan</th>
+                                                <th>Nama Kelas</th>
+                                                <th>Ruangan</th>
+                                                <th>Tanggal</th>
+                                                <th>Waktu</th>
+                                                <th>Status</th>
+                                                <th>Tools</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          <?php $no = 0; ?>
+                                          @foreach ($data as $jadwaldosen)
+                                            @foreach ($jadwaldosen->JadwalPraktikum as $jadwalpraktikum)
+                                            <tr id="trow_1">
+                                                <td>{{$no = $no + 1}}</td>
+                                                <td>{{$jadwaldosen->materi->materi_praktikum}}</td>
+                                                <td>{{$jadwalpraktikum->pertemuan}}</td>
+                                                <td>{{$jadwalpraktikum->nama_kelas}}</td>
+                                                <td>{{$jadwalpraktikum->ruangan}}</td>
+                                                <td>{{$jadwalpraktikum->tanggal}}</td>
+                                                <td>{{Carbon\Carbon::parse($jadwalpraktikum->waktu_mulai)->format('g:i A')}} - {{Carbon\Carbon::parse($jadwalpraktikum->waktu_selesai)->format('g:i A')}}</td>
+                                                <td>
+                                                  @if ($jadwalpraktikum->tipe == 1)
+                                                    <button class="btn btn-success btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom" disabled><span class="fa fa-check-square"></span> Aktif</button>
+                                                  @else
+                                                    <button class="btn btn-danger btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom" disabled><span class="fa fa-minus-square"></span> Non-Aktif</button>
+                                                  @endif
+                                                </td>
+                                                <td>
+                                                  <button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button>
+                                                  @if ($jadwalpraktikum->tipe == 1)
+                                                    <a href="/dosen/jadwal/{{Crypt::encryptString($jadwalpraktikum->id)}}/{{Crypt::encryptString('0')}}">
+                                                      <button class="btn btn-danger btn-rounded btn-sm" data-toggle="tooltip" title="Non-Aktifkan" data-placement="bottom"><span class="fa fa-minus-square"></span> Non-Aktifkan</button>
+                                                    </a>
+                                                  @else
+                                                    <a href="/dosen/jadwal/{{Crypt::encryptString($jadwalpraktikum->id)}}/{{Crypt::encryptString('1')}}">
+                                                      <button class="btn btn-success btn-rounded btn-sm" data-toggle="tooltip" title="Aktifkan" data-placement="bottom"><span class="fa fa-check-square"></span> Aktifkan</button>
+                                                    </a>
+                                                  @endif
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                          @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- END DEFAULT DATATABLE -->
+                        </div>
+                    </div>
+                </div>
+                <!-- PAGE CONTENT WRAPPER -->
+            </div>
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END PAGE CONTAINER -->
+@endsection

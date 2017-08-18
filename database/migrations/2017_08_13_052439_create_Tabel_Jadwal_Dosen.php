@@ -18,7 +18,7 @@ class CreateTabelJadwalDosen extends Migration
           $table->integer('id_praktikum');
           $table->integer('id_dosen');
           $table->integer('id_periode');
-          $table->tinyInteger('tipe');
+          $table->tinyInteger('tipe')->default('0');
           $table->timestamps();
         //
       });

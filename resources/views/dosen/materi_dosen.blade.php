@@ -43,7 +43,6 @@
                                                 <th>Kode MK</th>
                                                 <th>Materi Praktikum</th>
                                                 <th>Semester Minimal</th>
-                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -54,13 +53,6 @@
                                                 <td>{{$datas->materi->kode_mk}}</td>
                                                 <td>{{$datas->materi->materi_praktikum}}</td>
                                                 <td class="center">{{$datas->materi->semester}}</td>
-                                                <td class="center">
-                                                  <form action="/dosen/materi/{{Crypt::encryptString($datas->id)}}" method="post">
-                                                    {{ csrf_field() }}
-                                                    <input type="hidden" name="_method" value="delete">
-                                                    <input type="submit" name="name" value="delete">
-                                                  </form>
-                                                </td>
                                             </tr>
                                           @endforeach
                                         </tbody>

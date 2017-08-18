@@ -22,6 +22,7 @@ class CreateTabelJadwalPraktikum extends Migration
           $table->date('tanggal');
           $table->time('waktu_mulai');
           $table->time('waktu_selesai');
+          $table->tinyInteger('tipe')->default('1');
           $table->timestamps();
         //
       });

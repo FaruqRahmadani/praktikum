@@ -13,7 +13,11 @@
                     <h2>Data Materi</h2>
                 </div>
                 <!-- END PAGE TITLE -->
-
+                @if (session('status'))
+                  <div class="alert alert-success">
+                      {{ session('status') }}
+                  </div>
+                @endif
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
 
@@ -43,7 +47,7 @@
                                                 <option>NonReguler Pagi A</option>
                                             </select>
                                         </div>
-                                        {!! Form::open(['url'=>url()->current(),'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+                                        {{-- {!! Form::open(['url'=>url()->current(),'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!} --}}
                                     <table class="table datatable">
                                         <thead>
                                             <tr>
@@ -51,7 +55,7 @@
                                                 <th>Kode MK</th>
                                                 <th>Materi Praktikum</th>
                                                 <th>Semester Minimal</th>
-                                                <th>Pilih</th>
+                                                <th>Tambah</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,20 +67,20 @@
                                                 <td>{{$datas->materi_praktikum}}</td>
                                                 <td class="center">{{$datas->semester}}</td>
                                                 <td class="center">
-                                                  @foreach ($jadwaldosen as $jadwaldosens)
-                                                    @if ($datas->id == $jadwaldosens->id_praktikum)
-                                                      <input type="checkbox" name="data{{$datas->id}}" value="true" disabled>
+                                                    @if (count($jadwaldosen->where('id_praktikum', $datas->id)->first()) > 0)
+                                                      {{-- <input type="checkbox" name="data{{$datas->id}}" value="true" disabled> --}}
+                                                      <button class="btn btn-info btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom" disabled><span class="fa fa-check"></span> Sudah Ditambahkan</button>
                                                     @else
-                                                      <input type="checkbox" name="data{{$datas->id}}" value="true">
+                                                      {{-- <input type="checkbox" name="data{{$datas->id}}" value="true"> --}}
+                                                      <a href="/dosen/materi/add/{{Crypt::encryptString($datas->id)}}"><button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom"><span class="fa fa-plus"></span> Tambah</button></a>
                                                     @endif
-                                                  @endforeach
                                                 </td>
                                             </tr>
                                           @endforeach
                                         </tbody>
                                     </table>
-                                    {!! Form::submit('Simpan', ['class' => 'btn btn-primary btn-rounded']) !!}
-                                    {!! Form::close() !!}
+                                    {{-- {!! Form::submit('Simpan', ['class' => 'btn btn-primary btn-rounded']) !!}
+                                    {!! Form::close() !!} --}}
                                 </div>
                                 </div>
                             </div>
