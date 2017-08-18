@@ -16,7 +16,7 @@
                         <div class="col-md-7">
                             <!-- START VALIDATIONENGINE PLUGIN -->
                             <div class="block">
-                                <h2>Tambah Data Jadwal Praktikum</h2>
+                                <h2>Edit Data Jadwal Praktikum</h2>
                                 <hr>
                                 @if (session('status'))
                                   <div class="alert alert-success" role="alert">
@@ -36,41 +36,16 @@
                                 @endif
                                 <form class="form-horizontal" method="POST" action="{{Request::url()}}">
                                     <div class="form-group">
-                                        <label class="col-md-5 control-label"><h4><b>Materi Praktikum:</b></h4></label>
-                                        <div class="col-md-5">
-                                            <select class="form-control select" name="materi_praktikum">
-                                                <option value="Ini Kisahnya Angkanya Banyak Banar">-Pilih-</option>
-                                                @foreach ($data as $datas)
-                                                  <option value="{{$datas->id}}">{{$datas->materi->materi_praktikum}} | Kelas : {{count($datapraktikum->where('id_jadwal_dosen', $datas->id)->where('pertemuan', '1'))}} - Pertemuan : {{count($datapraktikum->where('id_jadwal_dosen', $datas->id))}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-5 control-label"><h4><b>Pertemuan:</b></h4></label>
-                                        <div class="col-md-5">
-                                           <select class="form-control select" name="pertemuan">
-                                                <option value="Ini Kisahnya Angkanya Banyak Banar">-Pilih-</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
                                         <label class="col-md-5 control-label"><h4><b>Nama Kelas:</b></h4></label>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" name="nama_kelas" value="{{old('nama_kelas')}}">
+                                            <input type="text" class="form-control" name="nama_kelas" value="{{$data->nama_kelas}}">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-5 control-label"><h4><b>Ruangan:</b></h4></label>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" name="ruangan" value="{{old('ruangan')}}">
+                                            <input type="text" class="form-control" name="ruangan" value="{{$data->ruangan}}">
                                         </div>
                                     </div>
 
@@ -78,7 +53,7 @@
                                         <label class="col-md-5 control-label"><h4><b>Tanggal:</b></h4></label>
                                         <div class="col-md-5">
                                             <div class="input-group">
-                                                <input type="text" class="form-control datepicker" data-date="2017-08-07" data-date-format="dd-mm-yyyy" data-date-viewmode="" name="tanggal" value="{{date('Y-m-d')}}">
+                                                <input type="text" class="form-control datepicker" data-date="2017-08-07" data-date-format="dd-mm-yyyy" data-date-viewmode="" name="tanggal" value="{{$data->tanggal}}">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                             </div>
                                         </div>
@@ -88,7 +63,7 @@
                                         <label class="col-md-5 control-label"><h4><b>Waktu Mulai:</b></h4></label>
                                         <div class="col-md-5">
                                             <div class="input-group bootstrap-timepicker">
-                                                <input type="text" class="form-control timepicker" name="waktu_mulai" value="{{old('waktu_mulai')}}">
+                                                <input type="text" class="form-control timepicker" name="waktu_mulai" value="{{Carbon\Carbon::parse($data->waktu_mulai)->format('h:i A')}}">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -98,7 +73,7 @@
                                         <label class="col-md-5 control-label"><h4><b>Waktu Selesai:</b></h4></label>
                                         <div class="col-md-5">
                                             <div class="input-group bootstrap-timepicker">
-                                                <input type="text" class="form-control timepicker" name="waktu_selesai" value="{{old('waktu_selesai')}}">
+                                                <input type="text" class="form-control timepicker" name="waktu_selesai" value="{{Carbon\Carbon::parse($data->waktu_selesai)->format('h:i A')}}">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>

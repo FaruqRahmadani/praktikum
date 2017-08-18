@@ -97,7 +97,6 @@
       				  <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#register">REGISTER MAHASISWA</a>
       				  <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#masuk">LOGIN</a>
               </p>
-                <?php// include 'inc/masuk.php';?>
 
               <div id="daftar" class="modal fade" role="dialog">
                 <div class="modal-dialog">

@@ -176,7 +176,7 @@ class DosenController extends Controller
   public function datajadwal(){
     $iduser        = Auth::user()->id;
     $datauser      = Dosen::where('id_user', $iduser)->first();
-    $data = JadwalDosen::with('JadwalPraktikum', 'materi')->where('id_dosen', $datauser->id)->get();
+    $data          = JadwalDosen::with('JadwalPraktikum', 'materi')->where('id_dosen', $datauser->id)->get();
     return view('dosen.jadwal_dosen', ['datauser' => $datauser, 'data' => $data]);
   }
 
@@ -196,7 +196,7 @@ class DosenController extends Controller
       'ruangan'          => 'required|string|min:6',
       'tanggal'          => 'required||date_format:Y-m-d|after:'.date('Y-m-d'),
       'waktu_mulai'      => 'required|date_format:g:i A',
-      'waktu_selesai'    => 'required|date_format:g:i A|after:waktu_mulai',
+      'waktu_selesai'    => 'required|date_format:g:i A',
     ]);
     $waktumulai   = Carbon::parse($request->waktu_mulai)->format('H:i:s');
     $waktuselesai = Carbon::parse($request->waktu_selesai)->format('H:i:s');
@@ -212,6 +212,41 @@ class DosenController extends Controller
     $store->save();
 
     return redirect('/dosen/jadwal/add')->with('status', 'Jadwal Materi Telah di Tambahkan');
+  }
+
+  public function editjadwal($ids){
+    $iduser   = Auth::user()->id;
+    $datauser = Dosen::where('id_user', $iduser)->first();
+    // $data     = JadwalDosen::with('materi')->where('id_dosen', $datauser->id)->get();
+    $id = Crypt::decryptString($ids);
+    $data = JadwalPraktikum::find($id);
+    // dd($data);
+    return view('dosen.edit_jadwal', ['datauser' => $datauser, 'data' => $data]);
+  }
+
+  public function storeeditjadwal(Request $request, $ids){
+    $this->validate($request, [
+      'nama_kelas'       => 'required|string|min:6',
+      'ruangan'          => 'required|string|min:6',
+      'tanggal'          => 'required||date_format:Y-m-d|afterorequal:'.date('Y-m-d'),
+      'waktu_mulai'      => 'required|date_format:g:i A',
+      'waktu_selesai'    => 'required|date_format:g:i A',
+    ]);
+    $waktumulai   = Carbon::parse($request->waktu_mulai)->format('H:i:s');
+    $waktuselesai = Carbon::parse($request->waktu_selesai)->format('H:i:s');
+
+    $id = Crypt::decryptString($ids);
+    $store = JadwalPraktikum::find($id);
+
+    $store->nama_kelas      = $request->nama_kelas;
+    $store->ruangan         = $request->ruangan;
+    $store->tanggal         = $request->tanggal;
+    $store->waktu_mulai     = $waktumulai;
+    $store->waktu_selesai   = $waktuselesai;
+
+    $store->save();
+
+    return redirect('/dosen/jadwal')->with('status', 'Jadwal Materi Telah di Update');
   }
 
   public function ubahstatusjadwal($id,$status){

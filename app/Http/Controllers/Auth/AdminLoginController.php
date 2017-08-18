@@ -18,6 +18,10 @@ class AdminLoginController extends Controller
 
   public function LoginForm($code1,$code2,$code3,$code4){
     try {
+      if (!(session('status')))
+      {
+        abort(404);
+      }
       $decrypt1 = (Crypt::decryptString($code1));
       $decrypt2 = (Crypt::decryptString($code2));
       $decrypt3 = (Crypt::decryptString($code3));

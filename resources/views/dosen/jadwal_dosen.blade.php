@@ -92,7 +92,9 @@
                                                   @endif
                                                 </td>
                                                 <td>
-                                                  <button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button>
+                                                  <a href="/dosen/jadwal/edit/{{Crypt::encryptString($jadwalpraktikum->id)}}">
+                                                    <button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button>
+                                                  </a>
                                                   @if ($jadwalpraktikum->tipe == 1)
                                                     <a href="/dosen/jadwal/{{Crypt::encryptString($jadwalpraktikum->id)}}/{{Crypt::encryptString('0')}}">
                                                       <button class="btn btn-danger btn-rounded btn-sm" data-toggle="tooltip" title="Non-Aktifkan" data-placement="bottom"><span class="fa fa-minus-square"></span> Non-Aktifkan</button>

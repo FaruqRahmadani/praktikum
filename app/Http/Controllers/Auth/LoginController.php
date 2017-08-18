@@ -60,7 +60,7 @@ class LoginController extends Controller
           $code3 = Crypt::encryptString(md5(date("z-D-m-Y").date("H")));
           $code4 = Crypt::encryptString(md5(date("l-m-Y").date("H")));
 
-          return redirect($code1.'/'.$code2.'/'.$code3.'/'.$code4);
+          return redirect($code1.'/'.$code2.'/'.$code3.'/'.$code4)->with('status', 'login');
         }
 
         $this->validateLogin($request);

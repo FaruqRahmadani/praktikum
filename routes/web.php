@@ -47,6 +47,8 @@ Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen/jadwal', 'DosenController@datajadwal');
   Route::get('/dosen/jadwal/add', 'DosenController@tambahjadwal');
   Route::POST('/dosen/jadwal/add', 'DosenController@storetambahjadwal');
+  Route::get('/dosen/jadwal/edit/{ids}', 'DosenController@editjadwal');
+  Route::POST('/dosen/jadwal/edit/{ids}', 'DosenController@storeeditjadwal');
   Route::get('/dosen/jadwal/{id}/{status}', 'DosenController@ubahstatusjadwal');
 });
 
