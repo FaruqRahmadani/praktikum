@@ -11,8 +11,16 @@
                 <div class="panel-heading">Tambah Data Materi (Sementara)</div>
               @endif
                 <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{Request::url()}}">
+                  @if(count($errors) > 0)
+                    <ul>
+                      @foreach ($errors->all() as $error)
+                        <li> {{$error}} </li>
+                      @endforeach
+                    </ul>
+                  @endif
+                        {{-- <form class="form-horizontal" method="POST" action="{{Request::url()}}"> --}}
                         {{ csrf_field() }}
+                        {!! Form::open(['url'=>Request::url(),'files'=>true,'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Kode MK</label>
@@ -50,14 +58,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Tambah
-                                </button>
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Gambar</label>
+
+                            <div class="col-md-6">
+                              @if (isset($data))
+                                <input id="semester" type="file" class="form-control" name="gambar" value="{{ $data->gambar }}" required>
+                              @else
+                                <input id="semester" type="file" class="form-control" name="gambar" value="{{ old('gambar') }}" required>
+                              @endif
                             </div>
                         </div>
-                    </form>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                {{-- <button type="submit" class="btn btn-primary">
+                                    Tambah
+                                </button> --}}
+                                {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
+
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
+                    {{-- </form> --}}
                 </div>
             </div>
         </div>

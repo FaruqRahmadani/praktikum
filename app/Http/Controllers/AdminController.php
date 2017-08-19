@@ -50,15 +50,21 @@ class AdminController extends Controller
       'kode_mk' => 'required|unique:tabel_materi_praktikum,kode_mk',
       'materi' => 'required',
       'semester' => 'required|numeric',
+      'gambar' => 'required|image',
     ]);
+
+    $id = (Materi::all()->last()->id)+1;
+    $namagambar = 'materi-'.$id.'.'.$request->gambar->getClientOriginalExtension();
 
     $materi = new Materi;
 
     $materi->kode_mk          = $request->kode_mk;
     $materi->materi_praktikum = $request->materi;
     $materi->semester         = $request->semester;
+    $materi->gambar           = $namagambar;
 
     $materi->save();
+    $request->gambar->move(public_path('images/materi'), $namagambar);
 
     return redirect('/admin/datamateri')->with('status', 'Data Materi '.$request->materi.' Telah di Simpan');
   }

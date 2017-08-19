@@ -18,6 +18,7 @@ class CreateTabelMateriPraktikum extends Migration
           $table->string('kode_mk', 10);
           $table->string('materi_praktikum', 50);
           $table->tinyInteger('semester');
+          $table->string('gambar', 255);
           $table->timestamps();
         //
       });
