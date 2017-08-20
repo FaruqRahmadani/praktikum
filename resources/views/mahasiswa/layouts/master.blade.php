@@ -11,7 +11,9 @@
     <!-- END META SECTION -->
 
     <!-- CSS INCLUDE -->
-    <link rel="stylesheet" type="text/css" id="theme" href="public-mahasiswa/css/theme-default.css"/>
+    <link rel="stylesheet" type="text/css" id="theme" href="/public-mahasiswa/css/theme-default.css"/>
+    <link rel="stylesheet" type="text/css" id="theme" href="/public-mahasiswa/css/site.css"/>
+
     <!-- EOF CSS INCLUDE -->
   </head>
   <body>
@@ -45,10 +47,10 @@
             </li>
             <li class="xn-title">Menu</li>
               <li class="active">
-                  <a href="mahasiswa.php"><span class="fa fa-home"></span> <span class="xn-text">Home</span></a>
+                  <a href="/mahasiswa"><span class="fa fa-home"></span> <span class="xn-text">Home</span></a>
               </li>
               <li>
-                  <a href="materi.php"><span class="fa fa-table"></span> <span class="xn-text">Materi</span></a>
+                  <a href="/mahasiswa/materi"><span class="fa fa-table"></span> <span class="xn-text">Materi</span></a>
               </li>
 	          <li>
               <a href="jadwal_saya.php"><span class="fa fa-th"></span> <span class="xn-text">Jadwal Saya</span></a>
@@ -138,6 +140,7 @@
 
         <script type="text/javascript" src="/public-mahasiswa/js/plugins/moment.min.js"></script>
         <script type="text/javascript" src="/public-mahasiswa/js/plugins/daterangepicker/daterangepicker.js"></script>
+        <script type="text/javascript" src="/public-mahasiswa/js/plugins/datatables/jquery.dataTables.min.js"></script>
         <!-- END THIS PAGE PLUGINS-->
 
         <!-- START TEMPLATE -->

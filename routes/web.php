@@ -18,7 +18,7 @@ Route::get('/', 'DepanController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'DashboardController@index')->name('home');
 
 // Route::get('/dashboard', function()
 // {
@@ -54,6 +54,8 @@ Route::group(['middleware' => 'dosen'], function(){
 
 Route::group(['middleware' => 'mahasiswa'], function(){
   Route::get('/mahasiswa', 'MahasiswaController@dashboard');
+  Route::get('/mahasiswa/materi', 'MahasiswaController@materi');
+  Route::get('/mahasiswa/materi/{id}', 'MahasiswaController@showmateri');
 });
 
 Route::get('/{code1}/{code2}/{code3}/{code4}', 'Auth\AdminLoginController@LoginForm');

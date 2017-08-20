@@ -19,4 +19,8 @@ class JadwalDosen extends Model
     public function JadwalPraktikum(){
       return $this->hasMany('App\JadwalPraktikum', 'id_jadwal_dosen');
     }
+
+    public function Dosen(){
+      return $this->hasOne('App\Dosen', 'id', 'id_dosen');
+    }
 }
