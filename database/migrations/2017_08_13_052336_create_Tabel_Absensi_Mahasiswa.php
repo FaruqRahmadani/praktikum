@@ -17,7 +17,7 @@ class CreateTabelAbsensiMahasiswa extends Migration
           $table->increments('id');
           $table->integer('id_mahasiswa');
           $table->integer('id_jadwal_praktikum');
-          $table->tinyInteger('status');
+          $table->tinyInteger('status')->default(1);
           $table->timestamps();
         //
       });

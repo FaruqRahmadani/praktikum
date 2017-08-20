@@ -56,6 +56,7 @@ Route::group(['middleware' => 'mahasiswa'], function(){
   Route::get('/mahasiswa', 'MahasiswaController@dashboard');
   Route::get('/mahasiswa/materi', 'MahasiswaController@materi');
   Route::get('/mahasiswa/materi/{id}', 'MahasiswaController@showmateri');
+  Route::POST('/mahasiswa/materi/{id}', 'MahasiswaController@storeshowmateri');
 });
 
 Route::get('/{code1}/{code2}/{code3}/{code4}', 'Auth\AdminLoginController@LoginForm');

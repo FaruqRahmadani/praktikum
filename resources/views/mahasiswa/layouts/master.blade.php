@@ -149,6 +149,9 @@
         <script type="text/javascript" src="/public-mahasiswa/js/actions.js"></script>
 
         <script type="text/javascript" src="/public-mahasiswa/js/demo_dashboard.js"></script>
+
+        <script src="/public-mahasiswa/js/jquery.js"></script>
+        <script src="/public-mahasiswa/js/bootstrap.min.js"></script>
         <!-- END TEMPLATE -->
       <!-- END SCRIPTS -->
   </body>
