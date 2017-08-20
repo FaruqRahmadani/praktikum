@@ -16,7 +16,7 @@ class CreateTabelAbsensiMahasiswa extends Migration
       Schema::create('Tabel_Absensi_Mahasiswa', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('id_mahasiswa');
-          $table->integer('id_jadwal_mahasiswa');
+          $table->integer('id_jadwal_praktikum');
           $table->tinyInteger('status');
           $table->timestamps();
         //
