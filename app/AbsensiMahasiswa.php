@@ -11,4 +11,12 @@ class AbsensiMahasiswa extends Model
     protected $fillable = [
         'id_mahasiswa', 'id_jadwal_praktikum', 'status',
     ];
+
+    public function JadwalPraktikum(){
+      return $this->hasOne('App\JadwalPraktikum', 'id', 'id_jadwal_praktikum');
+    }
+
+    public function JadwalDosen(){
+      return $this->belongsTo('App\JadwalDosen', 'id', 'id_jadwal_dosen');
+    }
 }

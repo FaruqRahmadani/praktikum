@@ -13,6 +13,11 @@
   <div class="page-title">
     <h1> Materi Praktikum </h1>
   </div>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <!-- END PAGE TITLE -->
   <div class="container">
 		<div class="row">

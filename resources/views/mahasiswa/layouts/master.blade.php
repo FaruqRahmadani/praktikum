@@ -53,7 +53,7 @@
                   <a href="/mahasiswa/materi"><span class="fa fa-table"></span> <span class="xn-text">Materi</span></a>
               </li>
 	          <li>
-              <a href="jadwal_saya.php"><span class="fa fa-th"></span> <span class="xn-text">Jadwal Saya</span></a>
+              <a href="/mahasiswa/jadwalsaya"><span class="fa fa-th"></span> <span class="xn-text">Jadwal Saya</span></a>
             </li>
           </ul>
           <!-- END X-NAVIGATION -->
