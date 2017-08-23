@@ -101,4 +101,23 @@ class MahasiswaController extends Controller
     // dd($jadwal);
     return view('mahasiswa.jadwal_saya', ['data' => $data, 'jadwal' => $jadwal]);
   }
+
+  public function viewprofil()
+  {
+    $user = Auth::user();
+    $data   = Mahasiswa::where('id_user', $user->id)->first();
+    return view('mahasiswa.detail_mahasiswa', ['data' => $data, 'username' => $user->username]);
+  }
+
+  public function vieweditprofil()
+  {
+    $user = Auth::user();
+    $data   = Mahasiswa::where('id_user', $user->id)->first();
+    return view('mahasiswa.edit_mahasiswa', ['data' => $data, 'username' => $user->username]);
+  }
+
+  public function storeeditprofil(Request $request)
+  {
+    dd($request);
+  }
 }

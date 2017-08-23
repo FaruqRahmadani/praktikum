@@ -40,8 +40,8 @@
                     <div class="profile-data-title">{{$data->NPM}}</div>
                 </div>
                 <div class="profile-controls">
-                    <a href="#" data-toggle="tooltip" title="Edit Data" data-placement="bottom" class="profile-control-left"><span class="fa fa-edit"></span></a>
-                    <a href="#" data-toggle="tooltip" title="Detail" data-placement="bottom" class="profile-control-right"><span class="fa fa-list"></span></a>
+                    <a href="/mahasiswa/editprofil" data-toggle="tooltip" title="Edit Data" data-placement="bottom" class="profile-control-left"><span class="fa fa-edit"></span></a>
+                    <a href="/mahasiswa/profil" data-toggle="tooltip" title="Detail" data-placement="bottom" class="profile-control-right"><span class="fa fa-list"></span></a>
                 </div>
               </div>
             </li>

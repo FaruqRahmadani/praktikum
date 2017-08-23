@@ -58,10 +58,14 @@ Route::group(['middleware' => 'mahasiswa'], function(){
   Route::get('/mahasiswa/materi/{id}', 'MahasiswaController@showmateri');
   Route::POST('/mahasiswa/materi/{id}', 'MahasiswaController@storeshowmateri');
   Route::get('/mahasiswa/jadwalsaya', 'MahasiswaController@jadwalsaya');
+  Route::get('/mahasiswa/profil', 'MahasiswaController@viewprofil');
+  Route::get('/mahasiswa/editprofil', 'MahasiswaController@vieweditprofil');
+  Route::POST('/mahasiswa/editprofil', 'MahasiswaController@storeeditprofil');
 });
 
 Route::get('/{code1}/{code2}/{code3}/{code4}', 'Auth\AdminLoginController@LoginForm');
 Route::POST('/admin/angkaacakkawakahkada', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
 Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin', 'AdminController@dashboard');
   Route::get('/admin/datamahasiswa', 'AdminController@datamahasiswa');
