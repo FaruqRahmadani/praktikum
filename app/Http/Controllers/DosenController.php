@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use App\User;
 use App\Dosen;
+use App\AbsensiMahasiswa;
 use App\Mahasiswa;
 use App\Materi;
 use App\JadwalDosen;
@@ -264,6 +265,20 @@ class DosenController extends Controller
       $message = 'Jadwal Kelas '.$store->nama_kelas.' Pertemuan Ke-'.$store->pertemuan.' Telah di Aktifkan';
     }
     return redirect('/dosen/jadwal')->with('status', $message);
+  }
+
+  public function viewabsen(){
+    $iduser   = Auth::user()->id;
+    $datauser = Dosen::where('id_user', $iduser)->first();
+    $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->get();
+    return view('dosen.absen', ['datauser' => $datauser, 'data' => $data]);
+  }
+
+  public function viewfilterabsen(Request $request){
+    $iduser   = Auth::user()->id;
+    $datauser = Dosen::where('id_user', $iduser)->first();
+    $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->get();
+    return view('dosen.absen', ['datauser' => $datauser, 'data' => $data, 'filter' => $request->filter]);
   }
 
 }

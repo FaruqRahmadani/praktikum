@@ -63,7 +63,7 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Absensi</span></a>
                         <ul>
-                            <li><a href="absen.php"><span class="fa fa-print"></span>Cetak Absensi</a></li>
+                            <li><a href="/dosen/absen"><span class="fa fa-print"></span>Cetak Absensi</a></li>
                         </ul>
                     </li>
                     <li class="xn-icon-button">

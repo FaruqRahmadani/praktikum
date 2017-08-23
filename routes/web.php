@@ -50,6 +50,8 @@ Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen/jadwal/edit/{ids}', 'DosenController@editjadwal');
   Route::POST('/dosen/jadwal/edit/{ids}', 'DosenController@storeeditjadwal');
   Route::get('/dosen/jadwal/{id}/{status}', 'DosenController@ubahstatusjadwal');
+  Route::get('/dosen/absen', 'DosenController@viewabsen');
+  Route::POST('/dosen/absen', 'DosenController@viewfilterabsen');
 });
 
 Route::group(['middleware' => 'mahasiswa'], function(){
