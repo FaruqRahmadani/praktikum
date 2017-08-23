@@ -37,7 +37,7 @@ class MahasiswaController extends Controller
     $iduser = Auth::user()->id;
     $data   = Mahasiswa::where('id_user', $iduser)->first();
     $jadwal = JadwalDosen::with('materi','dosen','JadwalPraktikum')->get()->where('id', $ids)->first();
-    $absensi = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $iduser)->get();
+    $absensi = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
     $jumlah = 0;
     foreach ($absensi as $absensis) {
       if ($absensis->JadwalPraktikum->id_jadwal_dosen == $ids) {
@@ -97,7 +97,7 @@ class MahasiswaController extends Controller
   public function jadwalsaya(){
     $iduser = Auth::user()->id;
     $data   = Mahasiswa::where('id_user', $iduser)->first();
-    $jadwal = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $iduser)->get();
+    $jadwal = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
     // dd($jadwal);
     return view('mahasiswa.jadwal_saya', ['data' => $data, 'jadwal' => $jadwal]);
   }
