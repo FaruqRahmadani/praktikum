@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Validation\Rule;
 use Auth;
+use App\User;
 use App\Mahasiswa;
 use App\JadwalDosen;
 use App\AbsensiMahasiswa;
@@ -118,6 +120,55 @@ class MahasiswaController extends Controller
 
   public function storeeditprofil(Request $request)
   {
-    dd($request);
+    $user = Auth::user();
+    $data = Mahasiswa::where('id_user', $user->id)->first();
+
+    if($request->foto != null)
+    {
+      $this->validate($request, [
+        'foto' => 'image',
+      ]);
+      $namagambar = $request->NIDN.'.'.$request->foto->getClientOriginalExtension();
+      $request->foto->move(public_path('images/mahasiswa'), $namagambar);
+    }
+    $this->validate($request, [
+      'NPM' => [
+        'required',
+        Rule::unique('tabel_mahasiswa')->ignore($data->NPM, 'NPM'),
+      ],
+      'nama'       => 'required|string|max:255',
+      'email'      => 'required|string|email|max:255',
+      'no_hp'      => 'required|numeric',
+      'username' => [
+        'required',
+        Rule::unique('users')->ignore($user->username, 'username'),
+      ],
+    ]);
+
+    $updateuser  = User::find($user->id);
+    $updatemahasiswa = Mahasiswa::where('id_user', $user->id)->First();
+
+    if($request->password != null)
+    {
+      $this->validate($request, [
+        'password_lama' => 'required|string|min:6',
+        'password'      => 'required|string|min:6|confirmed',
+      ]);
+
+      if (Hash::check($request->password, $user->password)) {
+        $updateuser->password = $request->password;
+      }
+    }
+
+    $updateuser->username = $request->username;
+    $updatemahasiswa->NPM    = $request->NPM;
+    $updatemahasiswa->nama    = $request->nama;
+    $updatemahasiswa->email   = $request->email;
+    $updatemahasiswa->no_hp   = $request->no_hp;
+
+    $updateuser->save();
+    $updatemahasiswa->save();
+
+    return redirect('/mahasiswa')->with('status', 'Data Anda Telah di Update');
   }
 }

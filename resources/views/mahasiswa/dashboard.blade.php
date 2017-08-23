@@ -14,7 +14,11 @@
       <h1> Praktikum FTI Uniska </h1>
   </div>
   <!-- END PAGE TITLE -->
-
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <!-- PAGE CONTENT WRAPPER -->
 	<hr>
   <div class="page-content-wrap">
