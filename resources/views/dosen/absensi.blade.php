@@ -71,14 +71,14 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>NPM</th>
-                                                <th>Nama</th>
-                                                <th>Kelas</th>
                                                 <th>Materi Praktikum</th>
+                                                <th>Kelas</th>
                                                 <th>Ruangan</th>
                                                 <th>Pertemuan</th>
                                                 <th>Tanggal</th>
                                                 <th>Waktu</th>
+                                                <th>Jumlah Mahasiswa</th>
+                                                <th>Print</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -87,38 +87,17 @@
                                           @endphp
                                           @foreach ($data as $datas)
                                             @foreach ($datas->JadwalPraktikum as $jadwals)
-                                              @php
-                                                $datamahasiswa = App\AbsensiMahasiswa::with('Mahasiswa')->where('id_jadwal_praktikum', $jadwals->id)->get();
-                                              @endphp
-                                              @foreach ($datamahasiswa as $mahasiswa)
-                                                @if (isset($filter))
-                                                  @if ($filter == $jadwals->nama_kelas)
-                                                    <tr>
-                                                      <td>{{$no = $no+1}}</td>
-                                                      <td>{{$mahasiswa->Mahasiswa->NPM}}</td>
-                                                      <td>{{$mahasiswa->Mahasiswa->nama}}</td>
-                                                      <td>{{$jadwals->nama_kelas}}</td>
-                                                      <td>{{$datas->materi->materi_praktikum}}</td>
-                                                      <td>{{$jadwals->ruangan}}</td>
-                                                      <td>{{$jadwals->pertemuan}}</td>
-                                                      <td>{{$jadwals->tanggal}}</td>
-                                                      <td>{{Carbon\Carbon::parse($jadwals->waktu_mulai)->format('g:i A')}} - {{Carbon\Carbon::parse($jadwals->waktu_selesai)->format('g:i A')}}</td>
-                                                    </tr>
-                                                  @endif
-                                                @else
-                                                  <tr>
-                                                    <td>{{$no = $no+1}}</td>
-                                                    <td>{{$mahasiswa->Mahasiswa->NPM}}</td>
-                                                    <td>{{$mahasiswa->Mahasiswa->nama}}</td>
-                                                    <td>{{$jadwals->nama_kelas}}</td>
-                                                    <td>{{$datas->materi->materi_praktikum}}</td>
-                                                    <td>{{$jadwals->ruangan}}</td>
-                                                    <td>{{$jadwals->pertemuan}}</td>
-                                                    <td>{{$jadwals->tanggal}}</td>
-                                                    <td>{{Carbon\Carbon::parse($jadwals->waktu_mulai)->format('g:i A')}} - {{Carbon\Carbon::parse($jadwals->waktu_selesai)->format('g:i A')}}</td>
-                                                  </tr>
-                                                @endif
-                                              @endforeach
+                                              <tr>
+                                                <td>{{$no = $no+1}}</td>
+                                                <td>{{$datas->materi->materi_praktikum}}</td>
+                                                <td>{{$jadwals->nama_kelas}}</td>
+                                                <td>{{$jadwals->ruangan}}</td>
+                                                <td>{{$jadwals->pertemuan}}</td>
+                                                <td>{{$jadwals->tanggal}}</td>
+                                                <td>{{Carbon\Carbon::parse($jadwals->waktu_mulai)->format('g:i A')}} - {{Carbon\Carbon::parse($jadwals->waktu_selesai)->format('g:i A')}}</td>
+                                                <td>{{count(App\AbsensiMahasiswa::where('id_jadwal_praktikum', $jadwals->id)->get())}} Orang</td>
+                                                <td><a href="/dosen/absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span> Print</button></a></td>
+                                              </tr>
                                             @endforeach
                                           @endforeach
                                         </tbody>

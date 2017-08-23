@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Response;
+use File;
+use PDF;
 
 class DashboardController extends Controller
 {
@@ -26,4 +29,10 @@ class DashboardController extends Controller
   //     abort(404);
   //   }
   // }
+
+  public function pdf(){
+    $pdf = PDF::loadView('pdf.laporan', ['data' => 'asd']);
+  	return $pdf->stream('document.pdf');
+
+  }
 }

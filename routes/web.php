@@ -30,6 +30,7 @@ Route::get('/home', 'DashboardController@index')->name('home');
 // });
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/pdf', 'DashboardController@pdf');
 
 Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen', 'DosenController@dashboard');
@@ -52,6 +53,7 @@ Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen/jadwal/{id}/{status}', 'DosenController@ubahstatusjadwal');
   Route::get('/dosen/absen', 'DosenController@viewabsen');
   Route::POST('/dosen/absen', 'DosenController@viewfilterabsen');
+  Route::get('/dosen/absen/{id}', 'DosenController@viewdetailabsen');
 });
 
 Route::group(['middleware' => 'mahasiswa'], function(){
@@ -77,4 +79,6 @@ Route::group(['middleware' => 'admin'], function(){
   Route::POST('/admin/tambahmateri', 'AdminController@storetambahmateri');
   Route::get('/admin/editmateri/{id}', 'AdminController@formeditmateri');
   Route::POST('/admin/editmateri/{id}', 'AdminController@storeeditmateri');
+  Route::get('/admin/laporan_absen', 'AdminController@viewlaporanabsen');
+  Route::get('/admin/laporan_absen/{id}', 'AdminController@printlaporanabsen');
 });

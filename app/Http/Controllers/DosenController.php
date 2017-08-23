@@ -17,6 +17,9 @@ use App\JadwalDosen;
 use App\JadwalPraktikum;
 use App\Periode;
 use Auth;
+use PDF;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class DosenController extends Controller
 {
@@ -271,7 +274,7 @@ class DosenController extends Controller
     $iduser   = Auth::user()->id;
     $datauser = Dosen::where('id_user', $iduser)->first();
     $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->get();
-    return view('dosen.absen', ['datauser' => $datauser, 'data' => $data]);
+    return view('dosen.absensi', ['datauser' => $datauser, 'data' => $data]);
   }
 
   public function viewfilterabsen(Request $request){
@@ -280,5 +283,21 @@ class DosenController extends Controller
     $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->get();
     return view('dosen.absen', ['datauser' => $datauser, 'data' => $data, 'filter' => $request->filter]);
   }
+
+  public function viewdetailabsen($id){
+    $ids = Crypt::decryptString($id);
+    $data = AbsensiMahasiswa::with('Mahasiswa')->where('id_jadwal_praktikum', $ids)->get();
+
+    $pdf = PDF::loadView('pdf.absensi', ['data' => $data]);
+    $pdf->setPaper('a4', 'potrait');
+  	return $pdf->stream('absensi.pdf');
+  }
+
+  // public function cetakabsen(Request $request){
+  //   $iduser   = Auth::user()->id;
+  //   $datauser = Dosen::where('id_user', $iduser)->first();
+  //   $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->get();
+  //   return view('dosen.absen', ['datauser' => $datauser, 'data' => $data, 'filter' => $request->filter]);
+  // }
 
 }

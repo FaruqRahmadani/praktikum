@@ -9,10 +9,13 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Validation\Rule;
 use App\Mahasiswa;
+use App\AbsensiMahasiswa;
 use App\Dosen;
+use App\JadwalDosen;
 use App\Admin;
 use App\Materi;
 use Auth;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -104,5 +107,21 @@ class AdminController extends Controller
     } catch (DecryptException $e) {
       return back();
     }
+  }
+
+  public function viewlaporanabsen(){
+    $data = JadwalDosen::with('materi', 'JadwalPraktikum', 'Dosen')->get();
+    // dd($data);
+    // dd($data->first()->materi->materi_praktikum);
+    return view('admin.laporan_absen', ['data' => $data]);
+  }
+
+  public function printlaporanabsen($id){
+    $ids = Crypt::decryptString($id);
+    $data = AbsensiMahasiswa::with('Mahasiswa')->where('id_jadwal_praktikum', $ids)->get();
+
+    $pdf = PDF::loadView('pdf.absensi', ['data' => $data]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('absensi.pdf');
   }
 }
