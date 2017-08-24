@@ -48,11 +48,12 @@
                                         <tbody>
                                           <?php $no = 0; ?>
                                           @foreach ($data as $datas)
+                                            {{-- {{dd($datas->materi->first()->kode_mk)}} --}}
                                             <tr>
                                               <td>{{$no = $no + 1}}</td>
-                                                <td>{{$datas->materi->kode_mk}}</td>
-                                                <td>{{$datas->materi->materi_praktikum}}</td>
-                                                <td class="center">{{$datas->materi->semester}}</td>
+                                                <td>{{$datas['materi']['kode_mk']}}</td>
+                                                <td>{{$datas['materi']['materi_praktikum']}}</td>
+                                                <td class="center">{{$datas['materi']['semester']}}</td>
                                             </tr>
                                           @endforeach
                                         </tbody>
