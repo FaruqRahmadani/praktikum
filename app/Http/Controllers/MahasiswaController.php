@@ -31,6 +31,7 @@ class MahasiswaController extends Controller
     }
     $semester = (((date('y'))-(substr($data->NPM, 0, 2)))*2)+$tambahsemester;
     $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester);
+    // dd($jadwal);
     return view('mahasiswa.materi', ['data' => $data, 'jadwal' => $jadwal]);
   }
 

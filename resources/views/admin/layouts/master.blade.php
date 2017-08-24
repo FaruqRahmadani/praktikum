@@ -63,8 +63,12 @@
               <li><a href="/admin/laporan_absen">Laporan Data Absen Praktikum</a></li>
             </ul>
           </li>
-          <li class="xn-icon-button">
-            <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span><span class="xn-text">Log Out</span></a>
+          <li class="xn-openable">
+            <a href="#"><span class="glyphicon glyphicon-file"></span> <span class="xn-text">Berita</span></a>
+            <ul>
+              <li><a href="/admin/berita/add"><span class="fa fa-users"></span>Input Berita</a></li>
+							<li><a href="list_berita.php"><span class="fa fa-users"></span>List Berita</a></li>
+						</ul>
           </li>
         </ul>
         <!-- END X-NAVIGATION -->
@@ -79,6 +83,9 @@
             <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
           </li>
           <!-- END TOGGLE NAVIGATION -->
+          <li class="xn-icon-button pull-right">
+            <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span><span class="xn-text"></span></a>
+          </li>
         </ul>
         <!-- END X-NAVIGATION VERTICAL -->
         @yield('content')
@@ -171,6 +178,7 @@
 <script type="text/javascript" src="/public-admin/js/demo_dashboard.js"></script>
 
 <script type="text/javascript" src="/public-admin/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/public-admin/js/ckeditor/ckeditor.js"></script>
 <!-- END TEMPLATE -->
 <!-- END SCRIPTS -->
 </body>

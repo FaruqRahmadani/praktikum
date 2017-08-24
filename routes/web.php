@@ -81,4 +81,6 @@ Route::group(['middleware' => 'admin'], function(){
   Route::POST('/admin/editmateri/{id}', 'AdminController@storeeditmateri');
   Route::get('/admin/laporan_absen', 'AdminController@viewlaporanabsen');
   Route::get('/admin/laporan_absen/{id}', 'AdminController@printlaporanabsen');
+  Route::get('/admin/berita/add', 'AdminController@tambahberita');
+  Route::POST('/admin/berita/add', 'AdminController@storetambahberita');
 });

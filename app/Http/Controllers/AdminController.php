@@ -14,6 +14,7 @@ use App\Dosen;
 use App\JadwalDosen;
 use App\Admin;
 use App\Materi;
+use App\Berita;
 use Auth;
 use PDF;
 
@@ -123,5 +124,20 @@ class AdminController extends Controller
     $pdf = PDF::loadView('pdf.absensi', ['data' => $data]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('absensi.pdf');
+  }
+
+  public function tambahberita(){
+    return view('admin.input_berita');
+  }
+
+  public function storetambahberita(Request $request){
+    $idadmin = Auth::guard('admin')->user();
+    $store = new Berita;
+    $store->id_admin = $idadmin;
+    $store->judul    = $request->judul_artikel;
+    $store->konten   = $request->isi_artikel;
+    $store->gambar   = $request->gambar_artikel;
+    $store->save();
+    return redirect('/admin')->with('status', 'Berita Telah Di Tambahkan');
   }
 }
