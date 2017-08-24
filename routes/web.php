@@ -67,8 +67,6 @@ Route::group(['middleware' => 'mahasiswa'], function(){
   Route::POST('/mahasiswa/editprofil', 'MahasiswaController@storeeditprofil');
 });
 
-Route::get('/{code1}/{code2}/{code3}/{code4}', 'Auth\AdminLoginController@LoginForm');
-Route::POST('/admin/angkaacakkawakahkada', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
 Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin', 'AdminController@dashboard');
@@ -83,4 +81,11 @@ Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin/laporan_absen/{id}', 'AdminController@printlaporanabsen');
   Route::get('/admin/berita/add', 'AdminController@tambahberita');
   Route::POST('/admin/berita/add', 'AdminController@storetambahberita');
+  Route::get('/admin/berita', 'AdminController@listberita');
+  Route::get('/admin/berita/{id}/edit', 'AdminController@editberita');
+  Route::POST('/admin/berita/{id}/edit', 'AdminController@storeeditberita');
+  Route::get('/admin/berita/{id}/delete', 'AdminController@deleteberita');
 });
+
+Route::get('/{code1}/{code2}/{code3}/{code4}', 'Auth\AdminLoginController@LoginForm');
+Route::POST('/admin/angkaacakkawakahkada', 'Auth\AdminLoginController@login')->name('admin.login.submit');

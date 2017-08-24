@@ -131,13 +131,56 @@ class AdminController extends Controller
   }
 
   public function storetambahberita(Request $request){
-    $idadmin = Auth::guard('admin')->user();
+    $idadmin = Auth::guard('admin')->user()->id;
+    $jmlhberita = Berita::all();
+    if (count($jmlhberita) == 0) {
+      $idberita = 1;
+    } else {
+      $idberita = ($jmlhberita->max('id'))+1;
+    }
+    $namagambar = $idberita.'.'.$request->gambar_artikel->getClientOriginalExtension();
     $store = new Berita;
     $store->id_admin = $idadmin;
     $store->judul    = $request->judul_artikel;
     $store->konten   = $request->isi_artikel;
-    $store->gambar   = $request->gambar_artikel;
+    $store->gambar   = $namagambar;
+
+    $request->gambar_artikel->move(public_path('images/berita'), $namagambar);
+
     $store->save();
     return redirect('/admin')->with('status', 'Berita Telah Di Tambahkan');
+  }
+
+  public function listberita(){
+    $berita = Berita::with('admin')->get();
+    return view('admin.list_berita', ['berita' => $berita]);
+  }
+
+  public function editberita($id){
+    $ids = Crypt::decryptString($id);
+    $data = Berita::find($ids);
+    return view('admin.edit_berita', ['data' => $data]);
+  }
+
+  public function storeeditberita(Request $request,$id){
+    $ids = Crypt::decryptString($id);
+    $data = Berita::find($ids);
+
+    if (isset($request->gambar_artikel)) {
+      $namagambar = $ids.'.'.$request->gambar_artikel->getClientOriginalExtension();
+      $request->gambar_artikel->move(public_path('images/berita'), $namagambar);
+      $data->gambar   = $namagambar;
+    }
+    $data->judul    = $request->judul_artikel;
+    $data->konten   = $request->isi_artikel;
+    $data->save();
+    return redirect('/admin')->with('status', 'Berita Telah Di Edit');
+  }
+
+  public function deleteberita($id){
+    $ids = Crypt::decryptString($id);
+    $data = Berita::find($ids);
+    $data->delete();
+    return redirect('/admin')->with('status', 'Berita Telah Di Hapus');
   }
 }

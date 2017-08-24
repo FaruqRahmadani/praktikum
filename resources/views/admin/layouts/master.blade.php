@@ -67,7 +67,7 @@
             <a href="#"><span class="glyphicon glyphicon-file"></span> <span class="xn-text">Berita</span></a>
             <ul>
               <li><a href="/admin/berita/add"><span class="fa fa-users"></span>Input Berita</a></li>
-							<li><a href="list_berita.php"><span class="fa fa-users"></span>List Berita</a></li>
+							<li><a href="/admin/berita"><span class="fa fa-users"></span>List Berita</a></li>
 						</ul>
           </li>
         </ul>

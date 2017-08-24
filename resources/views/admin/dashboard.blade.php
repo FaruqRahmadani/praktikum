@@ -9,6 +9,11 @@
   <div class="page-title">
       <h2><center>Praktikum FTI UNISKA</center></h2>
   </div>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <!-- END PAGE TITLE -->
   <!-- PAGE CONTENT WRAPPER -->
   <div class="page-content-wrap">
