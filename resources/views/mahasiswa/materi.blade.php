@@ -24,12 +24,12 @@
       @foreach ($jadwal as $jadwals)
         <div class="col-lg-4 col-md-4 col-sm-6">
           <div class="thumbnail img-thumb-bg">
-            <img src="/images/materi/{{$jadwals->materi->gambar}}">
+            <img src="/images/materi/{{$jadwals->first()->materi->gambar}}">
             <div class="overlay"></div>
             <div class="caption">
-              <h3 style="color:#fff">{{$jadwals->materi->materi_praktikum}}</h3>
-              <div class="title">{{$jadwals->dosen->nama}}</div>
-              <div class="title">Semester Minimal : {{$jadwals->materi->semester}}</div>
+              <h3 style="color:#fff">{{$jadwals->first()->materi->materi_praktikum}}</h3>
+              <div class="title">{{$jadwals->first()->dosen->nama}}</div>
+              <div class="title">Semester Minimal : {{($jadwals->first()->materi->semester)}}</div>
               <div class="content">
                 <td class="center"><button class="btn btn-success btn-rounded"><i class="fa fa-info-circle"></i><a href="/mahasiswa/materi/{{Crypt::encryptString($jadwals->id)}}"> Informasi </a></button></td>
               </div>
