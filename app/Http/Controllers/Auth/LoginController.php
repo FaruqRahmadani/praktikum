@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('depan.index');
+        return view('depan.login');
     }
 
     public function username()

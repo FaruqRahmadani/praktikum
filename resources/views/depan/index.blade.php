@@ -95,7 +95,8 @@
       				<p>
                 <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#daftar">REGISTER DOSEN</a>
       				  <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#register">REGISTER MAHASISWA</a>
-      				  <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#masuk">LOGIN</a>
+                {{-- <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#masuk">LOGIN</a> --}}
+      				  <a href="/login" class="btn btn-default btn-lg">LOGIN</a>
               </p>
 
               <div id="daftar" class="modal fade" role="dialog">
