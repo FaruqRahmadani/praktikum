@@ -34,23 +34,15 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Daftar <b class="caret"></b></a>
         <ul class="dropdown-menu message-dropdown">
         <li>
-			<a href="login_mahasiswa.php"><i class="fa fa-fw fa-user"></i> Mahasiswa</a>
+			<a href="/registermahasiswa"><i class="fa fa-fw fa-user"></i> Mahasiswa</a>
         </li>
         <li>
-			<a href="#"><i class="fa fa-fw fa-user"></i> Dosen</a>
+			<a href="/registerdosen"><i class="fa fa-fw fa-user"></i> Dosen</a>
         </li>
         </ul>
     </li>
 	<li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-log-in"></i> Login <b class="caret"></b></a>
-        <ul class="dropdown-menu message-dropdown">
-        <li>
-			<a href="login_mahasiswa.php"><i class="fa fa-fw fa-user"></i> Mahasiswa</a>
-        </li>
-        <li>
-			<a href="#"><i class="fa fa-fw fa-user"></i> Dosen</a>
-        </li>
-        </ul>
+      <a href="/login" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-log-in"></i> Login</a>
     </li>
 	</ul>
    </div>

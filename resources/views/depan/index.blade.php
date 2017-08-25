@@ -93,8 +93,10 @@
                 <!-- Blog Categories Well -->
             <div class="well">
       				<p>
-                <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#daftar">REGISTER DOSEN</a>
-      				  <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#register">REGISTER MAHASISWA</a>
+                {{-- <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#daftar">REGISTER DOSEN</a> --}}
+                <a href="/registerdosen" class="btn btn-default btn-lg">REGISTER DOSEN</a>
+                {{-- <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#register">REGISTER MAHASISWA</a> --}}
+      				  <a href="/registermahasiswa" class="btn btn-default btn-lg">REGISTER MAHASISWA</a>
                 {{-- <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#masuk">LOGIN</a> --}}
       				  <a href="/login" class="btn btn-default btn-lg">LOGIN</a>
               </p>

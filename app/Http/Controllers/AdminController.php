@@ -54,7 +54,7 @@ class AdminController extends Controller
       'kode_mk' => 'required|unique:tabel_materi_praktikum,kode_mk',
       'materi' => 'required',
       'semester' => 'required|numeric',
-      'gambar' => 'required|image',
+      'gambar' => 'required',
     ]);
 
     if (count(Materi::all()) == 0) {

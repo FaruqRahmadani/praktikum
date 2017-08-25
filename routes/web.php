@@ -28,7 +28,8 @@ Route::get('/home', 'DashboardController@index')->name('home');
 //     // return view('depan.index');
 //   }
 // });
-
+Route::get('/registermahasiswa', 'DashboardController@registermahasiswa');
+Route::get('/registerdosen', 'DashboardController@registerdosen');
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/pdf', 'DashboardController@pdf');
 Route::get('/mail', 'DashboardController@mail');
