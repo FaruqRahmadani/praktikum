@@ -60,7 +60,7 @@
                                     <div class="form-group">
                                       <label class="col-md-5 control-label"><h4><b>Pertemuan Ke- {{$i}} :</b></h4></label>
                                       <div class="col-md-5">
-                                        <input type="text" class="form-control" name="pertemuan{{$i}}" id="pertemuan{{$i}}">
+                                        <input type="text" class="form-control" name="pertemuan{{$i}}" id="pertemuan{{$i}}" readonly>
                                         <input type="hidden" class="form-control" name="idpertemuan{{$i}}" id="idpertemuan{{$i}}">
                                         <button type="button" class="btn btn-info btn-rounded2" data-toggle="modal" data-target="#myModal{{$i}}">
                                           <span class="fa fa-times"></span>Pilih
