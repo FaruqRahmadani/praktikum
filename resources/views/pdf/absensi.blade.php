@@ -22,6 +22,7 @@ th{
           <th style="width: 20px;">No</th>
           <th style="width: 150px;">NPM</th>
           <th style="width: 300px;">Nama</th>
+          <th style="width: 150px;">No HP</th>
           <th style="width: 200px;">Tanda Tangan</th>
       </tr>
   </thead>
