@@ -1,10 +1,22 @@
 @extends('depan.layouts.master')
 @section('content')
         <div class="login-container">
-
             <div class="login-box animated fadeInDown">
                 <div class="login-logo"></div>
                 <div class="login-body">
+                  @if(count($errors) > 0)
+                    <div class="alert alert-info">
+                      <ul>
+                        @if ($errors->first() == 'These credentials do not match our records.')
+                          Username dan Password Tidak Ditemukan
+                        @else
+                          @foreach ($errors->all() as $error)
+                            <li> {{$error}} </li>
+                          @endforeach
+                        @endif
+                      </ul>
+                    </div>
+                  @endif
                     <div class="login-title"><strong>Selamat Datang</strong>, Silakan Masuk</div>
                     <form action="{{ route('login') }}" class="form-horizontal" method="post">
                     <div class="form-group">

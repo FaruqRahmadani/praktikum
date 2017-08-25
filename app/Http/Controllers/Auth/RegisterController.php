@@ -55,7 +55,7 @@ class RegisterController extends Controller
           'nama'       => 'required|string|max:255',
           'no_hp'      => 'required|numeric',
           'email'      => 'required|string|email|max:255',
-          'foto'       => 'required|image',
+          'foto'       => 'required',
           'username'   => 'required|string|max:255|unique:users,username',
           'password'   => 'required|string|min:6|confirmed',
         ]);
@@ -65,7 +65,7 @@ class RegisterController extends Controller
           'nama'       => 'required|string|max:255',
           'no_hp'      => 'required|numeric',
           'email'      => 'required|string|email|max:255',
-          'foto'       => 'required|image',
+          'foto'       => 'required',
           'username'   => 'required|string|max:255|unique:users,username',
           'password'   => 'required|string|min:6|confirmed',
         ]);
