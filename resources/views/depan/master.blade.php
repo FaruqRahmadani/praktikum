@@ -42,9 +42,8 @@
         </ul>
     </li>
 	<li class="dropdown">
-      <a href="/login" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-log-in"></i> Login</a>
-    </li>
-	</ul>
+		<a href="/login"><i class="glyphicon glyphicon-log-in"></i> Login</a>
+  </li>
    </div>
 </nav>
 </div>
