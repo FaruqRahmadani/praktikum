@@ -24,7 +24,7 @@
                          <img src="/images/dosen/{{$data->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
                       <h6>Ganti foto</h6>
                       {{-- <input type="file" name="foto" class="form-control"> --}}
-                      {!! Form::file('foto', ['class' => 'form-control']) !!}
+                      {!! Form::file('foto', ['class' => 'form-control', 'accept' => 'image/*']) !!}
 
 
                     </div>
@@ -49,7 +49,7 @@
                         <label class="col-lg-3 control-label">NIDN</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="NIDN" type="text" value="{{$data->NIDN}}"> --}}
-                          {!! Form::text('NPM', $data->NPM ,['class' => 'form-control']) !!}
+                          {!! Form::text('NPM', $data->NPM ,['class' => 'form-control', 'required', 'pattern' => '(?=.*[0-9]).{5,}']) !!}
                         </div>
                       </div>
 
@@ -57,28 +57,28 @@
                         <label class="col-lg-3 control-label">Nama</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="nama" type="text" value="{{$data->nama}}"> --}}
-                          {!! Form::text('nama', $data->nama ,['class' => 'form-control']) !!}
+                          {!! Form::text('nama', $data->nama ,['class' => 'form-control', 'required', 'pattern' => '.{2,}']) !!}
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">E-mail</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="email" type="text" value="{{$data->email}}"> --}}
-                          {!! Form::text('email', $data->email ,['class' => 'form-control']) !!}
+                          {!! Form::email('email', $data->email ,['class' => 'form-control', 'required']) !!}
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">No Hp</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="no_hp" type="text" value="{{$data->no_hp}}"> --}}
-                          {!! Form::text('no_hp', $data->no_hp ,['class' => 'form-control']) !!}
+                          {!! Form::text('no_hp', $data->no_hp ,['class' => 'form-control', 'required', 'pattern' => '(?=.*[0-9]).{10,}']) !!}
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Username</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="username" type="text" value="{{$username}}"> --}}
-                          {!! Form::text('username', $username ,['class' => 'form-control']) !!}
+                          {!! Form::text('username', $username ,['class' => 'form-control', 'required', 'pattern' => '.{5,}']) !!}
                         </div>
                       </div>
                       <div class="form-group">

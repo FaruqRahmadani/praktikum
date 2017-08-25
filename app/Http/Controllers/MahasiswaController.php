@@ -126,9 +126,6 @@ class MahasiswaController extends Controller
 
     if($request->foto != null)
     {
-      $this->validate($request, [
-        'foto' => 'image',
-      ]);
       $namagambar = $request->NIDN.'.'.$request->foto->getClientOriginalExtension();
       $request->foto->move(public_path('images/mahasiswa'), $namagambar);
     }
