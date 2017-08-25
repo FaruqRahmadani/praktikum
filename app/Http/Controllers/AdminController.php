@@ -57,7 +57,13 @@ class AdminController extends Controller
       'gambar' => 'required|image',
     ]);
 
-    $id = (Materi::all()->last()->id)+1;
+    if (count(Materi::all()) == 0) {
+      $id = 1;
+    } else {
+      $id = (Materi::all()->last()->id)+1;
+    }
+
+
     $namagambar = 'materi-'.$id.'.'.$request->gambar->getClientOriginalExtension();
 
     $materi = new Materi;
