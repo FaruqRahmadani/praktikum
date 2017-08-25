@@ -21,7 +21,7 @@
                     <form action="{{ route('login') }}" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="text" name="username" class="form-control" placeholder="Username"/ required autofocus>
+                            <input type="text" name="username" class="form-control" placeholder="Username"/ required autofocus value={{old('username')}}>
                         </div>
                     </div>
                     <div class="form-group">
