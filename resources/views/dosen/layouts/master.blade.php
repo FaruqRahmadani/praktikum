@@ -28,6 +28,9 @@
                         <a href="#" class="x-navigation-control"></a>
                     </li>
                     <li class="xn-profile">
+                      <a href="" class="profile-mini">
+                        <img src="/images/dosen/{{$datauser->foto}}" alt="Fathul Hafidh"/>
+                      </a>
                         <div class="profile">
                             <div class="profile-image">
                                 <img src="/images/dosen/{{$datauser->foto}}" alt="Fathul Hafidh"/>

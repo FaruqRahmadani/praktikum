@@ -110,6 +110,7 @@
                                                       $tanggal    = Carbon\Carbon::parse($JadwalPraktikum->tanggal)->format('d-m-Y');
                                                       $jammulai   = Carbon\Carbon::parse($JadwalPraktikum->waktu_mulai)->format('H:i A');
                                                       $jamselesai = Carbon\Carbon::parse($JadwalPraktikum->waktu_selesai)->format('H:i A');
+                                                      $jumlah     = count(\App\AbsensiMahasiswa::where('id_jadwal_praktikum',$JadwalPraktikum->id)->get());
                                                     @endphp
                                                     <tr>
                                                       <td>{{$no = $no+1}}</td>
@@ -117,7 +118,11 @@
                                                       <td>{{$JadwalPraktikum->ruangan}}</td>
                                                       <td>{{$tanggal}}</td>
                                                       <td>{{$jammulai}} - {{$jamselesai}}</td>
-                                                      <td class="center"><button class="btn btn-success btn-rounded" data-dismiss="modal" onclick="isi('{{$i}}',{{$JadwalPraktikum->id}},'{{$tanggal}}','{{$jammulai}} - {{$jamselesai}}')"><i class="fa fa-arrow-circle-o-up"></i> Ambil </button></td>
+                                                      @if ($jumlah < 40)
+                                                        <td class="center"><button class="btn btn-success btn-rounded" data-dismiss="modal" onclick="isi('{{$i}}',{{$JadwalPraktikum->id}},'{{$tanggal}}','{{$jammulai}} - {{$jamselesai}}')"><i class="fa fa-arrow-circle-o-up"></i> Ambil </button></td>
+                                                      @else
+                                                        <td class="center"><button class="btn btn-success btn-rounded" data-dismiss="modal" onclick="isi('{{$i}}',{{$JadwalPraktikum->id}},'{{$tanggal}}','{{$jammulai}} - {{$jamselesai}}')" disabled><i class="fa fa-arrow-circle-o-up"></i> Jadwal Penuh </button></td>
+                                                      @endif
                                                     </tr>
                                                   @endif
                                                 @endforeach

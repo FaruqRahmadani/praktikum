@@ -31,6 +31,7 @@ Route::get('/home', 'DashboardController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/pdf', 'DashboardController@pdf');
+Route::get('/mail', 'DashboardController@mail');
 
 Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen', 'DosenController@dashboard');

@@ -20,6 +20,7 @@ use Auth;
 use PDF;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use App\Jobs\SendEmailKelasBatal;
 
 class DosenController extends Controller
 {
@@ -257,6 +258,23 @@ class DosenController extends Controller
     // dd(Crypt::decryptString($status));
     $tipe = Crypt::decryptString($status);
     $store = JadwalPraktikum::find(Crypt::decryptString($id));
+    $dataabsensi = AbsensiMahasiswa::where('id_jadwal_praktikum', Crypt::decryptString($id))->get();
+    foreach ($dataabsensi as $dataabsensis) {
+
+      $datamahasiswa = Mahasiswa::find($dataabsensis->id_mahasiswa);
+      $datajadwaldosen = JadwalDosen::find($store->id_jadwal_dosen);
+      $datadosen = Dosen::find($datajadwaldosen->id_dosen);
+      $datamateri = Materi::find($datajadwaldosen->id_praktikum);
+
+      if ($tipe == 0) {
+        $pesan = 'Telah di Batalkan';
+      } else {
+        $pesan = 'Diaktifkan Kembali';
+      }
+      //NPM, nama, email, nama materi, nama dosen, nama kelas, pertemuan, tanggal, pesan$datamahasiswa->NPM,$datamahasiswa->nama,$datamahasiswa->email,$datamateri->materi_praktikum,$datadosen->nama,$store->nama_kelas,$store->pertemuan,$store->tanggal,$pesan
+      $job = New SendEmailKelasBatal($datamahasiswa->NPM,$datamahasiswa->nama,$datamahasiswa->email,$datamateri->materi_praktikum,$datadosen->nama,$store->nama_kelas,$store->pertemuan,$store->tanggal,$pesan);
+      $this->dispatch($job);
+    }
 
     $store->tipe = $tipe;
     $store->save();

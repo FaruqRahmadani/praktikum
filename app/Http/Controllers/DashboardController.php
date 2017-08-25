@@ -7,6 +7,8 @@ use Auth;
 use Response;
 use File;
 use PDF;
+use Mail;
+use Config;
 
 class DashboardController extends Controller
 {
@@ -34,5 +36,22 @@ class DashboardController extends Controller
     $pdf = PDF::loadView('pdf.laporan', ['data' => 'asd']);
   	return $pdf->stream('document.pdf');
 
+  }
+
+  public function mail(){
+    // dd(Config::get('mail'));
+    $data = 'TEST';
+    Mail::send('emails', ['data' => $data], function ($mail)
+    {
+      // Email dikirimkan ke address "momo@deviluke.com"
+      // dengan nama penerima "Momo Velia Deviluke"
+      $mail->to('faruq.rahmadani@gmail.com', 'Faruq Rahmadani');
+
+      // Copy carbon dikirimkan ke address "haruna@sairenji"
+      // dengan nama penerima "Haruna Sairenji"
+      $mail->cc('faruq.rahmadani@gmail.com', 'Faruq Rahmadani');
+
+      $mail->subject('Hello World!');
+    });
   }
 }
