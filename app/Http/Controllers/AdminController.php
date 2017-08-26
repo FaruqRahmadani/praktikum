@@ -12,6 +12,7 @@ use App\Mahasiswa;
 use App\AbsensiMahasiswa;
 use App\Dosen;
 use App\JadwalDosen;
+use App\JadwalPraktikum;
 use App\Admin;
 use App\Materi;
 use App\Berita;
@@ -125,11 +126,22 @@ class AdminController extends Controller
 
   public function printlaporanabsen($id){
     $ids = Crypt::decryptString($id);
+    $JadwalPraktikum = JadwalPraktikum::find($ids);
+    $JadwalDosen = JadwalDosen::find($JadwalPraktikum->id_jadwal_dosen);
+    $Materi = Materi::find($JadwalDosen->id_praktikum);
+    $Dosen = Dosen::find($JadwalDosen->id_dosen);
+
     $data = AbsensiMahasiswa::with('Mahasiswa')->where('id_jadwal_praktikum', $ids)->get();
 
-    $pdf = PDF::loadView('pdf.absensi', ['data' => $data]);
+    $pdf = PDF::loadView('pdf.absensi', ['data' => $data, 'dosen' => $Dosen, 'materi' => $Materi]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('absensi.pdf');
+  }
+
+  public function viewLaporanPraktikum(){
+    $JadwalDosen = JadwalDosen::with('materi','dosen')->get();
+
+    return view('admin.laporan_praktikum', ['data' => $JadwalDosen]);
   }
 
   public function tambahberita(){
