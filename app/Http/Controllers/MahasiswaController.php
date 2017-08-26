@@ -76,19 +76,16 @@ class MahasiswaController extends Controller
     for ($i=1; $i <= (count($request->except('_token'))/2); $i++) {
       $pertemuan = 'idpertemuan'.$i;
       $idjadwaldosen[$i] = $request->$pertemuan; //data absensinya
-      $store = \App\AbsensiMahasiswa::create([
-            'id_mahasiswa'        => $idmahasiswa,
-            'id_jadwal_praktikum' => $request->$pertemuan,
+      // $store = \App\AbsensiMahasiswa::create([
+      //       'id_mahasiswa'        => $idmahasiswa,
+      //       'id_jadwal_praktikum' => $request->$pertemuan,
       ]);
     }
+
     $job = new SendEmailAmbilJadwal($idmahasiswa, $idjadwaldosen);
     $this->dispatch($job);
+
     return redirect('/mahasiswa/materi')->with('status', 'Jadwal Telah Diambil');
-    foreach ($idpertemuans as $idpertemuan) {
-      $data[] =  new AbsensiMahasiswa([
-        'id_mahasiswa'        => $idmahasiswa,
-        'id_jadwal_praktikum' => $idpertemuan,
-      ]);
     }
 
     $store->saveMany($data);
