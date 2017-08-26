@@ -88,14 +88,14 @@ class MahasiswaController extends Controller
     return redirect('/mahasiswa/materi')->with('status', 'Jadwal Telah Diambil');
     }
 
-    $store->saveMany($data);
-
-    for ($i=1; $i <= (count($request->except('_token'))/2); $i++) {
-      $store->id_mahasiswa        = $idmahasiswa;
-      $pertemuan = 'idpertemuan'.$i;
-      $store->id_jadwal_praktikum = $request->$pertemuan;
-      $store->save();
-    }
+    // $store->saveMany($data);
+    //
+    // for ($i=1; $i <= (count($request->except('_token'))/2); $i++) {
+    //   $store->id_mahasiswa        = $idmahasiswa;
+    //   $pertemuan = 'idpertemuan'.$i;
+    //   $store->id_jadwal_praktikum = $request->$pertemuan;
+    //   $store->save();
+    // }
   }
 
   public function jadwalsaya(){
