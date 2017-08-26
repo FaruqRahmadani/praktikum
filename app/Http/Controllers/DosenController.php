@@ -311,7 +311,7 @@ class DosenController extends Controller
 
     $data = AbsensiMahasiswa::with('Mahasiswa')->where('id_jadwal_praktikum', $ids)->get();
 
-    $pdf = PDF::loadView('pdf.absensi', ['data' => $data, 'dosen' => $Dosen, 'materi' => $Materi]);
+    $pdf = PDF::loadView('pdf.absensi', ['data' => $data, 'dosen' => $Dosen, 'materi' => $Materi, 'JadwalPraktikum' => $JadwalPraktikum]);
     $pdf->setPaper('a4', 'potrait');
   	return $pdf->stream('absensi.pdf');
   }
