@@ -9,8 +9,11 @@ use Auth;
 use App\User;
 use App\Mahasiswa;
 use App\JadwalDosen;
+use App\JadwalPraktikum;
 use App\AbsensiMahasiswa;
 use App\Jobs\SendEmailAmbilJadwal;
+use App\Jobs\SendEmailReminderKelas;
+use Carbon\Carbon;
 
 class MahasiswaController extends Controller
 {
@@ -37,6 +40,7 @@ class MahasiswaController extends Controller
   }
 
   public function showmateri($id){
+
     $ids    = Crypt::decryptString($id);
     $iduser = Auth::user()->id;
     $data   = Mahasiswa::where('id_user', $iduser)->first();
@@ -84,6 +88,18 @@ class MahasiswaController extends Controller
 
     $job = new SendEmailAmbilJadwal($idmahasiswa, $idjadwaldosen);
     $this->dispatch($job);
+
+    foreach ($idjadwaldosen as $idjadwal) {
+      $data = JadwalPraktikum::find($idjadwal);
+      $date = Carbon::parse($data->tanggal);
+      $time = Carbon::parse($data->waktu_mulai);
+
+      $delay = Carbon::create($date->format('Y'),$date->format('m'),$date->format('d'),$time->format('H'),$time->format('i'))->subMinute(15);
+      // echo Carbon::now();
+      $joblater = (new SendEmailReminderKelas($idmahasiswa, $idjadwal))->delay($delay);
+      $this->dispatch($joblater);
+    }
+
 
     return redirect('/mahasiswa/materi')->with('status', 'Jadwal Telah Diambil');
     }
