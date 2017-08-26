@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Hedii\ArtisanLogCleaner\ArtisanLogCleanerServiceProvider::class,
 
         /*
          * Package Service Providers...
