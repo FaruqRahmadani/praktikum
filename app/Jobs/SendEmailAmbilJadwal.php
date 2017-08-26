@@ -74,7 +74,7 @@ class SendEmailAmbilJadwal implements ShouldQueue
             // dengan nama penerima "Haruna Sairenji"
             // $mail->cc('faruq.rahmadani@gmail.com', 'Faruq Rahmadani');
 
-            $mail->subject('Praktikum FTI UNISKA : Ambil Jadwal');
+            $mail->subject('Praktikum UNISKA : Ambil Jadwal');
           });
     }
 }

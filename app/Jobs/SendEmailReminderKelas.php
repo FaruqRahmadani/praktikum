@@ -48,8 +48,8 @@ class SendEmailReminderKelas implements ShouldQueue
         $data['4'] = Dosen::find($jadwaldosen->id_dosen);
 
         //
-        $to   = 'faruq.rahmadani@gmail.com';
-        $nama = 'asd';
+        $to   = $data['1']->email;
+        $nama = $data['1']->nama;
           //
           Mail::send('email.ReminderKelas', ['data' => $data], function ($mail) use ($to,$nama)
           {
@@ -61,7 +61,7 @@ class SendEmailReminderKelas implements ShouldQueue
             // dengan nama penerima "Haruna Sairenji"
             // $mail->cc('faruq.rahmadani@gmail.com', 'Faruq Rahmadani');
 
-            $mail->subject('Praktikum FTI UNISKA : Reminder Kelas');
+            $mail->subject('Praktikum UNISKA : Reminder Kelas');
           });
     }
 }
