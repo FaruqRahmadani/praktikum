@@ -76,7 +76,7 @@ class MahasiswaController extends Controller
     for ($i=1; $i <= (count($request->except('_token'))/2); $i++) {
       $pertemuan = 'idpertemuan'.$i;
       $idjadwaldosen[$i] = $request->$pertemuan; //data absensinya
-      $store = \App\AbsensiMahasiswa::create([
+      // $store = \App\AbsensiMahasiswa::create([
             // 'id_mahasiswa'        => $idmahasiswa,
             // 'id_jadwal_praktikum' => $request->$pertemuan,
       ]);
@@ -89,8 +89,7 @@ class MahasiswaController extends Controller
     }
 
     /**
-    * KADA TAHU NIH APA DI BAWAH NI KOLER JUA MEHAPUS KALO TEPAKAI
-    *
+         KADA TAHU NIH APA DI BAWAH NI KOLER JUA MEHAPUS KALO TEPAKAI
     */
 
     // $store->saveMany($data);
