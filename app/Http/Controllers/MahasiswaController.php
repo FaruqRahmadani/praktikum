@@ -79,7 +79,7 @@ class MahasiswaController extends Controller
       // $store = \App\AbsensiMahasiswa::create([
             // 'id_mahasiswa'        => $idmahasiswa,
             // 'id_jadwal_praktikum' => $request->$pertemuan,
-      ]);
+      // ]);
     }
 
     $job = new SendEmailAmbilJadwal($idmahasiswa, $idjadwaldosen);
