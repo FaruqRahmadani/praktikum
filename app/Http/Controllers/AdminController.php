@@ -15,6 +15,7 @@ use App\JadwalDosen;
 use App\JadwalPraktikum;
 use App\Admin;
 use App\Materi;
+use App\Periode;
 use App\Berita;
 use Auth;
 use PDF;
@@ -139,9 +140,26 @@ class AdminController extends Controller
   }
 
   public function viewLaporanPraktikum(){
-    $JadwalDosen = JadwalDosen::with('materi','dosen')->get();
+    $Periode = Periode::orderBy('id','desc')->get();
+    $idperiode = $Periode->last()->id;
+    $JadwalDosen = JadwalDosen::where('id_periode', $idperiode)->with('materi','dosen')->get();
+    return view('admin.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode, 'idperiode' => $idperiode]);
+  }
 
-    return view('admin.laporan_praktikum', ['data' => $JadwalDosen]);
+  public function viewLaporanPraktikumPeriode(Request $request){
+    $JadwalDosen = JadwalDosen::where('id_periode', $request->periode)->with('materi','dosen')->get();
+    $Periode = Periode::orderBy('id','desc')->get();
+    return view('admin.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode, 'idperiode' => $request->periode]);
+  }
+
+  public function printLaporanPraktikum($id){
+    $ids = Crypt::decryptString($id);
+    $Periode = Periode::find($ids);
+    $JadwalDosen = JadwalDosen::where('id_periode', $ids)->with('materi','dosen')->get();
+
+    $pdf = PDF::loadView('pdf.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('absensi.pdf');
   }
 
   public function tambahberita(){
