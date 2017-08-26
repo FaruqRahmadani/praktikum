@@ -17,7 +17,7 @@ class CreateTabelDosen extends Migration
           $table->increments('id');
           $table->integer('id_user');
           $table->string('NIDN', 25);
-          $table->string('nama', 25);
+          $table->string('nama', 50);
           $table->string('no_hp', 12);
           $table->string('foto', 255);
           $table->string('email', 50);
