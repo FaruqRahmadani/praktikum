@@ -76,10 +76,10 @@ class MahasiswaController extends Controller
     for ($i=1; $i <= (count($request->except('_token'))/2); $i++) {
       $pertemuan = 'idpertemuan'.$i;
       $idjadwaldosen[$i] = $request->$pertemuan; //data absensinya
-      // $store = \App\AbsensiMahasiswa::create([
-      //       'id_mahasiswa'        => $idmahasiswa,
-      //       'id_jadwal_praktikum' => $request->$pertemuan,
-      // ]);
+      $store = \App\AbsensiMahasiswa::create([
+            // 'id_mahasiswa'        => $idmahasiswa,
+            // 'id_jadwal_praktikum' => $request->$pertemuan,
+      ]);
     }
 
     $job = new SendEmailAmbilJadwal($idmahasiswa, $idjadwaldosen);
@@ -87,6 +87,11 @@ class MahasiswaController extends Controller
 
     return redirect('/mahasiswa/materi')->with('status', 'Jadwal Telah Diambil');
     }
+
+    /**
+    * KADA TAHU NIH APA DI BAWAH NI KOLER JUA MEHAPUS KALO TEPAKAI
+    *
+    */
 
     // $store->saveMany($data);
     //
@@ -96,7 +101,7 @@ class MahasiswaController extends Controller
     //   $store->id_jadwal_praktikum = $request->$pertemuan;
     //   $store->save();
     // }
-  }
+  // }
 
   public function jadwalsaya(){
     $iduser = Auth::user()->id;
