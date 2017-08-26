@@ -304,9 +304,13 @@ class DosenController extends Controller
 
   public function viewdetailabsen($id){
     $ids = Crypt::decryptString($id);
+    $JadwalPraktikum = JadwalPraktikum::find($ids);
+    $JadwalDosen = JadwalDosen::find($JadwalPraktikum->id_jadwal_dosen);
+    $Dosen = Dosen::find($JadwalDosen->id_dosen);
+
     $data = AbsensiMahasiswa::with('Mahasiswa')->where('id_jadwal_praktikum', $ids)->get();
 
-    $pdf = PDF::loadView('pdf.absensi', ['data' => $data]);
+    $pdf = PDF::loadView('pdf.absensi', ['data' => $data, 'dosen' => $Dosen]);
     $pdf->setPaper('a4', 'potrait');
   	return $pdf->stream('absensi.pdf');
   }

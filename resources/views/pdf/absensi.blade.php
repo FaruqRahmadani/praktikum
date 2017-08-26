@@ -62,11 +62,14 @@
       <h4>UNIVERSITAS ISLAM KALIMANTAN (UNISKA)</h4>
       <h4>MUHAMMAD ARSYAD AL BANJARI</h4>
       <h2>FAKULTAS TEKNOLOGI INFORMASI</h2>
-      <p>Kampus Banjarbaru, Jl. Salak no.44 Kel. Guntung Paikat, Banjarbaru</p>
+      <p>Kampus Banjarbaru, Jl. Salak No.44 Kel. Guntung Paikat, Banjarbaru</p>
     </div>
     <hr class="atas">
-    <h5>Daftar Absensi Mahasiswa Praktikum</h5>
+    <h5>Daftar Absensi Mahasiswa Praktikum &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WEB Kelas Reg Pagi Bjb Pertemuan Pertama</h5>
     <hr class="bawah">
+    <h5><center>Praktikum WEB<br>
+    Kelas Reg Pagi Bjb<br>
+    Pertemuan Pertama</center></h5>
     <table>
       <thead>
           <tr>
@@ -105,6 +108,33 @@
         '12' => 'Desember'
       )
     @endphp
-    <p style="margin-left: 72%;">Banjarbaru,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$bulan[date('m')].' '.date('Y')}}</p>
+    <table style="border: 0px solid #FFFFFF;">
+      <tbody>
+        <tr>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF; text-align:center;">Banjarbaru,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$bulan[date('m')].' '.date('Y')}}</td>
+        </tr>
+        <tr>
+          <td style="border: 0px solid #FFFFFF;"><br><br><br><br></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+        </tr>
+        <tr>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="text-align:center; border: 0px solid #FFFFFF;">{{$dosen->nama}} <hr style="width:75%"></td>
+        </tr>
+        <tr>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="text-align:center; border: 0px solid #FFFFFF;">NIDN. {{$dosen->NIDN}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {{-- <p style="margin-left: 72%;">Banjarbaru,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$bulan[date('m')].' '.date('Y')}}</p>
+    <p style="margin-left: 72%;">{{$dosen->nama}}</p>
+    <p style="margin-left: 72%;">{{$dosen->NIDN}}</p> --}}
   </body>
 </html>
