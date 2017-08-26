@@ -90,7 +90,6 @@ class RegisterController extends Controller
       } else {
         $iduser = (User::all()->last()->id + 1);
       }
-
       $namagambar = $data['nomorinduk'].'.'.$data['foto']->getClientOriginalExtension();
 
         if ($data['tipe']==1)

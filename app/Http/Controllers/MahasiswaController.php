@@ -10,6 +10,7 @@ use App\User;
 use App\Mahasiswa;
 use App\JadwalDosen;
 use App\AbsensiMahasiswa;
+use App\Jobs\SendEmailAmbilJadwal;
 
 class MahasiswaController extends Controller
 {
@@ -74,11 +75,14 @@ class MahasiswaController extends Controller
     // $store = New AbsensiMahasiswa;
     for ($i=1; $i <= (count($request->except('_token'))/2); $i++) {
       $pertemuan = 'idpertemuan'.$i;
-      $store = \App\AbsensiMahasiswa::create([
-            'id_mahasiswa'        => $idmahasiswa,
-            'id_jadwal_praktikum' => $request->$pertemuan,
-      ]);
+      $idjadwaldosen[$i] = $request->$pertemuan; //data absensinya
+      // $store = \App\AbsensiMahasiswa::create([
+      //       'id_mahasiswa'        => $idmahasiswa,
+      //       'id_jadwal_praktikum' => $request->$pertemuan,
+      // ]);
     }
+    $job = new SendEmailAmbilJadwal($idmahasiswa, $idjadwaldosen);
+    $this->dispatch($job);
     return redirect('/mahasiswa/materi')->with('status', 'Jadwal Telah Diambil');
     // foreach ($idpertemuans as $idpertemuan) {
     //   $data[] =  new AbsensiMahasiswa([
