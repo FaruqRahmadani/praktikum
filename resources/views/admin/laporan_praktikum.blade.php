@@ -73,9 +73,9 @@
                                           @endforeach
                                         </tbody>
                                     </table>
-                                  <a href="/admin/laporan_praktikum/{{Crypt::encryptString($idperiode)}}"
-									                <button class="btn btn-info btn-rounded"><span class="fa fa-print"></span>Print</button>
-                                </a>
+                                  <a href="/admin/laporan_praktikum/{{Crypt::encryptString($idperiode)}}" target="_blank">
+									                   <button class="btn btn-info btn-rounded"><span class="fa fa-print"></span>Print</button>
+                                  </a>
                                 </div>
                             </div>
                             <!-- END DEFAULT DATATABLE -->

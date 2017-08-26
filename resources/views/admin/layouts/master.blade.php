@@ -66,7 +66,7 @@
             <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Laporan</span></a>
             <ul>
               <li><a href="/admin/laporan_praktikum">Pelaksanaan Praktikum</a></li>
-              <li><a href="#">Detail Pelaksanaan Praktikum</a></li>
+              <li><a href="/admin/detaillaporan_praktikum">Detail Pelaksanaan Praktikum</a></li>
 		          <li><a href="laporan_mahasiswa_data.php">Data Mahasiswa</a></li>
               <li><a href="/admin/laporan_absen">Data Absen Praktikum</a></li>
             </ul>

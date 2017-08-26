@@ -74,6 +74,7 @@ Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin', 'AdminController@dashboard');
   Route::get('/admin/datamahasiswa', 'AdminController@datamahasiswa');
   Route::get('/admin/datadosen', 'AdminController@datadosen');
+  Route::get('/admin/datadosen/{id}/edit', 'AdminController@editDataDosen');
   Route::get('/admin/datamateri', 'AdminController@datamateri');
   Route::get('/admin/tambahmateri', 'AdminController@formtambahmateri');
   Route::POST('/admin/tambahmateri', 'AdminController@storetambahmateri');
@@ -84,6 +85,9 @@ Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin/laporan_praktikum', 'AdminController@viewLaporanPraktikum');
   Route::POST('/admin/laporan_praktikum', 'AdminController@viewLaporanPraktikumPeriode');
   Route::get('/admin/laporan_praktikum/{id}', 'AdminController@printLaporanPraktikum');
+  Route::get('/admin/detaillaporan_praktikum', 'AdminController@viewDetailLaporanPraktikum');
+  Route::POST('/admin/detaillaporan_praktikum', 'AdminController@viewDetailLaporanPraktikumSelected');
+  Route::get('/admin/detaillaporan_praktikum/{idDosen}/{idPeriode}', 'AdminController@printDetailLaporanPraktikum');
   Route::get('/admin/berita/add', 'AdminController@tambahberita');
   Route::POST('/admin/berita/add', 'AdminController@storetambahberita');
   Route::get('/admin/berita', 'AdminController@listberita');

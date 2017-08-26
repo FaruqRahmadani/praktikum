@@ -11,6 +11,7 @@ use Illuminate\Validation\Rule;
 use App\Mahasiswa;
 use App\AbsensiMahasiswa;
 use App\Dosen;
+use App\User;
 use App\JadwalDosen;
 use App\JadwalPraktikum;
 use App\Admin;
@@ -37,6 +38,15 @@ class AdminController extends Controller
   {
     $data = Dosen::with('user')->get();
     return view('admin.dosen_data', ['data' => $data]);
+  }
+
+  public function editDataDosen($id)
+  {
+    $ids = Crypt::decryptString($id);
+    $Dosen = Dosen::find($ids);
+    $User = User::find($Dosen->id_user);
+    // dd($User);
+    return view('admin.dosen_edit', ['dosen' => $Dosen, 'user' => $User]);
   }
 
   public function datamateri()
@@ -85,7 +95,7 @@ class AdminController extends Controller
   {
     try {
       $data = Materi::find(Crypt::decryptString($id));
-      return view('admin.tambah_materi', ['data' => $data]);
+      return view('admin.edit_materi', ['data' => $data]);
     } catch (DecryptException $e) {
       return back();
     }
@@ -109,6 +119,12 @@ class AdminController extends Controller
       $materi->kode_mk          = $request->kode_mk;
       $materi->materi_praktikum = $request->materi;
       $materi->semester         = $request->semester;
+
+      if ($request->gambar != null) {
+        $namagambar = 'materi-'.$idmateri.'.'.$request->gambar->getClientOriginalExtension();
+        $materi->gambar         = $request->semester;
+        $request->gambar->move(public_path('images/materi'), $namagambar);
+      }
 
       $materi->save();
 
@@ -158,6 +174,33 @@ class AdminController extends Controller
     $JadwalDosen = JadwalDosen::where('id_periode', $ids)->with('materi','dosen')->get();
 
     $pdf = PDF::loadView('pdf.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('absensi.pdf');
+  }
+
+  public function viewDetailLaporanPraktikum(){
+    $Dosen = Dosen::all();
+    $Periode = Periode::orderBy('id','desc')->get();
+    return view('admin.form_detaillaporan_praktikum', ['dosen' => $Dosen, 'periode' => $Periode]);
+  }
+
+  public function viewDetailLaporanPraktikumSelected(Request $request){
+    $Dosen = Dosen::find($request->idDosen);
+    $Periode = Periode::find($request->idPeriode);
+    $JadwalDosen = JadwalDosen::where('id_dosen', $request->idDosen)->where('id_periode', $request->idPeriode)->with('materi','dosen','JadwalPraktikum')->get();
+    // dd($JadwalDosen->first()->materi->materi_praktikum);
+    return view('admin.detaillaporan_praktikum', ['dosen' => $Dosen, 'periode' => $Periode, 'JadwalDosen' => $JadwalDosen, 'idDosen' => $request->idDosen, 'idPeriode' => $request->idPeriode]);
+  }
+
+  public function printDetailLaporanPraktikum($idDosen, $idPeriode){
+    $idsDosen = Crypt::decryptString($idDosen);
+    $idsPeriode = Crypt::decryptString($idPeriode);
+
+    $Dosen = Dosen::find($idsDosen);
+    $Periode = Periode::find($idsPeriode);
+    $JadwalDosen = JadwalDosen::where('id_dosen', $idsDosen)->where('id_periode', $idsPeriode)->with('materi','dosen','JadwalPraktikum')->get();
+
+    $pdf = PDF::loadView('pdf.detaillaporan_praktikum', ['dosen' => $Dosen, 'periode' => $Periode, 'jadwaldosen' => $JadwalDosen]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('absensi.pdf');
   }

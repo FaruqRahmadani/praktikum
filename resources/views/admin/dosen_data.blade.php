@@ -43,6 +43,8 @@
                       <td><center>{{$datas->user->username}}</center></td>
                       <td>
                         <center>
+                          <a href="/admin/datadosen/{{Crypt::encryptString($datas->id)}}/edit" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
+                            aria-hidden="true"></span>Edit</a>
                           <a href="#" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
                             aria-hidden="true"></span>Edit</a>
                           </center>
