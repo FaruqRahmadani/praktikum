@@ -6,6 +6,7 @@
       table{
         border-collapse: collapse;
         margin-top: 20px;
+        margin-bottom: 30px;
       }
       table, th, td{
         width: 100%;
@@ -104,6 +105,6 @@
         '12' => 'Desember'
       )
     @endphp
-    <p>Banjarbaru, {{$bulan[date('m')].' '.date('Y')}}</p>
+    <p style="margin-left: 72%;">Banjarbaru,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$bulan[date('m')].' '.date('Y')}}</p>
   </body>
 </html>
