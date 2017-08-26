@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f92f30282768606331bab339b8d924f1",
+    "content-hash": "f5a1a43451e82f904deac71d91b1d981",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -257,6 +257,59 @@
                 "parser"
             ],
             "time": "2017-05-14T14:47:48+00:00"
+        },
+        {
+            "name": "hedii/artisan-log-cleaner",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hedii/artisan-log-cleaner.git",
+                "reference": "fa3cb07eecb245f5ef8885ce13a79b7376ac7891"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hedii/artisan-log-cleaner/zipball/fa3cb07eecb245f5ef8885ce13a79b7376ac7891",
+                "reference": "fa3cb07eecb245f5ef8885ce13a79b7376ac7891",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^5.3",
+                "illuminate/filesystem": "^5.3",
+                "illuminate/support": "^5.3",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.5",
+                "orchestra/testbench": "^3.3",
+                "phpunit/phpunit": "^5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hedii\\ArtisanLogCleaner\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "hedii",
+                    "email": "hedi.chaibs@gmail.com",
+                    "homepage": "https://hedichaibi.com"
+                }
+            ],
+            "description": "An artisan command to clear laravel log files",
+            "keywords": [
+                "artisan",
+                "artisan-log-cleaner",
+                "hedii",
+                "laravel",
+                "log",
+                "php"
+            ],
+            "time": "2017-05-12T15:29:03+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",

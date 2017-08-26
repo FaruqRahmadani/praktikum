@@ -185,27 +185,27 @@
 																	Anda telah mengambil jadwal praktikum {{$data['3']->materi_praktikum}} oleh Dosen {{$data['4']->nama}} dengan rincian jadwal sebagai berikut
 												</p>
 												<table class="table1" style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">
-													<tr>
-														<th>No</th>
-														<th>Pertemuan</th>
-														<th>Nama Kelas</th>
-														<th>Ruangan</th>
-														<th>Tanggal</th>
-														<th>Jam Mulai</th>
-														<th>Jam Selesai</th>
+													<tr style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">
+														<th style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">No</th>
+														<th style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">Pertemuan</th>
+														<th style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">Nama Kelas</th>
+														<th style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">Ruangan</th>
+														<th style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">Tanggal</th>
+														<th style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">Jam Mulai</th>
+														<th style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">Jam Selesai</th>
 													</tr>
 													@php
 														$no = 0;
 													@endphp
 													@foreach ($data['2'] as $datas)
-														<tr>
-															<td>{{$no+=1}}</td>
-															<td>{{$datas->pertemuan}}</td>
-															<td>{{$datas->nama_kelas}}</td>
-															<td>{{$datas->ruangan}}</td>
-															<td>{{$datas->tanggal}}</td>
-															<td>{{$datas->waktu_mulai}}</td>
-															<td>{{$datas->waktu_selesai}}</td>
+														<tr style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">
+															<td style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">{{$no+=1}}</td>
+															<td style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">{{$datas->pertemuan}}</td>
+															<td style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">{{$datas->nama_kelas}}</td>
+															<td style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">{{$datas->ruangan}}</td>
+															<td style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">{{$datas->tanggal}}</td>
+															<td style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">{{$datas->waktu_mulai}}</td>
+															<td style="font-family: sans-serif; color: #232323; border-collapse: collapse; border: 1px solid #999;">{{$datas->waktu_selesai}}</td>
 														</tr>
 													@endforeach
 												</table>
