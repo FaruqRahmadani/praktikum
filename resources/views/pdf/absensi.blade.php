@@ -65,11 +65,8 @@
       <p>Kampus Banjarbaru, Jl. Salak No.44 Kel. Guntung Paikat, Banjarbaru</p>
     </div>
     <hr class="atas">
-    <h5>Daftar Absensi Mahasiswa Praktikum &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WEB Kelas Reg Pagi Bjb Pertemuan Pertama</h5>
+    <h5>Daftar Absensi Mahasiswa Praktikum {{$materi->materi_praktikum}} {{$JadwalPraktikum->nama_kelas}} Pertemuan {{$JadwalPraktikum->pertemuan}}</h5>
     <hr class="bawah">
-    <h5><center>Praktikum WEB<br>
-    Kelas Reg Pagi Bjb<br>
-    Pertemuan Pertama</center></h5>
     <table>
       <thead>
           <tr>
@@ -121,20 +118,16 @@
           <td style="border: 0px solid #FFFFFF;"></td>
         </tr>
         <tr>
-          <td style="border: 0px solid #FFFFFF;"></td>
-          <td style="border: 0px solid #FFFFFF;"></td>
-          <td style="text-align:center; border: 0px solid #FFFFFF;">{{$dosen->nama}} <hr style="width:75%"></td>
+          <td style="border: 0px solid black;"></td>
+          <td style="border: 0px solid black;"></td>
+          <td style="text-align:center; border-bottom: 1px solid black; border-top: 0px; border-right: 0px; border-left: 0px;">{{$dosen->nama}}</td>
         </tr>
         <tr>
-          <td style="border: 0px solid #FFFFFF;"></td>
-          <td style="border: 0px solid #FFFFFF;"></td>
-          <td style="text-align:center; border: 0px solid #FFFFFF;">NIDN. {{$dosen->NIDN}}</td>
+          <td style="border: 0px solid black;"></td>
+          <td style="border: 0px solid black;"></td>
+          <td style="text-align:center; border: 0px solid black;">NIDN. {{$dosen->NIDN}}</td>
         </tr>
       </tbody>
     </table>
-
-    {{-- <p style="margin-left: 72%;">Banjarbaru,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$bulan[date('m')].' '.date('Y')}}</p>
-    <p style="margin-left: 72%;">{{$dosen->nama}}</p>
-    <p style="margin-left: 72%;">{{$dosen->NIDN}}</p> --}}
   </body>
 </html>
