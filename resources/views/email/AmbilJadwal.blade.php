@@ -28,7 +28,7 @@
 		table.tableisi{
 			border-collapse: collapse;
 			border: 1px solid black;
-			width: 800px;
+			width: 900px;
 		}
 	</style>
 </head>
@@ -73,7 +73,7 @@
 							<tr>
 								<td width="100%" colspan="3" align="center" style="padding-bottom:10px; padding-top:25px;">
 									<div align='center' >
-											<h2 >Praktikum UNISKA</h2>
+											<h2>PRAKTIKUM UNISKA</h2>
 									</div>
 								</td>
 							</tr>
@@ -91,8 +91,8 @@
 												<tr>
 													<th style="width: 25px;">No</th>
 													<th style="width: 100px;">Pertemuan</th>
-													<th style="width: 100px;">Nama Kelas</th>
-													<th style="width: 100px;">Ruangan</th>
+													<th style="width: 150px;">Nama Kelas</th>
+													<th style="width: 150px;">Ruangan</th>
 													<th style="width: 100px;">Tanggal</th>
 													<th style="width: 100px;">Jam Mulai</th>
 													<th style="width: 100px;">Jam Selesai</th>
@@ -103,12 +103,12 @@
 												@foreach ($data['2'] as $datas)
 													<tr>
 														<td style="color: black; text-align: center; border: 1px solid black;">{{$no+=1}}</td>
-														<td style="color: black; padding-left: 5px; border: 1px solid black;">{{$datas->pertemuan}}</td>
-														<td style="color: black; padding-left: 5px; border: 1px solid black;">{{$datas->nama_kelas}}</td>
-														<td style="color: black; padding-left: 5px; border: 1px solid black;">{{$datas->ruangan}}</td>
-														<td style="color: black; padding-left: 5px; border: 1px solid black;">{{$datas->tanggal}}</td>
-														<td style="color: black; padding-left: 5px; border: 1px solid black;">{{$datas->waktu_mulai}}</td>
-														<td style="color: black; padding-left: 5px; border: 1px solid black;">{{$datas->waktu_selesai}}</td>
+														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->pertemuan}}</td>
+														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->nama_kelas}}</td>
+														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->ruangan}}</td>
+														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->tanggal}}</td>
+														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->waktu_mulai}}</td>
+														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->waktu_selesai}}</td>
 													</tr>
 												@endforeach
 											</table>
@@ -117,6 +117,7 @@
 								<td width="100">&nbsp;</td>
 							</tr>
 						</table>
+						<br>
 						<p>Mohon untuk berhadir 15 menit sebelum praktikum dimulai. Kami akan mengirimkan pesan kembali untuk mengingatkan.</p>
 						<br>
 						<p>Salam semangat !!</p>
@@ -125,7 +126,7 @@
 					<table cellpadding="0" cellspacing="0" border="0" align="center" width="600">
 						<tr>
 							<td width="100%" colspan="2" style="padding-top:65px;">
-								<hr style=" width: 800px; height:1px; border:none; color:#333; background-color:#ddd;" />
+								<hr style=" width: 900px; height:1px; border:none; color:#333; background-color:#ddd;" />
 							</td>
 						</tr>
 						<tr>
