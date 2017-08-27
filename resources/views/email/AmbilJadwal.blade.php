@@ -103,7 +103,7 @@
 												@foreach ($data['2'] as $datas)
 													<tr>
 														<td style="color: black; text-align: center; border: 1px solid black;">{{$no+=1}}</td>
-														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->pertemuan}}</td>
+														<td style="color: black; text-align: center; border: 1px solid black;">{{$datas->pertemuan}}</td>
 														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->nama_kelas}}</td>
 														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->ruangan}}</td>
 														<td style="color: black; padding-left: 8px; border: 1px solid black;">{{$datas->tanggal}}</td>
@@ -131,7 +131,7 @@
 						</tr>
 						<tr>
 							<td width="60%" height="70" valign="middle" style="padding-bottom:20px;">
-								<div align='left' >
+								<div align='left'>
 					      	<span style="font-size:13px;color:#181818;font-family:Helvetica, Arial, sans-serif;line-height:200%;">Email ini dikirimkan otomatis oleh sistem</span>
 									<br/>
 									<span style="font-size:11px;color:#555;font-family:Helvetica, Arial, sans-serif;line-height:200%;">UNIVERSITAS ISLAM KALIMANTAN MUHAMMAD ARSYAD AL BANJARI</span>
