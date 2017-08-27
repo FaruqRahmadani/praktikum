@@ -51,14 +51,6 @@ class DosenController extends Controller
   {
     $user = Auth::user();
     $data = Dosen::where('id_user', $user->id)->first();
-    if($request->foto != null)
-    {
-      $this->validate($request, [
-        'foto' => 'image',
-      ]);
-      $namagambar = $request->NIDN.'.'.$request->foto->getClientOriginalExtension();
-      $request->foto->move(public_path('images/dosen'), $namagambar);
-    }
     $this->validate($request, [
       'NIDN' => [
         'required',
@@ -86,6 +78,17 @@ class DosenController extends Controller
         $updateuser->password = $request->password;
       }
     }
+
+    if($request->foto != null)
+    {
+      $this->validate($request, [
+        'foto' => 'image',
+      ]);
+      $namagambar = $request->NIDN.'.'.$request->foto->getClientOriginalExtension();
+      $request->foto->move(public_path('images/dosen'), $namagambar);
+      $updatedosen->gambar = $namagambar;
+    }
+
 
     $updateuser->username = $request->username;
     $updatedosen->NIDN    = $request->NIDN;

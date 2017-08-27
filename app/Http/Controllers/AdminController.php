@@ -34,6 +34,55 @@ class AdminController extends Controller
     return view('admin.mahasiswa_data', ['data' => $data]);
   }
 
+  public function editDataMahasiswa($id)
+  {
+    $ids = Crypt::decryptString($id);
+    $Mahasiswa = Mahasiswa::find($ids);
+    $User = User::find($Mahasiswa->id_user);
+    // dd($User);
+    return view('admin.mahasiswa_edit', ['mahasiswa' => $Mahasiswa, 'user' => $User]);
+  }
+
+  public function storeeditDataMahasiswa(Request $request, $id)
+  {
+    $ids = Crypt::decryptString($id);
+
+    $Mahasiswa = Mahasiswa::find($ids);
+    $User = User::find($Mahasiswa->id_user);
+
+    $this->validate($request, [
+      'NPM' => [
+        'required',
+        Rule::unique('tabel_mahasiswa')->ignore($Mahasiswa->NPM, 'NPM'),
+      ],
+      'username' => [
+        'required',
+        Rule::unique('users')->ignore($User->username, 'username'),
+      ],
+    ]);
+
+    if($request->foto != null)
+    {
+      $this->validate($request, [
+        'foto' => 'image',
+      ]);
+      $namagambar = $request->NIDN.'.'.$request->foto->getClientOriginalExtension();
+      $request->foto->move(public_path('images/dosen'), $namagambar);
+      $Mahasiswa->foto = $namagambar;
+    }
+
+    $User->username = $request->username;
+    $Mahasiswa->NPM    = $request->NPM;
+    $Mahasiswa->nama    = $request->nama;
+    $Mahasiswa->email   = $request->email;
+    $Mahasiswa->no_hp   = $request->no_hp;
+
+    $User->save();
+    $Mahasiswa->save();
+
+    return redirect('/admin/datamahasiswa')->with('status', 'Data Mahasiswa Telah di Update');
+  }
+
   public function datadosen()
   {
     $data = Dosen::with('user')->get();
@@ -47,6 +96,58 @@ class AdminController extends Controller
     $User = User::find($Dosen->id_user);
     // dd($User);
     return view('admin.dosen_edit', ['dosen' => $Dosen, 'user' => $User]);
+  }
+
+  public function storeeditDataDosen(Request $request, $id)
+  {
+    $ids = Crypt::decryptString($id);
+
+    $Dosen = Dosen::find($ids);
+    $User = User::find($Dosen->id_user);
+
+    $this->validate($request, [
+      'NIDN' => [
+        'required',
+        Rule::unique('tabel_dosen')->ignore($Dosen->NIDN, 'NIDN'),
+      ],
+      'username' => [
+        'required',
+        Rule::unique('users')->ignore($User->username, 'username'),
+      ],
+    ]);
+
+    if($request->foto != null)
+    {
+      $this->validate($request, [
+        'foto' => 'image',
+      ]);
+      $namagambar = $request->NIDN.'.'.$request->foto->getClientOriginalExtension();
+      $request->foto->move(public_path('images/dosen'), $namagambar);
+      $Dosen->foto = $namagambar;
+    }
+
+    if($request->password != null)
+    {
+      $this->validate($request, [
+        'password_lama' => 'required|string|min:6',
+        'password'      => 'required|string|min:6|confirmed',
+      ]);
+
+      if (Hash::check($request->password, $user->password)) {
+        $User->password = $request->password;
+      }
+    }
+
+    $User->username = $request->username;
+    $Dosen->NIDN    = $request->NIDN;
+    $Dosen->nama    = $request->nama;
+    $Dosen->email   = $request->email;
+    $Dosen->no_hp   = $request->no_hp;
+
+    $User->save();
+    $Dosen->save();
+
+    return redirect('/admin/datadosen')->with('status', 'Data Dosen Telah di Update');
   }
 
   public function datamateri()

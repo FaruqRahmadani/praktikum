@@ -51,7 +51,6 @@
               <li><a href="/admin/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
               <li><a href="/admin/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
 		          <li><a href="/admin/datamateri"><span class="fa fa-users"></span>Data Materi</a></li>
-              <li><a href="#"><span class="fa fa-users"></span>Data Berita</a></li>
 		          <li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li>
 		        </ul>
           </li>

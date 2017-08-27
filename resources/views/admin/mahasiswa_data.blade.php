@@ -11,6 +11,11 @@
   <div class="page-title">
       <h2>Data Mahasiswa</h2>
   </div>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <!-- END PAGE TITLE -->
   <!-- PAGE CONTENT WRAPPER -->
   <div class="page-content-wrap">
@@ -50,8 +55,8 @@
                     <td><center>{{$datas->user->username}}</center></td>
                     <td>
                       <center>
-                        <a href="mahasiswa_detail.php" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-info"
-                          aria-hidden="true"></span>Detail</a>
+                        <a href="/admin/datamahasiswa/{{Crypt::encryptString($datas->id)}}/edit" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
+                          aria-hidden="true"></span>Edit</a>
                         </center>
                       </td>
                     </tr>

@@ -22,7 +22,7 @@
       {!! Form::open(['url'=>url()->current(),'files'=>true,'class'=>'form-horizontal', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
       <div class="col-md-3">
         <div class="text-center">
-                        <img src="/images/dosen/{{$dosen->foto}}" alt="" class="img-rounded img-responsive" />
+                        <img src="/images/mahasiswa/{{$mahasiswa->foto}}" alt="" class="img-rounded img-responsive" />
           <h6>Ganti foto</h6>
 
           {{-- <input type="file" class="form-control" name="gambar"> --}}
@@ -34,27 +34,27 @@
       <div class="col-md-9 personal-info">
         <h3>Edit Data Dosen</h3>
           <div class="form-group">
-            <label class="col-lg-3 control-label">NIDN</label>
+            <label class="col-lg-3 control-label">NPM</label>
             <div class="col-lg-8">
-              <input class="form-control" name="NIDN" type="text" value="{{$dosen->NIDN}}" required pattern="([1-9])+(?:-?\d){4,}">
+              <input class="form-control" name="NPM" type="text" value="{{$mahasiswa->NPM}}" required pattern="([1-9])+(?:-?\d){4,}">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Nama</label>
             <div class="col-lg-8">
-              <input class="form-control" name="nama" type="text" value="{{$dosen->nama}}" required pattern="{2,}">
+              <input class="form-control" name="nama" type="text" value="{{$mahasiswa->nama}}" required pattern="{2,}">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">No Hp</label>
             <div class="col-lg-8">
-              <input class="form-control" name="no_hp" type="text" value="{{$dosen->no_hp}}" required pattern="([0-9])+(?:-?\d){10,}">
+              <input class="form-control" name="no_hp" type="text" value="{{$mahasiswa->no_hp}}" required pattern="([0-9])+(?:-?\d){10,}">
             </div>
           </div>
 		  <div class="form-group">
             <label class="col-lg-3 control-label">Email</label>
             <div class="col-lg-8">
-              <input class="form-control" name="email" type="email" value="{{$dosen->email}}" required>
+              <input class="form-control" name="email" type="email" value="{{$mahasiswa->email}}" required>
             </div>
           </div>
           <div class="form-group">

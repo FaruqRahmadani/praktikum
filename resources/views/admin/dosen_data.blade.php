@@ -11,6 +11,11 @@
   <div class="page-title">
       <h2>Data Dosen </h2>
   </div>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <!-- END PAGE TITLE -->
     <!-- PAGE CONTENT WRAPPER -->
     <div class="page-content-wrap">
@@ -44,8 +49,6 @@
                       <td>
                         <center>
                           <a href="/admin/datadosen/{{Crypt::encryptString($datas->id)}}/edit" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
-                            aria-hidden="true"></span>Edit</a>
-                          <a href="#" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
                             aria-hidden="true"></span>Edit</a>
                           </center>
                         </td>
