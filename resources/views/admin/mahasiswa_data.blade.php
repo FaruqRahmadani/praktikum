@@ -2,18 +2,18 @@
 @section('content')
   <!-- START BREADCRUMB -->
   <ul class="breadcrumb">
-      <li><a href="#">Beranda</a></li>
-      <li><a href="#">Master Data</a></li>
-      <li class="active">Data Mahasiwa</li>
+    <li><a href="#">Beranda</a></li>
+    <li><a href="#">Master Data</a></li>
+    <li class="active">Data Mahasiwa</li>
   </ul>
   <!-- END BREADCRUMB -->
   <!-- PAGE TITLE -->
   <div class="page-title">
-      <h2>Data Mahasiswa</h2>
+    <h2>Data Mahasiswa</h2>
   </div>
   @if (session('status'))
     <div class="alert alert-success">
-        {{ session('status') }}
+      {{ session('status') }}
     </div>
   @endif
   <!-- END PAGE TITLE -->

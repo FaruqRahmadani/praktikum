@@ -43,8 +43,9 @@
                                         <thead>
                                             <tr>
                                                 <th><center>No</center></th>
-                                                <th><center>Nama Dosen</center></th>
+                                                <th><center>Kode Materi Praktikum<center></th>
                                                 <th><center>Materi Praktikum<center></th>
+                                                <th><center>Nama Dosen</center></th>
                                                 <th><center>Jumlah Kelas<center></th>
                                                 <th><center>Jumlah Peserta<center></th>
                                             </tr>
@@ -65,8 +66,9 @@
                                             @endphp
                                             <tr>
                                               <td><center>{{$no+=1}}</center></td>
-                                              <td><center>{{$datas['dosen']['nama']}}</center></td>
+                                              <td><center>{{$datas['materi']['kode_mk']}}</center>
                                               <td><center>{{$datas['materi']['materi_praktikum']}}</center>
+                                              <td><center>{{$datas['dosen']['nama']}}</center></td>
                                               <td><center>{{$JumlahKelas > 0 ? $JumlahKelas:'0'}}</center>
                                               <td><center>{{$JumlahPeserta > 0 ? $JumlahPeserta:'0'}} Orang</center>
                                             </tr>

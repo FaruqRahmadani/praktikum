@@ -1,65 +1,62 @@
 @extends('admin.layouts.master')
 @section('content')
-                <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                    <li class="active">Home</li>
-			<li class="active">Master Data</li>
-                    <li class="active">Data Gallery</li>
-                </ul>
-                <!-- END BREADCRUMB -->
+  <!-- START BREADCRUMB -->
+  <ul class="breadcrumb">
+    <li class="active">Home</li>
+    <li class="active">Master Data</li>
+    <li class="active">Data Gallery</li>
+  </ul>
+  <!-- END BREADCRUMB -->
 
-                <!-- START CONTENT FRAME -->
-                <div class="content-frame">
+  <!-- START CONTENT FRAME -->
+  <div class="content-frame">
+    <!-- START CONTENT FRAME TOP -->
+    <div class="content-frame-top">
+      <div class="page-title">
+        <h2><span class="fa fa-image"></span> Gallery</h2>
+      </div>
+    </div>
 
-                    <!-- START CONTENT FRAME TOP -->
-                    <div class="content-frame-top">
-                        <div class="page-title">
-                            <h2><span class="fa fa-image"></span> Gallery</h2>
-                        </div>
+    <!-- START CONTENT FRAME RIGHT -->
+    <div class="content-frame-right">
+			<form enctype="multipart/form-data" class="form-horizontal">
 
-                    </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <label>Upload Gallery</label>
+            <input type="file" multiple class="file" data-preview-file-type="any"/>
+          </div>
+        </div>
+      </form>
+   </div>
+    <!-- END CONTENT FRAME RIGHT -->
 
-                    <!-- START CONTENT FRAME RIGHT -->
-                    <div class="content-frame-right">
-						<form enctype="multipart/form-data" class="form-horizontal">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <label>Upload Gallery</label>
-                                                <input type="file" multiple class="file" data-preview-file-type="any"/>
-                                            </div>
-                        </form>
-                     </div>
-                    </div>
-                    <!-- END CONTENT FRAME RIGHT -->
+    <!-- START CONTENT FRAME BODY -->
+    <div class="content-frame-body content-frame-body-left">
+      <div class="pull-left push-up-10">
+        <button class="btn btn-primary btn-rounded" id="gallery-toggle-items">Toggle All</button>
+      </div>
+      <div class="pull-right push-up-10">
+        <div class="btn-group">
+          <button class="btn btn-primary btn-rounded"><span class="fa fa-pencil"></span> Edit</button>
+          <button class="btn btn-primary btn-rounded"><span class="fa fa-trash-o"></span> Delete</button>
+        </div>
+      </div>
 
-                    <!-- START CONTENT FRAME BODY -->
-                    <div class="content-frame-body content-frame-body-left">
-
-                        <div class="pull-left push-up-10">
-                            <button class="btn btn-primary btn-rounded" id="gallery-toggle-items">Toggle All</button>
-                        </div>
-                        <div class="pull-right push-up-10">
-                            <div class="btn-group">
-                                <button class="btn btn-primary btn-rounded"><span class="fa fa-pencil"></span> Edit</button>
-                                <button class="btn btn-primary btn-rounded"><span class="fa fa-trash-o"></span> Delete</button>
-                            </div>
-                        </div>
-
-                        <div class="gallery" id="links">
-
-                            <a class="gallery-item" href="assets/images/gallery/nature-1.jpg" title="Nature Image 1" data-gallery>
-                                <div class="image">
-                                    <img src="assets/images/gallery/nature-1.jpg" alt="Nature Image 1"/>
-                                    <ul class="gallery-item-controls">
-                                        <li><label class="check"><input type="checkbox" class="icheckbox"/></label></li>
-                                        <li><span class="gallery-item-remove"><i class="fa fa-times"></i></span></li>
-                                    </ul>
-                                </div>
-                                <div class="meta">
-                                    <strong>Nature image 1</strong>
-                                    <span>Description</span>
-                                </div>
-                            </a>
+      <div class="gallery" id="links">
+        <a class="gallery-item" href="assets/images/gallery/nature-1.jpg" title="Nature Image 1" data-gallery>
+          <div class="image">
+            <img src="assets/images/gallery/nature-1.jpg" alt="Nature Image 1"/>
+            <ul class="gallery-item-controls">
+              <li><label class="check"><input type="checkbox" class="icheckbox"/></label></li>
+              <li><span class="gallery-item-remove"><i class="fa fa-times"></i></span></li>
+            </ul>
+          </div>
+          <div class="meta">
+            <strong>Nature image 1</strong>
+            <span>Description</span>
+          </div>
+        </a>
 
                             <a class="gallery-item" href="assets/images/gallery/music-1.jpg" title="Music picture 1" data-gallery>
                                 <div class="image">

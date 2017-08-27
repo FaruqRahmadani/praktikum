@@ -1,30 +1,27 @@
 @extends('admin.layouts.master')
 @section('content')
-                <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                    <li class="active">Home</li>                    <li><a href="#">Master Data</a></li>
-                    <li class="active">Data Dosen</li>
-					<li class="active">Detail Data Dosen</li>
-					<li class="active">Edit Data Dosen</li>
-                </ul>
-                <!-- END BREADCRUMB -->
-
-                <!-- PAGE TITLE -->
-                <div class="page-title">
-                    <h2>Edit Data Dosen</h2>
-                </div>
-                <!-- END PAGE TITLE -->
-
-
-<div class="container">
-	<div class="row">
+  <!-- START BREADCRUMB -->
+  <ul class="breadcrumb">
+    <li class="active">Home</li>
+    <li><a href="#">Master Data</a></li>
+    <li class="active">Data Dosen</li>
+		<li class="active">Detail Data Dosen</li>
+		<li class="active">Edit Data Dosen</li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <!-- PAGE TITLE -->
+  <div class="page-title">
+      <h2>Edit Data Dosen</h2>
+  </div>
+  <!-- END PAGE TITLE -->
+  <div class="container">
+	  <div class="row">
       <!-- left column -->
       {!! Form::open(['url'=>url()->current(),'files'=>true,'class'=>'form-horizontal', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
       <div class="col-md-3">
         <div class="text-center">
-                        <img src="/images/dosen/{{$dosen->foto}}" alt="" class="img-rounded img-responsive" />
+          <img src="/images/dosen/{{$dosen->foto}}" alt="" class="img-rounded img-responsive" />
           <h6>Ganti foto</h6>
-
           {{-- <input type="file" class="form-control" name="gambar"> --}}
           {!! Form::file('foto', ['class' => 'form-control']) !!}
         </div>
@@ -51,7 +48,7 @@
               <input class="form-control" name="no_hp" type="text" value="{{$dosen->no_hp}}" required pattern="([0-9])+(?:-?\d){10,}">
             </div>
           </div>
-		  <div class="form-group">
+		      <div class="form-group">
             <label class="col-lg-3 control-label">Email</label>
             <div class="col-lg-8">
               <input class="form-control" name="email" type="email" value="{{$dosen->email}}" required>
@@ -81,7 +78,6 @@
               <input class="form-control" type="text" placeholder="Isi Jika Ingin Ganti Password">
             </div>
           </div>
-
 
           <div class="form-group">
             <label class="col-md-3 control-label"></label>

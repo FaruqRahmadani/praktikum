@@ -9,11 +9,11 @@
   <!-- END BREADCRUMB -->
   <!-- PAGE TITLE -->
   <div class="page-title">
-      <h2>Data Materi </h2>
+    <h2>Data Materi </h2>
   </div>
   @if (session('status'))
     <div class="alert alert-success">
-        {{ session('status') }}
+      {{ session('status') }}
     </div>
   @endif
   <!-- END PAGE TITLE -->
@@ -64,11 +64,10 @@
       <!-- END SIMPLE DATATABLE -->
     </div>
   </div>
-                </div>
-                <!-- PAGE CONTENT WRAPPER -->
-            </div>
-            <!-- END PAGE CONTENT -->
-        </div>
-        <!-- END PAGE CONTAINER -->
-
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+</div>
+<!-- END PAGE CONTENT -->
+</div>
+<!-- END PAGE CONTAINER -->
 @endsection
