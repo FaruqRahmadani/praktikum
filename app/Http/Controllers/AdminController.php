@@ -28,6 +28,52 @@ class AdminController extends Controller
       return view('admin.dashboard');
   }
 
+  public function DataPeriode()
+  {
+    $Periode = Periode::all();
+    return view('admin.periode', ['periode' => $Periode]);
+  }
+
+  public function tambahDataPeriode()
+  {
+    return view('admin.tambah_periode');
+  }
+
+  public function storetambahDataPeriode(Request $request)
+  {
+    dd($request);
+
+    $Periode = new Periode;
+
+    $Periode->periode = $request->periode;
+    $Periode->tanggal_tutup = $request->tanggal_tutup;
+    $Periode->status = $request->status;
+
+    $Periode->save();
+
+    return redirect('/admin/periode')->with('status', 'Data Periode Telah di Tambahkan');
+  }
+
+  public function editDataPeriode($id)
+  {
+    $ids = Crypt::decryptString($id);
+    $Periode = Periode::find($ids);
+
+    return view('admin.edit_periode', ['periode' => $Periode]);
+  }
+
+  public function storeeditDataPeriode(Request $request, $id)
+  {
+    $ids = Crypt::decryptString($id);
+    $Periode = Periode::find($ids);
+
+    $Periode->tanggal_tutup = $request->tanggal_tutup;
+    $Periode->status = $request->status;
+    $Periode->save();
+
+    return redirect('/admin/periode')->with('status', 'Data Periode Telah di Update');
+  }
+
   public function datamahasiswa()
   {
     $data = Mahasiswa::with('user')->get();
@@ -148,6 +194,11 @@ class AdminController extends Controller
     $Dosen->save();
 
     return redirect('/admin/datadosen')->with('status', 'Data Dosen Telah di Update');
+  }
+
+  public function datagaleri()
+  {
+    return view('admin.galeri');
   }
 
   public function datamateri()

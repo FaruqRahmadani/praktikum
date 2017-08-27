@@ -48,8 +48,10 @@
           <li class="xn-openable">
             <a href="#"><span class="fa fa-table"></span> <span class="xn-text">Master Data</span></a>
             <ul>
+              <li><a href="/admin/periode"><span class="fa fa-calendar-o"></span>Periode</a></li>
               <li><a href="/admin/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
               <li><a href="/admin/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
+              <li><a href="/admin/galeri"><span class="fa fa-users"></span>Data Galeri</a></li>
 		          <li><a href="/admin/datamateri"><span class="fa fa-users"></span>Data Materi</a></li>
 		          <li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li>
 		        </ul>
@@ -179,6 +181,39 @@
 
 <script type="text/javascript" src="/public-admin/js/plugins/datatables/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/public-admin/js/ckeditor/ckeditor.js"></script>
+
+
+<script type="text/javascript" src="/public-admin/js/plugins/dropzone/dropzone.min.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/filetree/jqueryFileTree.js"></script>
+
+{{-- JS DAPAT DARI FILE PERIODE  --}}
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-timepicker.min.js"></script> --
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-colorpicker.js"></script> --
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-select.js"></script> --
+<script type="text/javascript" src="/public-admin/js/plugins/tagsinput/jquery.tagsinput.min.js"></script> --
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-file-input.js"></script> --
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-select.js"></script> --
+<script type="text/javascript" src="/public-admin/js/plugins/tagsinput/jquery.tagsinput.min.js"></script> --
+<script type='text/javascript' src='/public-admin/js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script> --
+<script type='text/javascript' src='/public-admin/js/plugins/validationengine/jquery.validationEngine.js'></script> --
+<script type='text/javascript' src='/public-admin/js/plugins/jquery-validation/jquery.validate.js'></script> --
+<script type='text/javascript' src='/public-admin/js/plugins/maskedinput/jquery.maskedinput.min.js'></script> --
+
+<script>
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement;
+        var link = target.src ? target.parentNode : target;
+        var options = {index: link, event: event,onclosed: function(){
+                setTimeout(function(){
+                    $("body").css("overflow","");
+                },200);
+            }};
+        var links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+</script>
 <!-- END TEMPLATE -->
 <!-- END SCRIPTS -->
 </body>

@@ -18,7 +18,7 @@ class CreateTabelGallery extends Migration
           $table->integer('id_admin');
           $table->string('judul', 100);
           $table->string('gambar', 255);
-          $table->string('slide', 255);
+          $table->string('slide', 255)->default('0');
           $table->timestamps();
       });
     }

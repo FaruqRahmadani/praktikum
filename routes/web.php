@@ -72,12 +72,18 @@ Route::group(['middleware' => 'mahasiswa'], function(){
 
 Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin', 'AdminController@dashboard');
+  Route::get('/admin/periode', 'AdminController@DataPeriode');
+  Route::get('/admin/periode/tambah', 'AdminController@tambahDataPeriode');
+  Route::POST('/admin/periode/tambah', 'AdminController@storetambahDataPeriode');
+  Route::get('/admin/periode/{id}/edit', 'AdminController@editDataPeriode');
+  Route::POST('/admin/periode/{id}/edit', 'AdminController@storeeditDataPeriode');
   Route::get('/admin/datamahasiswa', 'AdminController@datamahasiswa');
   Route::get('/admin/datamahasiswa/{id}/edit', 'AdminController@editDataMahasiswa');
   Route::POST('/admin/datamahasiswa/{id}/edit', 'AdminController@storeeditDataMahasiswa');
   Route::get('/admin/datadosen', 'AdminController@datadosen');
   Route::get('/admin/datadosen/{id}/edit', 'AdminController@editDataDosen');
   Route::POST('/admin/datadosen/{id}/edit', 'AdminController@storeeditDataDosen');
+  Route::get('/admin/galeri', 'AdminController@datagaleri');
   Route::get('/admin/datamateri', 'AdminController@datamateri');
   Route::get('/admin/tambahmateri', 'AdminController@formtambahmateri');
   Route::POST('/admin/tambahmateri', 'AdminController@storetambahmateri');
