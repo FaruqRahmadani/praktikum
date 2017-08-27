@@ -21,7 +21,7 @@
                   {!! Form::open(['url'=>url()->current(),'files'=>true,'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                   <div class="col-md-3">
                     <div class="text-center">
-                         <img src="/images/dosen/{{$data->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
+                         <img src="/images/mahasiswa/{{$data->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
                       <h6>Ganti foto</h6>
                       {{-- <input type="file" name="foto" class="form-control"> --}}
                       {!! Form::file('foto', ['class' => 'form-control', 'accept' => 'image/*']) !!}
