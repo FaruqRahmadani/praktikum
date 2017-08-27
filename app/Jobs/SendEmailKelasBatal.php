@@ -64,7 +64,7 @@ class SendEmailKelasBatal implements ShouldQueue
           // dengan nama penerima "Haruna Sairenji"
           // $mail->cc('faruq.rahmadani@gmail.com', 'Faruq Rahmadani');
 
-          $mail->subject('Praktikum FTI UNISKA');
+          $mail->subject('Praktikum FTI UNISKA : Perubahan Status Kelas');
         });
     }
 }

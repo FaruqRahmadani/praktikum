@@ -1,319 +1,427 @@
-@extends('depan.master')
-@section('content')
-  <html lang="en">
-    <body>
-      <div class="container">
-        <div class="row">
-          <!-- Blog Entries Column -->
-          <div class="col-md-8">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Program Praktikum FTI UNISKA MAB </title>
+<!--
 
-            <h1 class="page-header">
-              Beranda
-              <small>Info dan Berita</small>
-            </h1>
+Template 2089 Meteor
 
-            <!-- First Blog Post -->
-            <h2>
-              <a href="#">Judul Berita</a>
-            </h2>
-            <p class="lead">
-              by <a href="index.php">UNISKA</a>
-            </p>
-            <p>
-              <span class="glyphicon glyphicon-time"></span> Posted on August 01, 2017 at 10:00 PM
-            </p>
-            <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-            <hr>
-            <!-- Second Blog Post -->
-            <h2>
-              <a href="#">Judul Berita</a>
-            </h2>
-            <p class="lead">
-              by <a href="index.php">UNISKA</a>
-            </p>
-            <p>
-              <span class="glyphicon glyphicon-time"></span> Posted on August 02, 2017 at 10:45 PM
-            </p>
-            <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
-            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+http://www.tooplate.com/view/2089-meteor
 
-            <hr>
-            <!-- Third Blog Post -->
-            <h2>
-              <a href="#">Judul Berita</a>
-            </h2>
-            <p class="lead">
-              by <a href="index.php">UNISKA</a>
-            </p>
-            <p>
-              <span class="glyphicon glyphicon-time"></span> Posted on August 03, 2017 at 10:45 PM
-            </p>
-            <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
-            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+-->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-            <hr>
-            <!-- Pager -->
-            <ul class="pager">
-                <li class="previous">
-                    <a href="#">&larr; Older</a>
-                </li>
-                <li class="next">
-                    <a href="#">Newer &rarr;</a>
-                </li>
-            </ul>
+        <link rel="stylesheet" href="/public-depan/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/public-depan/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/public-depan/css/fontAwesome.css">
+        <link rel="stylesheet" href="/public-depan/css/hero-slider.css">
+        <link rel="stylesheet" href="/public-depan/css/tooplate-style.css">
 
-          </div>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
-            <!-- Blog Sidebar Widgets Column -->
-          <div class="col-md-4">
-                <!-- Blog Search Well -->
-            <div class="well">
-              <h4>Search</h4>
-              <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-search"></span>
-                  </button>
-                </span>
-              </div>
-              <!-- /.input-group -->
-            </div>
+        <script src="/public-depan/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
 
-                <!-- Blog Categories Well -->
-            <div class="well">
-      				<p>
-                {{-- <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#daftar">REGISTER DOSEN</a> --}}
-                <a href="/registerdosen" class="btn btn-default btn-lg">REGISTER DOSEN</a>
-                {{-- <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#register">REGISTER MAHASISWA</a> --}}
-      				  <a href="/registermahasiswa" class="btn btn-default btn-lg">REGISTER MAHASISWA</a>
-                {{-- <a class="btn btn-default btn-lg" role="button" data-toggle="modal" data-target="#masuk">LOGIN</a> --}}
-      				  <a href="/login" class="btn btn-default btn-lg">LOGIN</a>
-              </p>
-
-              <div id="daftar" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                  <!-- konten modal-->
-                  <div class="modal-content">
-				                    <!-- heading modal -->
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                      <h4 class="modal-title" id="myModalLabel">Register Dosen</h4>
-                    </div>
-                    @if(count($errors) > 0)
-                      <ul>
-                        @foreach ($errors->all() as $error)
-                          <li> {{$error}} </li>
-                        @endforeach
-                      </ul>
-                    @endif
-                    <div class="modal-body">
-                      <form action="{{ route('register') }}" name="modal_popup" enctype="multipart/form-data" method="POST">
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                            <label for="">NIDN</label>
-                            <input type="text" name="nomorinduk" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-              		          <label for="">Nama</label>
-                            <input type="text" name="nama" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                            <label for="">No Hp</label>
-                            <input type="text" name="no_hp" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                            <label for="">E-Mail</label>
-                            <input type="text" name="email" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                            <label for="">Foto</label>
-                            <input type="file" name="foto" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <hr>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                            <label for="username">Username</label>
-                            <input type="text" name="username"  class="form-control" placeholder="Username" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                            <label for="password">Password</label>
-                            <input type="password" name="password"  class="form-control" placeholder="Password" required/>
-                        </div>
-
-            				    <div class="form-group" style="margin-bottom: 0px;">
-                            <label for="">Re-Password</label>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="Re-Password" required/>
-                        </div>
-
-                        <input type="hidden" name="tipe" class="form-control" placeholder="Re-Password" value="1"/>
-
-                        {{ csrf_field() }}
-
-                        <div class="modal-footer">
-                            <button class="btn btn-success" type="submit">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>    SIMPAN
-                            </button>
-
-                            <button type="reset" class="btn btn-danger"  data-dismiss="modal" aria-hidden="true">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  BATAL
-                            </button>
-                        </div>
-
-                      </form>
-                    </div>
-                  </div>
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand scroll-top">
+                        <div class="logo"></div>
+                    </a>
                 </div>
-              </div>
-              <div id="register" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                	<!-- konten modal-->
-                	<div class="modal-content">
-                    <!-- heading modal -->
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                      <h4 class="modal-title" id="myModalLabel">Register Mahasiswa</h4>
-                    </div>
-
-                    <div class="modal-body">
-                      <form action="{{ route('register') }}" name="modal_popup" enctype="multipart/form-data" method="POST">
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                            <label for="">NPM</label>
-                            <input type="text" name="nomorinduk" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-		                      <label for="">Nama</label>
-                          <input type="text" name="nama" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                          <label for="">No Hp</label>
-                          <input type="text" name="no_hp" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                          <label for="">E-Mail</label>
-                          <input type="text" name="email" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                          <label for="">Foto</label>
-                          <input type="file" name="foto" class="form-control" placeholder="Nama" required/>
-                        </div>
-
-                        <hr>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                          <label for="username">Username</label>
-                          <input type="text" name="username"  class="form-control" placeholder="Username" required/>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 0px;">
-                          <label for="password">Password</label>
-                          <input type="password" name="password"  class="form-control" placeholder="Password" required/>
-                        </div>
-
-				                    <div class="form-group" style="margin-bottom: 0px;">
-                              <label for="">Re-Password</label>
-                              <input type="password" name="password_confirmation" class="form-control" placeholder="Re-Password" required/>
-                            </div>
-
-                            <input type="hidden" name="tipe" class="form-control" placeholder="Re-Password" value="2"/>
-                            {{ csrf_field() }}
-                            <div class="modal-footer">
-                              <button class="btn btn-success" type="submit">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>    SIMPAN
-                              </button>
-
-                              <button type="reset" class="btn btn-danger"  data-dismiss="modal" aria-hidden="true">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  BATAL
-                              </button>
-                            </div>
-
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-	                <div id="masuk" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                    <!-- konten modal-->
-                      <div class="modal-content">
-                        <!-- heading modal -->
-			                  <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			                    <h4 class="modal-title" style="font-size:40px" type>MASUK</h4>
-		                    </div>
-		                    <!-- body modal -->
-		                    <div class="modal-body">
-                          <form action="{{ route('login') }}" name="modal_popup" enctype="multipart/form-data" method="POST">
-                            <div class="form-group">
-                              <label for="username">Username</label>
-                              <input type="text" name="username"  class="form-control" placeholder="Username" required/>
-                            </div>
-
-                            <div class="form-group">
-                              <label for="password">Password</label>
-                              <input type="password" name="password"  class="form-control" placeholder="Password" required/>
-                            </div>
-                            {{ csrf_field() }}
-                    				<!-- footer modal -->
-                    				<div class="modal-footer">
-                    					<center><button class="btn btn-success btn-lg" type="submit" name="submit">MASUK</button></center>
-                    				</div>
-		                      </div>
-                        </div>
-                      </div>
-                    </div>
-		              </div>
-                <!-- Side Widget Well -->
-                  <div class="well">
-                      <h4>Side Widget Well</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                  </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="scroll-top">Home</a></li>
+                        <li><a href="#" class="scroll-link" data-id="blog">Berita</a></li>
+                        <li><a href="#" class="scroll-link" data-id="about">Materi</a></li>
+                        <li><a href="#" class="scroll-link" data-id="portfolio">Galery</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Daftar <b class="caret"></b></a>
+                              <ul class="dropdown-menu message-dropdown">
+                              <li>
+                      			<a href="/registermahasiswa"> Mahasiswa</a>
+                              </li>
+                              <li>
+                      			<a href="/registerdosen"> Dosen</a>
+                              </li>
+                              </ul>
+                          </li>
+                        </li>
+                        <li><a href="/login">Log in</a></li>
+                    </ul>
                 </div>
-              </div>
-        <!-- /.row -->
-        <hr>
-        <!-- Footer -->
-        <footer>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.header-->
+
+
+    <section class="cd-hero">
+        <ul class="cd-hero-slider autoplay">
+        <!--
+            <ul class="cd-hero-slider autoplay"> for slider auto play
+            <ul class="cd-hero-slider"> for disabled auto play
+        -->
+            <li class="selected first-slide">
+                <div class="cd-full-width">
+                    <div class="tm-slide-content-div slide-caption">
+                        <span>Program Praktikum FTI</span>
+                        <h2>UNISKA MUHAMMAD ARSYAD AL-BANJARI</h2>
+                        <div class="primary-button">
+                            <a href="#" class="scroll-link" data-id="blog">Read More</a>
+                        </div>
+                    </div>
+                </div> <!-- .cd-full-width -->
+            </li>
+
+            <li class="second-slide">
+                <div class="cd-full-width">
+                    <div class="tm-slide-content-div slide-caption">
+                        <span>Program Praktikum FTI</span>
+                        <h2>UNISKA MUHAMMAD ARSYAD AL-BANJARI</h2>
+                        <div class="primary-button">
+                            <a href="#" class="scroll-link" data-id="blog">Read More</a>
+                        </div>
+                    </div>
+                </div> <!-- .cd-full-width -->
+            </li>
+
+            <li class="third-slide">
+                <div class="cd-full-width">
+                    <div class="tm-slide-content-div slide-caption">
+                        <span>Program Praktikum FTI</span>
+                        <h2>UNISKA MUHAMMAD ARSYAD AL-BANJARI</h2>
+                        <div class="primary-button">
+                            <a href="#" class="scroll-link" data-id="blog">Read More</a>
+                        </div>
+                    </div>
+                </div> <!-- .cd-full-width -->
+            </li>
+        </ul> <!-- .cd-hero-slider -->
+
+        <div class="cd-slider-nav">
+            <nav>
+                <span class="cd-marker item-1"></span>
+
+                <ul>
+                    <li class="selected"><a href="#0"></a></li>
+                    <li><a href="#0"></a></li>
+                    <li><a href="#0"></a></li>
+                </ul>
+            </nav>
+        </div> <!-- .cd-slider-nav -->
+    </section> <!-- .cd-hero -->
+
+
+	<div id="blog" class="page-section">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; UNISKA 2017</p>
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>Berita</h4>
+                        <div class="line-dec"></div>
+                    </div>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-        </footer>
+            <div class="row">
+              @php
+                $no = 0;
+                $bulan = array(
+                  '01' => 'Januari',
+                  '02' => 'Februari',
+                  '03' => 'Maret',
+                  '04' => 'April',
+                  '05' => 'Mei',
+                  '06' => 'Juni',
+                  '07' => 'Juli',
+                  '08' => 'Agustus',
+                  '09' => 'September',
+                  '10' => 'Oktober',
+                  '11' => 'November',
+                  '12' => 'Desember'
+                );
+              @endphp
+              @foreach ($berita as $dataBerita)
+                <div class="col-md-6">
+                  <div class="blog-item b{{$no+=1}}">
+                    <div class="thumb">
+                      <img src="/images/berita/{{$dataBerita->gambar}}" alt="">
+                      <div class="text-content">
+                        <h4>{{$dataBerita->judul}}</h4>
+                        <span>Posted: <em>{{$dataBerita->admin->nama}}</em>  /  Date: <em>{{Carbon\Carbon::parse($dataBerita->created_at)->format('d').' '.$bulan[Carbon\Carbon::parse($dataBerita->created_at)->format('m')].' '.Carbon\Carbon::parse($dataBerita->created_at)->format('Y')}}</em></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              @endforeach
+              <div class="primary-button">
+                <a href="#" class="scroll-link" data-id="blog">Read More</a>
+              </div>
 
-      </div>
-      <!-- /.container -->
+            <div class="row">
+                <div class="col-md-12">
+                  @php
+                    $no=0;
+                  @endphp
+                  @foreach ($berita as $dataBerita)
+                    @php
+                      $no+=1;
+                    @endphp
+                    <div class="pop{{$no == 1? '':$no}}">
+                      <span>✖</span>
+                      <p>@php
+                        echo $dataBerita->konten;
+                      @endphp</p>
+                    </div>
+                  @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <!-- jQuery -->
-      <script src="js/jquery.js"></script>
 
-      <!-- Bootstrap Core JavaScript -->
-      <script src="js/bootstrap.min.js"></script>
+    <div id="about" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>Materi</h4>
+                        <div class="line-dec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              @foreach ($materi as $dataMateri)
+                <div class="col-md-3 col-sm-6 project-item mix workspace">
+                  <div class="thumb">
+                      <div class="image">
+                        <img src="/images/materi/{{$dataMateri->gambar}}">
+                      </div>
+                      <div class="hover-effect">
+                        <h4>{{$dataMateri->materi_praktikum}}</h4>
+                        <p>Semester Minimal : {{$dataMateri->semester}}</p>
+                      </div>
+                  </div>
+                </div>
+                {{-- <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="service-item first-service">
+                    <div class="icon"></div>
+                    <img src="/images/materi/{{$dataMateri->gambar}}" alt="">
+                    <h4>{{$dataMateri->materi_praktikum}}</h4>
+                    <p>Semester Minimal : {{$dataMateri->semester}}</p>
+                  </div>
+                </div> --}}
+              @endforeach
+            </div>
+        </div>
+    </div>
 
-    </body>
+    <div id="portfolio" class="page-section">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h4>Galery</h4>
+                            <div class="line-dec"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-holder-3">
+                    <div class="filter-categories">
+                        <ul class="project-filter">
+                            <li class="filter" data-filter="all"><span>All</span></li>
+                            <li class="filter" data-filter="nature"><span>Nature</span></li>
+                            <li class="filter" data-filter="workspace"><span>Workspace</span></li>
+                            <li class="filter" data-filter="city"><span>City</span></li>
+                            <li class="filter" data-filter="technology"><span>Technology</span></li>
+                        </ul>
+                    </div>
+                    <div class="projects-holder">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 project-item mix workspace">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_01.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_01.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix workspace">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_02.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_02.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix technology">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_03.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_03.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix city">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_04.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_04.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix nature">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_05.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_05.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix technology">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_06.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_06.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix workspace">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_07.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_07.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix city">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="img/portfolio_08.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_08.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  </html>
-@endsection
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2017 FTI UNISKA
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-icons">
+                        <ul>
+                            <li>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-rss"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="/public-depan/js/vendor/bootstrap.min.js"></script>
+
+    <script src="/public-depan/js/plugins.js"></script>
+    <script src="/public-depan/js/main.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // navigation click actions
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+</body>
+</html>
