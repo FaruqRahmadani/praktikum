@@ -286,14 +286,16 @@ class AdminController extends Controller
     }
   }
 
-  public function viewlaporanabsen(){
+  public function viewlaporanabsen()
+  {
     $data = JadwalDosen::with('materi', 'JadwalPraktikum', 'Dosen')->get();
     // dd($data);
     // dd($data->first()->materi->materi_praktikum);
     return view('admin.laporan_absen', ['data' => $data]);
   }
 
-  public function printlaporanabsen($id){
+  public function printlaporanabsen($id)
+  {
     $ids = Crypt::decryptString($id);
     $JadwalPraktikum = JadwalPraktikum::find($ids);
     $JadwalDosen = JadwalDosen::find($JadwalPraktikum->id_jadwal_dosen);
@@ -307,20 +309,23 @@ class AdminController extends Controller
     return $pdf->stream('absensi.pdf');
   }
 
-  public function viewLaporanPraktikum(){
+  public function viewLaporanPraktikum()
+  {
     $Periode = Periode::orderBy('id','desc')->get();
     $idperiode = $Periode->last()->id;
     $JadwalDosen = JadwalDosen::where('id_periode', $idperiode)->with('materi','dosen')->get();
     return view('admin.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode, 'idperiode' => $idperiode]);
   }
 
-  public function viewLaporanPraktikumPeriode(Request $request){
+  public function viewLaporanPraktikumPeriode(Request $request)
+  {
     $JadwalDosen = JadwalDosen::where('id_periode', $request->periode)->with('materi','dosen')->get();
     $Periode = Periode::orderBy('id','desc')->get();
     return view('admin.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode, 'idperiode' => $request->periode]);
   }
 
-  public function printLaporanPraktikum($id){
+  public function printLaporanPraktikum($id)
+  {
     $ids = Crypt::decryptString($id);
     $Periode = Periode::find($ids);
     $JadwalDosen = JadwalDosen::where('id_periode', $ids)->with('materi','dosen')->get();
@@ -330,13 +335,15 @@ class AdminController extends Controller
     return $pdf->stream('absensi.pdf');
   }
 
-  public function viewDetailLaporanPraktikum(){
+  public function viewDetailLaporanPraktikum()
+  {
     $Dosen = Dosen::all();
     $Periode = Periode::orderBy('id','desc')->get();
     return view('admin.form_detaillaporan_praktikum', ['dosen' => $Dosen, 'periode' => $Periode]);
   }
 
-  public function viewDetailLaporanPraktikumSelected(Request $request){
+  public function viewDetailLaporanPraktikumSelected(Request $request)
+  {
     $Dosen = Dosen::find($request->idDosen);
     $Periode = Periode::find($request->idPeriode);
     $JadwalDosen = JadwalDosen::where('id_dosen', $request->idDosen)->where('id_periode', $request->idPeriode)->with('materi','dosen','JadwalPraktikum')->get();
@@ -344,7 +351,8 @@ class AdminController extends Controller
     return view('admin.detaillaporan_praktikum', ['dosen' => $Dosen, 'periode' => $Periode, 'JadwalDosen' => $JadwalDosen, 'idDosen' => $request->idDosen, 'idPeriode' => $request->idPeriode]);
   }
 
-  public function printDetailLaporanPraktikum($idDosen, $idPeriode){
+  public function printDetailLaporanPraktikum($idDosen, $idPeriode)
+  {
     $idsDosen = Crypt::decryptString($idDosen);
     $idsPeriode = Crypt::decryptString($idPeriode);
 
@@ -357,11 +365,13 @@ class AdminController extends Controller
     return $pdf->stream('absensi.pdf');
   }
 
-  public function tambahberita(){
+  public function tambahberita()
+  {
     return view('admin.input_berita');
   }
 
-  public function storetambahberita(Request $request){
+  public function storetambahberita(Request $request)
+  {
     $idadmin = Auth::guard('admin')->user()->id;
     $jmlhberita = Berita::all();
     if (count($jmlhberita) == 0) {
@@ -382,18 +392,21 @@ class AdminController extends Controller
     return redirect('/admin')->with('status', 'Berita Telah Di Tambahkan');
   }
 
-  public function listberita(){
+  public function listberita()
+  {
     $berita = Berita::with('admin')->get();
     return view('admin.list_berita', ['berita' => $berita]);
   }
 
-  public function editberita($id){
+  public function editberita($id)
+  {
     $ids = Crypt::decryptString($id);
     $data = Berita::find($ids);
     return view('admin.edit_berita', ['data' => $data]);
   }
 
-  public function storeeditberita(Request $request,$id){
+  public function storeeditberita(Request $request,$id)
+  {
     $ids = Crypt::decryptString($id);
     $data = Berita::find($ids);
 
@@ -408,7 +421,8 @@ class AdminController extends Controller
     return redirect('/admin')->with('status', 'Berita Telah Di Edit');
   }
 
-  public function deleteberita($id){
+  public function deleteberita($id)
+  {
     $ids = Crypt::decryptString($id);
     $data = Berita::find($ids);
     $data->delete();
