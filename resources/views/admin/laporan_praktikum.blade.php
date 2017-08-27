@@ -65,8 +65,8 @@
                                             @endphp
                                             <tr>
                                               <td><center>{{$no+=1}}</center></td>
-                                              <td><center>{{$datas->dosen->nama}}</center></td>
-                                              <td><center>{{$datas->materi->materi_praktikum}}</center>
+                                              <td><center>{{$datas['dosen']->nama}}</center></td>
+                                              <td><center>{{$datas['materi']->materi_praktikum}}</center>
                                               <td><center>{{$JumlahKelas > 0 ? $JumlahKelas:'0'}}</center>
                                               <td><center>{{$JumlahPeserta > 0 ? $JumlahPeserta:'0'}} Orang</center>
                                             </tr>
