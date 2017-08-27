@@ -89,11 +89,11 @@
 										<p style="color: black; margin-bottom: 0px;">Hai {{$data['0']}},</p>
 					          <br>
 										<br>
-										<p style="margin-bottom: 1px;">Praktikum 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	: {{$data['1']}}</p>
-										<p style="margin-bottom: 1px;">Kelas 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	: {{$data['2']}}</p>
-										<p style="margin-bottom: 1px;">Dosen 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	: {{$data['3']}}</p>
-										<p style="margin-bottom: 1px;">Pertemuan Ke &nbsp;	: {{$data['4']}}</p>
-										<p style="margin-bottom: 1px;">Tanggal 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	: {{$data['5']}}</p>
+										<p style="margin-bottom: 1px;">Praktikum 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 :&nbsp; {{$data['1']}}</p>
+										<p style="margin-bottom: 1px;">Kelas 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 :&nbsp; {{$data['2']}}</p>
+										<p style="margin-bottom: 1px;">Dosen 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; {{$data['3']}}</p>
+										<p style="margin-bottom: 1px;">Pertemuan Ke &nbsp;&nbsp;&nbsp;&nbsp;	:&nbsp; {{$data['4']}}</p>
+										<p style="margin-bottom: 1px;">Tanggal 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :&nbsp; {{$data['5']}}</p>
 									</div>
 								</td>
 								<td width="100">&nbsp;</td>
