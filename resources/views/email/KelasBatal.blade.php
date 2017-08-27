@@ -30,6 +30,9 @@
 			width: 250px;
 			align-content: center;
 		}
+		div.isi{
+			width: 100%;
+		}
 	</style>
 </head>
 <body>
@@ -89,6 +92,8 @@
 										<p style="color: black; margin-bottom: 0px;">Hai {{$data['0']}},</p>
 					          <br>
 										<br>
+									</div>
+									<div class="isi">
 										<p style="margin-bottom: 1px;">Praktikum 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 :&nbsp; {{$data['1']}}</p>
 										<p style="margin-bottom: 1px;">Kelas 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 :&nbsp; {{$data['2']}}</p>
 										<p style="margin-bottom: 1px;">Dosen 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; {{$data['3']}}</p>
