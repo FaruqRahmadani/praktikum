@@ -16,6 +16,20 @@
 
 
 /* PREDEFINED CLASSES */
+.aktif {
+background-color: #95b75d;
+border-color: #95b75d;
+color: #fff;
+margin: 1px 8px;
+padding: 5px;
+}
+.non {
+background-color: #E04B4A;
+border-color: #E04B4A;
+color: #fff;
+margin: 1px 8px;
+padding: 5px;
+}
 .clearfix {
   zoom: 1;
 }
@@ -2131,6 +2145,18 @@ ul.panel-controls > li > .dropdown-menu:before {
   float: right;
   margin-left: 8px;
 }
+.btn.btn-rounded5 {
+  background: transparent;
+  color: #22262e;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  border-width: 2px;
+  padding: 2px 21px;
+  font-weight: 600;
+  float: center;
+
+}
 .btn.btn-rounded {
   background: transparent;
   color: #22262e;
@@ -2149,6 +2175,9 @@ ul.panel-controls > li > .dropdown-menu:before {
   color: #333;
 }
 .btn.btn-rounded3.btn-success {
+  color: #95b75d;
+}
+.btn.btn-rounded5.btn-success {
   color: #95b75d;
 }
 .btn.btn-rounded.btn-success {
@@ -2458,6 +2487,7 @@ label.valid {
 }
 /* EOF LABELS AND BADGES */
 /* ALERTS */
+
 .alert {
   float: left;
   width: 176%;
@@ -3939,7 +3969,7 @@ background: #1caf9a !important;
   padding-top: 100px;
 }
 .login-container .login-box .login-logo {
-  background: url("../img/UNISKA1.png") top center no-repeat;
+  background: url("../img/UNISKA.png") top center no-repeat;
   width: 100%;
   height: 50px;
   float: left;
@@ -5561,7 +5591,7 @@ div.datepicker thead tr:first-child th:hover {
   width: 100%;
 }
 .bootstrap-select.btn-group .dropdown-menu {
-  min-width: 100%;
+  min-width: 146%;
   z-index: 2000;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
