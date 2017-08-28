@@ -301,7 +301,7 @@ class DosenController extends Controller
     $Periode = Periode::orderBy('id', 'desc')->get();
     $idPeriode = $Periode->first()->id;
     $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->where('id_periode', $idPeriode)->get();
-    return view('dosen.absensi', ['datauser' => $datauser, 'data' => $data, 'periode' => $Periode]);
+    return view('dosen.absensi', ['datauser' => $datauser, 'data' => $data, 'periode' => $Periode, 'idperiode' => $idPeriode]);
   }
 
   public function viewfilterabsen(Request $request){
@@ -309,10 +309,10 @@ class DosenController extends Controller
     $datauser = Dosen::where('id_user', $iduser)->first();
     $Periode = Periode::orderBy('id', 'desc')->get();
     $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->where('id_periode', $request->periode)->get();
-    return view('dosen.absensi', ['datauser' => $datauser, 'data' => $data, 'periode' => $Periode]);
+    return view('dosen.absensi', ['datauser' => $datauser, 'data' => $data, 'periode' => $Periode, 'idperiode' => $request->periode]);
   }
 
-  public function viewdetailabsen($id){
+  public function printAbsenSpesified($id){
     $ids = Crypt::decryptString($id);
     $JadwalPraktikum = JadwalPraktikum::find($ids);
     $JadwalDosen = JadwalDosen::find($JadwalPraktikum->id_jadwal_dosen);
@@ -322,6 +322,18 @@ class DosenController extends Controller
     $data = AbsensiMahasiswa::with('Mahasiswa')->where('id_jadwal_praktikum', $ids)->get();
 
     $pdf = PDF::loadView('pdf.absensi', ['data' => $data, 'dosen' => $Dosen, 'materi' => $Materi, 'JadwalPraktikum' => $JadwalPraktikum]);
+    $pdf->setPaper('a4', 'potrait');
+  	return $pdf->stream('absensi.pdf');
+  }
+
+  public function printAllAbsen($id){
+    $idPeriode = Crypt::decryptString($id);
+    $iduser   = Auth::user()->id;
+    $Dosen = Dosen::where('id_user', $iduser)->first();
+    $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $Dosen->id)->where('id_periode', $idPeriode)->get();
+    // dd($data);
+
+    $pdf = PDF::loadView('pdf.absensiAll', ['data' => $data, 'dosen' => $Dosen]);
     $pdf->setPaper('a4', 'potrait');
   	return $pdf->stream('absensi.pdf');
   }

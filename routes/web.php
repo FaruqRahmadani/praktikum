@@ -55,7 +55,8 @@ Route::group(['middleware' => 'dosen'], function(){
   Route::get('/dosen/jadwal/{id}/{status}', 'DosenController@ubahstatusjadwal');
   Route::get('/dosen/absen', 'DosenController@viewabsen');
   Route::POST('/dosen/absen', 'DosenController@viewfilterabsen');
-  Route::get('/dosen/absen/{id}', 'DosenController@viewdetailabsen');
+  Route::get('/dosen/absen/{id}', 'DosenController@printAbsenSpesified');
+  Route::get('/dosen/cetakabsen/{id}', 'DosenController@printAllAbsen');
 });
 
 Route::group(['middleware' => 'mahasiswa'], function(){

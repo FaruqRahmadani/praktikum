@@ -105,9 +105,9 @@
                                     </table>
                                 </div>
                                 </div>
-                                  {{-- <a href="/dosen/cetakabsen">
+                                  <a href="/dosen/cetakabsen/{{Crypt::encryptString($idperiode)}}" target="_blank">
                                     <button class="btn btn-info"><span class="fa fa-print"></span> Print</button>
-                                  </a> --}}
+                                  </a>
                                 </div>
                             </div>
                             <!-- END DEFAULT DATATABLE -->
