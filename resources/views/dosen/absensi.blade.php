@@ -54,13 +54,19 @@
                                         </div> --}}
                                         <label class="col-md-0 col-xs-0 control-label"></label>
                                         {{-- <div class="col-md-2 col-xs-0"> --}}
-                                        <div style="width:10%">
-                                            <select class="form-control select">
-                                                <option>Periode</option>
-                                                <option>2017/2018 Ganjil</option>
-                                                <option>2017/2018 Genap</option>
-                                            </select>
-                                        </div>
+                                        <form class="form-horizontal" method="POST" action="{{Request::url()}}">
+                                          <div style="width:12%">
+                                              <select name="periode" class="form-control select">
+                                                  @foreach ($periode as $dataPeriode)
+                                                    <option value="{{$dataPeriode->id}}">{{$dataPeriode->periode}}</option>
+                                                  @endforeach
+                                              </select>
+                                          </div>
+                                          {{ csrf_field() }}
+                                          <button type="submit" class="btn btn-primary btn-rounded btn-sm">
+                                            <span class="fa fa-filter"></span>Filter
+                                          </button>
+                                        </form>
                                   <div class="table-container">
                                     <table class="table datatable table-bordered">
                                         <thead>
