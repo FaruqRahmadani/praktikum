@@ -340,11 +340,12 @@ class AdminController extends Controller
 
   public function printLaporanPraktikum($id)
   {
+    $Admin = Auth::guard('admin')->user();
     $ids = Crypt::decryptString($id);
     $Periode = Periode::find($ids);
     $JadwalDosen = JadwalDosen::where('id_periode', $ids)->with('materi','dosen')->get();
 
-    $pdf = PDF::loadView('pdf.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode]);
+    $pdf = PDF::loadView('pdf.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode, 'admin' => $Admin]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('absensi.pdf');
   }
@@ -369,12 +370,13 @@ class AdminController extends Controller
   {
     $idsDosen = Crypt::decryptString($idDosen);
     $idsPeriode = Crypt::decryptString($idPeriode);
+    $Admin = Auth::guard('admin')->user();
 
     $Dosen = Dosen::find($idsDosen);
     $Periode = Periode::find($idsPeriode);
     $JadwalDosen = JadwalDosen::where('id_dosen', $idsDosen)->where('id_periode', $idsPeriode)->with('materi','dosen','JadwalPraktikum')->get();
 
-    $pdf = PDF::loadView('pdf.detaillaporan_praktikum', ['dosen' => $Dosen, 'periode' => $Periode, 'jadwaldosen' => $JadwalDosen]);
+    $pdf = PDF::loadView('pdf.detaillaporan_praktikum', ['dosen' => $Dosen, 'periode' => $Periode, 'jadwaldosen' => $JadwalDosen, 'admin' => $Admin]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('absensi.pdf');
   }
