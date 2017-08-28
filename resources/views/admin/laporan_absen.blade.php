@@ -17,10 +17,22 @@
   <div class="page-content-wrap">
     <div class="row">
       <div class="col-md-12">
-
+        </form>
         <!-- START DEFAULT DATATABLE -->
         <div class="panel panel-default">
           <div class="panel-body">
+            <form class="form-horizontal" method="POST" action="{{Request::url()}}">
+              <div style="width:12%">
+                <select name="periode" class="form-control select">
+                  @foreach ($periode as $dataPeriode)
+                  <option value="{{$dataPeriode->id}}">{{$dataPeriode->periode}}</option>
+                @endforeach
+              </select>
+            </div>
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-primary btn-rounded btn-sm">
+              <span class="fa fa-filter"></span>Filter
+            </button>
             <table class="table datatable">
               <thead>
                 <tr>

@@ -288,10 +288,24 @@ class AdminController extends Controller
 
   public function viewlaporanabsen()
   {
-    $data = JadwalDosen::with('materi', 'JadwalPraktikum', 'Dosen')->get();
+    $Periode = Periode::orderBy('id', 'desc')->get();
+    $idPeriode = $Periode->first()->id;
+
+    $data = JadwalDosen::with('materi', 'JadwalPraktikum', 'Dosen')->where('id_periode', $idPeriode)->get();
     // dd($data);
     // dd($data->first()->materi->materi_praktikum);
-    return view('admin.laporan_absen', ['data' => $data]);
+    return view('admin.laporan_absen', ['data' => $data, 'periode' => $Periode]);
+  }
+
+  public function viewLaporanAbsenSpesified(Request $request)
+  {
+    $Periode = Periode::orderBy('id', 'desc')->get();
+    $idPeriode = $Periode->first()->id;
+
+    $data = JadwalDosen::with('materi', 'JadwalPraktikum', 'Dosen')->where('id_periode', $request->periode)->get();
+    // dd($data);
+    // dd($data->first()->materi->materi_praktikum);
+    return view('admin.laporan_absen', ['data' => $data, 'periode' => $Periode]);
   }
 
   public function printlaporanabsen($id)
