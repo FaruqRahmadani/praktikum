@@ -49,7 +49,7 @@
         border: 1px solid black;
       }
     </style>
-    <title>ABSENSI PRAKTIKUM</title>
+    <title>LAPORAN DATA PELAKSANAAN PRAKTIKUM</title>
   </head>
   <body>
     @php
@@ -94,9 +94,9 @@
             <td style="text-align: center;">{{$no = $no+1}}</td>
             <td style="text-align: center">{{$datas['materi']['kode_mk']}}</td>
             <td style="padding-left: 5px;">{{$datas['materi']['materi_praktikum']}}</td>
-            <td style="padding-left: 5px;">{{$datas['dosen']['nama']}}<br></td>
-            <td style="padding-left: 5px;">{{($JumlahKelas == 0 ? '0':$JumlahKelas)}}</td>
-            <td style="padding-left: 5px;">{{$JumlahPeserta}}</td>
+            <td style="padding-left: 5px;">{{$datas['dosen']['nama']}}</td>
+            <td style="text-align: center;">{{($JumlahKelas == 0 ? '0':$JumlahKelas)}}</td>
+            <td style="text-align: center;">{{$JumlahPeserta}}</td>
           </tr>
         @endforeach
       </tbody>
