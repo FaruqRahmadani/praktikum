@@ -38,7 +38,7 @@
                       <label class="col-md-3 control-label"><h4><b>Tanggal Tutup:</b></h4></label>
                       <div class="col-md-3">
                           <div class="input-group">
-                              <input name="tanggal_tutup" type="text" class="form-control datepicker" data-date="2017-08-07" data-date-format="dd-mm-yyyy" data-date-viewmode=""/ required>
+                              <input name="tanggal_tutup" type="date" class="form-control datepicker" min="{{ Carbon\Carbon::now()->format('Y-m-d') }}" required>
                               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                           </div>
                       </div>

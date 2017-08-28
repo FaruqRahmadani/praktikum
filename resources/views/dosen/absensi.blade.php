@@ -23,17 +23,10 @@
 
                             <!-- START DEFAULT DATATABLE -->
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
-                                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
-                                    </ul>
-                                </div>
-
                                 <div class="panel-body">
                                 <div class="form-group">
                                         <label class="col-md-0 col-xs-0 control-label"></label>
-                                        <div class="col-md-3 col-xs-0">
+                                        {{-- <div class="col-md-3 col-xs-0">
                                           <form class="" action="{{url()->current()}}" method="post">
 
                                             <select class="form-control select" name="filter">
@@ -52,22 +45,24 @@
                                                   @endforeach
                                                 @endforeach
                                             </select>
+
                                             {{ csrf_field() }}
                                             <button type="submit" class="btn btn-primary btn-rounded1">
                                                 <span class="fa fa-save"></span>Filter
                                             </button>
                                           </form>
-                                        </div>
+                                        </div> --}}
                                         <label class="col-md-0 col-xs-0 control-label"></label>
-                                        <div class="col-md-2 col-xs-0">
+                                        {{-- <div class="col-md-2 col-xs-0"> --}}
+                                        <div style="width:10%">
                                             <select class="form-control select">
                                                 <option>Periode</option>
                                                 <option>2017/2018 Ganjil</option>
                                                 <option>2017/2018 Genap</option>
                                             </select>
                                         </div>
-
-                                    <table class="table datatable">
+                                  <div class="table-container">
+                                    <table class="table datatable table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -78,7 +73,7 @@
                                                 <th>Tanggal</th>
                                                 <th>Waktu</th>
                                                 <th>Jumlah Mahasiswa</th>
-                                                <th>Print</th>
+                                                <th>Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -96,7 +91,7 @@
                                                 <td>{{$jadwals->tanggal}}</td>
                                                 <td>{{Carbon\Carbon::parse($jadwals->waktu_mulai)->format('g:i A')}} - {{Carbon\Carbon::parse($jadwals->waktu_selesai)->format('g:i A')}}</td>
                                                 <td>{{count(App\AbsensiMahasiswa::where('id_jadwal_praktikum', $jadwals->id)->get())}} Orang</td>
-                                                <td><a href="/dosen/absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span> Print</button></a></td>
+                                                <td><a href="/dosen/absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span> Cetak</button></a></td>
                                               </tr>
                                             @endforeach
                                           @endforeach
@@ -104,9 +99,10 @@
                                     </table>
                                 </div>
                                 </div>
-                                  <a href="/dosen/cetakabsen">
+                                  {{-- <a href="/dosen/cetakabsen">
                                     <button class="btn btn-info"><span class="fa fa-print"></span> Print</button>
-                                  </a>
+                                  </a> --}}
+                                </div>
                             </div>
                             <!-- END DEFAULT DATATABLE -->
                         </div>

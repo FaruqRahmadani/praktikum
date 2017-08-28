@@ -16,9 +16,6 @@
 
 
 /* PREDEFINED CLASSES */
-.table-container {
-  overflow: auto;
-}
 .aktif {
 background-color: #95b75d;
 border-color: #95b75d;
@@ -944,7 +941,6 @@ body.page-container-boxed .page-container {
 }
 .x-navigation > li.xn-profile .profile-mini img {
   width: 36px;
-  height: 60px;
   border: 2px solid #FFF;
   -moz-border-radius: 20%;
   -webkit-border-radius: 20%;
@@ -1991,7 +1987,7 @@ ul.panel-controls > li > .dropdown-menu:before {
 }
 .btn-default {
   border-color: #DDD;
-  border-radius: 0px;
+  border-radius: 3px;
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -2111,7 +2107,7 @@ ul.panel-controls > li > .dropdown-menu:before {
   padding: 2px 10px;
   font-weight: 600;
   float: left;
-  margin-left: -158px;
+  margin-left: 4px;
 }
 .btn.btn-rounded2 {
   background: transparent;
@@ -2123,7 +2119,7 @@ ul.panel-controls > li > .dropdown-menu:before {
   padding: 2px 10px;
   font-weight: 600;
   float: left;
-  margin-left: 90px
+  margin-left: 365px; 
 }
 .btn.btn-rounded3 {
   background: transparent;
@@ -2146,8 +2142,8 @@ ul.panel-controls > li > .dropdown-menu:before {
   border-width: 2px;
   padding: 2px 10px;
   font-weight: 600;
-  float: left;
-  margin-left: 7px;
+  float: right;
+  margin-left: 8px;
 }
 .btn.btn-rounded5 {
   background: transparent;
@@ -2159,32 +2155,7 @@ ul.panel-controls > li > .dropdown-menu:before {
   padding: 2px 21px;
   font-weight: 600;
   float: center;
-}
-.btn.btn-rounded6 {
-  background: transparent;
-  color: #22262e;
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  border-radius: 12px;
-  border-width: 2px;
-  padding: 2px 10px;
-  margin-left: 4px;
-  margin-top: 1px;
-  font-weight: 600;
-  float: left;
-  margin-left: -1px
-}
-.btn.btn-rounded7 {
-  background: transparent;
-  color: #22262e;
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  border-radius: 12px;
-  border-width: 2px;
-  padding: 2px 10px;
-  margin-left: 4px;
-  margin-top: 35px;
-  font-weight: 600;
+
 }
 .btn.btn-rounded {
   background: transparent;
@@ -2256,12 +2227,6 @@ ul.panel-controls > li > .dropdown-menu:before {
   color: #a43f3e;
 }
 .btn.btn-rounded.btn-primary {
-  color: #1b1e24;
-}
-.btn.btn-rounded6.btn-primary {
-  color: #1b1e24;
-}
-.btn.btn-rounded7.btn-primary {
   color: #1b1e24;
 }
 .btn.btn-rounded.btn-primary:hover,
@@ -2525,12 +2490,6 @@ label.valid {
 
 .alert {
   float: left;
-  width: 100%;
-  margin-bottom: 10px;
-  line-height: 21px;
-}
-.alert1 {
-  float: left;
   width: 176%;
   margin-bottom: 10px;
   line-height: 21px;
@@ -2539,13 +2498,6 @@ label.valid {
   background-color: #95b75d;
   color: #FFF;
   border-color: #90b456;
-}
-.alert-success1 {
-  background-color: #95b75d;
-  color: #FFF;
-  border-color: #90b456;
-  width: 1092px;
-  margin-left: 10px;
 }
 .alert-info {
   background-color: #1caf9a;
@@ -3491,13 +3443,13 @@ td.dataTables_empty {
 }
 .widget.widget-default {
   background: #ffffff;
-
-
-
-
-
-
-
+   
+   
+   
+   
+   
+   
+   
 }
 .widget.widget-primary {
   background: #1b1e24;
@@ -3520,7 +3472,7 @@ td.dataTables_empty {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#95b75d, endColorstr=#89ad4d, GradientType=0);
 }
 .widget.widget-info {
-background: #1caf9a !important;
+background: #1caf9a !important;  
 }
 .widget.widget-warning {
   background: #1caf9a;
@@ -5569,7 +5521,7 @@ div.datepicker thead tr:first-child th:hover {
   width: 220px \0;
 }
 .bootstrap-select > .btn {
-  width: 144%;
+  width: 145%;
   padding-right: 25px;
 }
 .error .bootstrap-select .btn {
@@ -5639,7 +5591,7 @@ div.datepicker thead tr:first-child th:hover {
   width: 100%;
 }
 .bootstrap-select.btn-group .dropdown-menu {
-  min-width: 144%;
+  min-width: 146%;
   z-index: 2000;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
