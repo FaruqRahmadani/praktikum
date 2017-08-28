@@ -146,7 +146,8 @@ class DosenController extends Controller
   {
     $iduser   = Auth::user()->id;
     $datauser = Dosen::where('id_user', $iduser)->first();
-    $data     = JadwalDosen::with('materi')->where('id_dosen', $datauser->id)->get();
+    $idPeriode = Periode::all()->last()->id;
+    $data     = JadwalDosen::with('materi')->where('id_dosen', $datauser->id)->where('id_periode', $idPeriode)->get();
     return view('dosen.materi_dosen', ['datauser' => $datauser, 'data' => $data]);
   }
 
@@ -162,8 +163,9 @@ class DosenController extends Controller
   public function tambahmateri(){
     $iduser   = Auth::user()->id;
     $datauser = Dosen::where('id_user', $iduser)->first();
+    $idPeriode = Periode::all()->last()->id;
     $data = Materi::all();
-    $jadwaldosen = JadwalDosen::where('id_dosen', $datauser->id)->get();
+    $jadwaldosen = JadwalDosen::where('id_dosen', $datauser->id)->where('id_periode', $idPeriode)->get();
     return view('dosen.tambahmateri', ['datauser' => $datauser, 'data' => $data, 'jadwaldosen' => $jadwaldosen]);
   }
 
@@ -184,7 +186,9 @@ class DosenController extends Controller
   public function datajadwal(){
     $iduser        = Auth::user()->id;
     $datauser      = Dosen::where('id_user', $iduser)->first();
-    $data          = JadwalDosen::with('JadwalPraktikum', 'materi')->where('id_dosen', $datauser->id)->get();
+    $idPeriode = Periode::all()->last()->id;
+    $data          = JadwalDosen::with('JadwalPraktikum', 'materi')->where('id_dosen', $datauser->id)->where('id_periode', $idPeriode)->get();
+
     return view('dosen.jadwal_dosen', ['datauser' => $datauser, 'data' => $data]);
   }
 
@@ -294,15 +298,18 @@ class DosenController extends Controller
   public function viewabsen(){
     $iduser   = Auth::user()->id;
     $datauser = Dosen::where('id_user', $iduser)->first();
-    $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->get();
-    return view('dosen.absensi', ['datauser' => $datauser, 'data' => $data]);
+    $Periode = Periode::orderBy('id', 'desc')->get();
+    $idPeriode = $Periode->first()->id;
+    $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->where('id_periode', $idPeriode)->get();
+    return view('dosen.absensi', ['datauser' => $datauser, 'data' => $data, 'periode' => $Periode]);
   }
 
   public function viewfilterabsen(Request $request){
     $iduser   = Auth::user()->id;
     $datauser = Dosen::where('id_user', $iduser)->first();
-    $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->get();
-    return view('dosen.absen', ['datauser' => $datauser, 'data' => $data, 'filter' => $request->filter]);
+    $Periode = Periode::orderBy('id', 'desc')->get();
+    $data = JadwalDosen::with('JadwalPraktikum','materi')->where('id_dosen', $datauser->id)->where('id_periode', $request->periode)->get();
+    return view('dosen.absensi', ['datauser' => $datauser, 'data' => $data, 'periode' => $Periode]);
   }
 
   public function viewdetailabsen($id){

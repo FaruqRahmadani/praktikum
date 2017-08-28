@@ -139,6 +139,7 @@ class MahasiswaController extends Controller
     $Periode = Periode::all()->last()->id;
     $JadwalDosen = JadwalDosen::where('id_periode', $Periode)->get();
 
+    //Supaya yang tampil periode sekarang aja !
     $index = 0;
     foreach ($JadwalDosen as $dataJadwalDosen) {
       $index+=1;
@@ -148,7 +149,7 @@ class MahasiswaController extends Controller
     $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
       $query->where('id_jadwal_dosen', $this->idJadwalDosen);
     }])->where('id_mahasiswa', $data->id)->get();
-    
+
     return view('mahasiswa.jadwal_saya', ['data' => $data, 'jadwal' => $jadwal]);
   }
 
