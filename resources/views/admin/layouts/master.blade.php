@@ -53,22 +53,22 @@
               <li><a href="/admin/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
               <li><a href="/admin/galeri"><span class="fa fa-users"></span>Data Galeri</a></li>
 		          <li><a href="/admin/datamateri"><span class="fa fa-users"></span>Data Materi</a></li>
-		          <li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li>
+		          {{-- <li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li> --}}
 		        </ul>
           </li>
-          <li class="xn-openable">
-            <a href="#"><span class="glyphicon glyphicon-file"></span> <span class="xn-text">Berita</span></a>
-            <ul>
+          <li>
+            <a href="/admin/berita"><span class="glyphicon glyphicon-file"></span> <span class="xn-text">Berita</span></a>
+            {{-- <ul>
               <li><a href="/admin/berita/add"><span class="fa fa-users"></span>Input Berita</a></li>
               <li><a href="/admin/berita"><span class="fa fa-users"></span>List Berita</a></li>
-            </ul>
+            </ul> --}}
           </li>
           <li class="xn-openable">
             <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Laporan</span></a>
             <ul>
               <li><a href="/admin/laporan_praktikum">Pelaksanaan Praktikum</a></li>
               <li><a href="/admin/detaillaporan_praktikum">Detail Pelaksanaan Praktikum</a></li>
-		          <li><a href="laporan_mahasiswa_data.php">Data Mahasiswa</a></li>
+		          {{-- <li><a href="laporan_mahasiswa_data.php">Data Mahasiswa</a></li> --}}
               <li><a href="/admin/laporan_absen">Data Absen Praktikum</a></li>
             </ul>
           </li>
