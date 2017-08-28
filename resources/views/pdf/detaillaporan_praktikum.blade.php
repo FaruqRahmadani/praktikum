@@ -58,12 +58,12 @@
     @php
       $no = 0;
     @endphp
-    <img src="logo.png">
+    <img src="logo.jpg">
     <div class="header">
       <h4>UNIVERSITAS ISLAM KALIMANTAN (UNISKA)</h4>
       <h4>MUHAMMAD ARSYAD AL BANJARI</h4>
       <h2>FAKULTAS TEKNOLOGI INFORMASI</h2>
-      <p>Kampus Banjarbaru, Jl. Salak No.44 Kel. Guntung Paikat, Banjarbaru</p>
+      <p>Kampus Banjarmasin, Jl. Adhyaksa No.2 Kayutangi, Banjarmasin</p>
     </div>
     <hr class="atas">
     <br>
@@ -99,12 +99,47 @@
               <td style="padding-left: 5px;">{{$dataJadwalDosen['materi']['materi_praktikum']}}</td>
               <td style="padding-left: 5px;">{{$dataJadwalPraktikum['nama_kelas']}}</td>
               <td style="text-align: center;">{{$dataJadwalPraktikum['pertemuan']}}</td>
-              <td style="text-align: center;">{{$JumlahPeserta}}</td>
+              <td style="text-align: right; padding-right: 5px;">{{$JumlahPeserta}} Orang</td>
               <td style="padding-left: 5px;">{{Carbon\Carbon::parse($dataJadwalPraktikum['tanggal'])->format('d-m-Y')}}</td>
               <td style="padding-left: 5px;">{{Carbon\Carbon::parse($dataJadwalPraktikum['waktu_mulai'])->format('H:i A')}} - {{Carbon\Carbon::parse($dataJadwalPraktikum['waktu_selesai'])->format('H:i A')}}</td>
             </tr>
           @endforeach
         @endforeach
+      </tbody>
+    </table>
+    @php
+      $bulan = array(
+        '01' => 'Januari',
+        '02' => 'Februari',
+        '03' => 'Maret',
+        '04' => 'April',
+        '05' => 'Mei',
+        '06' => 'Juni',
+        '07' => 'Juli',
+        '08' => 'Agustus',
+        '09' => 'September',
+        '10' => 'Oktober',
+        '11' => 'November',
+        '12' => 'Desember'
+      )
+    @endphp
+    <table style="border: 0px solid #FFFFFF;">
+      <tbody>
+        <tr>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF; text-align:center;">Banjarmasin, {{Carbon\Carbon::now()->format('d')}} {{$bulan[date('m')].' '.date('Y')}}</td>
+        </tr>
+        <tr>
+          <td style="border: 0px solid #FFFFFF;"><br><br><br><br></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+        </tr>
+        <tr>
+          <td style="border: 0px solid black;"></td>
+          <td style="border: 0px solid black;"></td>
+          <td valign=bottom style="text-align:center; border:0px solid black">Admin</td>
+        </tr>
       </tbody>
     </table>
   </body>

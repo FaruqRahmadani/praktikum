@@ -55,12 +55,12 @@
     @php
       $no = 0;
     @endphp
-    <img src="logo.png">
+    <img src="logo.jpg">
     <div class="header">
       <h4>UNIVERSITAS ISLAM KALIMANTAN (UNISKA)</h4>
       <h4>MUHAMMAD ARSYAD AL BANJARI</h4>
       <h2>FAKULTAS TEKNOLOGI INFORMASI</h2>
-      <p>Kampus Banjarbaru, Jl. Salak No.44 Kel. Guntung Paikat, Banjarbaru</p>
+      <p>Kampus Banjarmasin, Jl. Adhyaksa No.2 Kayutangi, Banjarmasin</p>
     </div>
     <hr class="atas">
     <br>
@@ -95,8 +95,8 @@
             <td style="text-align: center">{{$datas['materi']['kode_mk']}}</td>
             <td style="padding-left: 5px;">{{$datas['materi']['materi_praktikum']}}</td>
             <td style="padding-left: 5px;">{{$datas['dosen']['nama']}}</td>
-            <td style="text-align: center;">{{($JumlahKelas == 0 ? '0':$JumlahKelas)}}</td>
-            <td style="text-align: center;">{{$JumlahPeserta}}</td>
+            <td style="text-align: right; padding-right: 5px;">{{($JumlahKelas == 0 ? '0':$JumlahKelas)}}</td>
+            <td style="text-align: right; padding-right: 5px;">{{$JumlahPeserta}} Orang</td>
           </tr>
         @endforeach
       </tbody>

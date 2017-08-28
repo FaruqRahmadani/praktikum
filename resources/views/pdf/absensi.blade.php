@@ -57,12 +57,12 @@
     @php
       $no = 0;
     @endphp
-    <img src="logo.png">
+    <img src="logo.jpg">
     <div class="header">
       <h4>UNIVERSITAS ISLAM KALIMANTAN (UNISKA)</h4>
       <h4>MUHAMMAD ARSYAD AL BANJARI</h4>
       <h2>FAKULTAS TEKNOLOGI INFORMASI</h2>
-      <p>Kampus Banjarbaru, Jl. Salak No.44 Kel. Guntung Paikat, Banjarbaru</p>
+      <p>Kampus Banjarmasin, Jl. Adhyaksa No.2 Kayutangi, Banjarmasin</p>
     </div>
     <hr class="atas">
     <h5>Daftar Absensi Mahasiswa Praktikum {{$materi->materi_praktikum}} {{$JadwalPraktikum->nama_kelas}} Pertemuan {{$JadwalPraktikum->pertemuan}}</h5>
@@ -110,7 +110,7 @@
         <tr>
           <td style="border: 0px solid #FFFFFF;"></td>
           <td style="border: 0px solid #FFFFFF;"></td>
-          <td style="border: 0px solid #FFFFFF; text-align:center;">Banjarbaru,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$bulan[date('m')].' '.date('Y')}}</td>
+          <td style="border: 0px solid #FFFFFF; text-align:center;">Banjarmasin, {{Carbon\Carbon::now()->format('d')}} {{$bulan[date('m')].' '.date('Y')}}</td>
         </tr>
         <tr>
           <td style="border: 0px solid #FFFFFF;"><br><br><br><br></td>
@@ -120,12 +120,12 @@
         <tr>
           <td style="border: 0px solid black;"></td>
           <td style="border: 0px solid black;"></td>
-          <td style="text-align:center; border-bottom: 1px solid black; border-top: 0px; border-right: 0px; border-left: 0px;">{{$dosen->nama}}</td>
+          <td valign=bottom style="text-align:center; border-bottom: 1px solid black; border-top: 0px; border-right: 0px; border-left: 0px;">{{$dosen->nama}}</td>
         </tr>
         <tr>
           <td style="border: 0px solid black;"></td>
           <td style="border: 0px solid black;"></td>
-          <td style="text-align:center; border: 0px solid black;">NIDN. {{$dosen->NIDN}}</td>
+          <td valign=top style="text-align:center; border: 0px solid black;">NIDN. {{$dosen->NIDN}}</td>
         </tr>
       </tbody>
     </table>
