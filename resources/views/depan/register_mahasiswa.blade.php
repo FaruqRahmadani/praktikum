@@ -36,7 +36,7 @@
                       <div class="form-group">
                           <div class="col-md-12">
                               {{-- <input type="file" name="foto" class="form-control" placeholder="Foto"/ accept="image/*" required value={{old('foto')}}> --}}
-                              {!! Form::file('foto',['placeholder' => 'Foto', 'class' => 'form-control', 'required', 'accept' => 'image/*']) !!}
+                              {{-- {!! Form::file('foto',['placeholder' => 'Foto', 'class' => 'form-control', 'required', 'accept' => 'image/*']) !!} --}}
                           </div>
                       </div>
 

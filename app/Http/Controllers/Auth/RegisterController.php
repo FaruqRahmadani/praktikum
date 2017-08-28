@@ -55,7 +55,7 @@ class RegisterController extends Controller
           'nama'       => 'required|string|max:255',
           'no_hp'      => 'required|numeric',
           'email'      => 'required|string|email|max:255',
-          'foto'       => 'required',
+          // 'foto'       => 'required',
           'username'   => 'required|string|max:255|unique:users,username',
           'password'   => 'required|string|min:6|confirmed',
         ]);
@@ -65,7 +65,7 @@ class RegisterController extends Controller
           'nama'       => 'required|string|max:255',
           'no_hp'      => 'required|numeric',
           'email'      => 'required|string|email|max:255',
-          'foto'       => 'required',
+          // 'foto'       => 'required',
           'username'   => 'required|string|max:255|unique:users,username',
           'password'   => 'required|string|min:6|confirmed',
         ]);
@@ -90,7 +90,8 @@ class RegisterController extends Controller
       } else {
         $iduser = (User::all()->last()->id + 1);
       }
-      $namagambar = $data['nomorinduk'].'.'.$data['foto']->getClientOriginalExtension();
+
+      // $namagambar = $data['nomorinduk'].'.'.$data['foto']->getClientOriginalExtension();
 
         if ($data['tipe']==1)
         {
@@ -98,9 +99,9 @@ class RegisterController extends Controller
           $dosen->NIDN    = $data['nomorinduk'];
           $dosen->nama    = $data['nama'];
           $dosen->no_hp   = $data['no_hp'];
-          $dosen->foto    = $namagambar;
+          $dosen->foto    = 'default.png';
           $dosen->email   = $data['email'];
-          $data['foto']->move(public_path('images/dosen'), $namagambar);
+          // $data['foto']->move(public_path('images/dosen'), $namagambar);
 
           $dosen->save();
         } else
@@ -110,9 +111,9 @@ class RegisterController extends Controller
           $mahasiswa->NPM     = $data['nomorinduk'];
           $mahasiswa->nama    = $data['nama'];
           $mahasiswa->no_hp   = $data['no_hp'];
-          $mahasiswa->foto    = $namagambar;
+          $mahasiswa->foto    = 'default.png';
           $mahasiswa->email   = $data['email'];
-          $data['foto']->move(public_path('images/mahasiswa'), $namagambar);
+          // $data['foto']->move(public_path('images/mahasiswa'), $namagambar);
 
           $mahasiswa->save();
         }
