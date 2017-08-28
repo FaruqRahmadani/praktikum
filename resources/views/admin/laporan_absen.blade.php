@@ -33,6 +33,7 @@
             <button type="submit" class="btn btn-primary btn-rounded btn-sm">
               <span class="fa fa-filter"></span>Filter
             </button>
+          </form>
             <table class="table datatable">
               <thead>
                 <tr>
