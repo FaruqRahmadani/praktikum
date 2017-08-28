@@ -136,8 +136,19 @@ class MahasiswaController extends Controller
   public function jadwalsaya(){
     $iduser = Auth::user()->id;
     $data   = Mahasiswa::where('id_user', $iduser)->first();
-    $jadwal = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
-    // dd($jadwal);
+    $Periode = Periode::all()->last()->id;
+    $JadwalDosen = JadwalDosen::where('id_periode', $Periode)->get();
+
+    $index = 0;
+    foreach ($JadwalDosen as $dataJadwalDosen) {
+      $index+=1;
+      $this->idJadwalDosen[$index] = $dataJadwalDosen->id;
+    }
+
+    $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
+      $query->where('id_jadwal_dosen', $this->idJadwalDosen);
+    }])->where('id_mahasiswa', $data->id)->get();
+    
     return view('mahasiswa.jadwal_saya', ['data' => $data, 'jadwal' => $jadwal]);
   }
 
