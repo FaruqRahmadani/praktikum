@@ -18,6 +18,11 @@
         {{ session('status') }}
     </div>
   @endif
+  @if ($jumlahmateri >= 2)
+    <div class="alert alert-success">
+        Anda Telah Mengambil Jumlah Maksimal Materi Yang di Perbolehkan
+    </div>
+  @endif
   <!-- END PAGE TITLE -->
   <div class="container">
 		<div class="row">
@@ -35,7 +40,11 @@
               <div class="title">{{$jadwals['dosen']['nama']}}</div>
               <div class="title">Semester Minimal : {{($jadwals['materi']['semester'])}}</div>
               <div class="content">
-                <td class="center"><button class="btn btn-success btn-rounded"><i class="fa fa-info-circle"></i><a href="/mahasiswa/materi/{{Crypt::encryptString($jadwals->id)}}"> Informasi </a></button></td>
+                @if ($jumlahmateri >= 2)
+                  <td class="center"><button class="btn btn-success btn-rounded"><i class="fa fa-info-circle"></i>Dikunci</button></td>
+                @else
+                  <a href="/mahasiswa/materi/{{Crypt::encryptString($jadwals->id)}}"><td class="center"><button class="btn btn-success btn-rounded"><i class="fa fa-info-circle"></i> Informasi </button></td></a>
+                @endif
               </div>
             </div>
           </div>

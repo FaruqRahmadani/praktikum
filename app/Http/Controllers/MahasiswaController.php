@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Validation\Rule;
 use Auth;
 use App\User;
+use App\Periode;
 use App\Mahasiswa;
 use App\JadwalDosen;
 use App\JadwalPraktikum;
@@ -27,6 +28,9 @@ class MahasiswaController extends Controller
   public function materi(){
     $iduser = Auth::user()->id;
     $data   = Mahasiswa::where('id_user', $iduser)->first();
+
+    $Periode = Periode::all()->last()->id;
+
     //kalo september (semester ganjil) tambah 1
     if (date('n') > 8){
       $tambahsemester = 1;
@@ -34,9 +38,20 @@ class MahasiswaController extends Controller
       $tambahsemester = 0;
     }
     $semester = (((date('y'))-(substr($data->NPM, 0, 2)))*2)+$tambahsemester;
-    $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester);
-    // dd($jadwal);
-    return view('mahasiswa.materi', ['data' => $data, 'jadwal' => $jadwal]);
+    $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester)->where('id_periode', $Periode);
+
+    //Menghitung Jumlah Materi yang Sudah di Ambil
+    $AbsensiMahasiswa = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
+    $JumlahMateri = 0;
+    $DumpIdJadwalDosen = 0;
+    foreach ($AbsensiMahasiswa as $dataAbsensiMahasiswa) {
+      if ($DumpIdJadwalDosen != $dataAbsensiMahasiswa['JadwalPraktikum']['id_jadwal_dosen']) {
+        $JumlahMateri += 1;
+        $DumpIdJadwalDosen = $dataAbsensiMahasiswa['JadwalPraktikum']['id_jadwal_dosen'];
+      }
+    }
+
+    return view('mahasiswa.materi', ['data' => $data, 'jadwal' => $jadwal, 'jumlahmateri' => $JumlahMateri]);
   }
 
   public function showmateri($id){
