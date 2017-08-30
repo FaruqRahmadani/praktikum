@@ -2087,7 +2087,7 @@ ul.panel-controls > li > .dropdown-menu:before {
   -webkit-border-radius: 12px;
   border-radius: 12px;
   border-width: 2px;
-  padding: 2px 10px;
+  padding: 3px 10px;
   font-weight: 600;
 }
 .btn.btn-rounded.btn-default:hover,
@@ -3353,13 +3353,13 @@ td.dataTables_empty {
 }
 .widget.widget-default {
   background: #ffffff;
-   
-   
-   
-   
-   
-   
-   
+
+
+
+
+
+
+
 }
 .widget.widget-primary {
   background: #1b1e24;
@@ -3382,7 +3382,7 @@ td.dataTables_empty {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#95b75d, endColorstr=#89ad4d, GradientType=0);
 }
 .widget.widget-info {
-background: #1caf9a !important;  
+background: #1caf9a !important;
 }
 .widget.widget-warning {
   background: #1caf9a;
