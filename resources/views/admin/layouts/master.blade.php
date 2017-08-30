@@ -37,7 +37,7 @@
               </div>
               <div class="profile-controls">
                 <a href="/admin/edit" class="profile-control-left"><span class="fa fa-pencil"></span></a>
-                <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-info"></span></a>
+                <a href="/admin/profil" class="profile-control-right"><span class="fa fa-info"></span></a>
               </div>
             </div>
           </li>

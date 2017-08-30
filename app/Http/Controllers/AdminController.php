@@ -61,6 +61,13 @@ class AdminController extends Controller
     return redirect('/admin/edit')->with('status', 'Data Anda Telah di Update');
   }
 
+  public function Profil()
+  {
+    $iduser = Auth::guard('admin')->user()->id;
+    $Admin = Admin::find($iduser);
+    return view('admin.detail_admin', ['data' => $Admin]);
+  }
+
   public function DataPeriode()
   {
     $Periode = Periode::all();
