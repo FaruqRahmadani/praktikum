@@ -41,23 +41,26 @@
                               @php
                                 $no = 0;
                               @endphp
+                              {{-- {{dd($jadwal->last())}}) --}}
                               @foreach ($jadwal as $jadwals)
                                 @php
-                                  $jadwaldosen = App\JadwalDosen::where('id', $jadwals->JadwalPraktikum->id_jadwal_dosen)->first();
-                                  $namadosen   = App\Dosen::where('id', $jadwaldosen->id_dosen)->first()->nama;
-                                  $namamateri  = App\Materi::where('id', $jadwaldosen->id_praktikum)->first()->materi_praktikum;
+                                  $dataPraktikum = App\JadwalPraktikum::find($jadwals['id_jadwal_praktikum']);
 
-                                  $tanggal    = Carbon\Carbon::parse($jadwals->JadwalPraktikum->tanggal)->format('d-m-Y');
-                                  $jammulai   = Carbon\Carbon::parse($jadwals->JadwalPraktikum->waktu_mulai)->format('H:i A');
-                                  $jamselesai = Carbon\Carbon::parse($jadwals->JadwalPraktikum->waktu_selesai)->format('H:i A');
+                                  $jadwaldosen = App\JadwalDosen::where('id', $dataPraktikum['id_jadwal_dosen'])->first();
+                                  $namadosen   = App\Dosen::where('id', $jadwaldosen['id_dosen'])->first()['nama'];
+                                  $namamateri  = App\Materi::where('id', $jadwaldosen['id_praktikum'])->first()['materi_praktikum'];
+
+                                  $tanggal    = Carbon\Carbon::parse($jadwals['JadwalPraktikum']['tanggal'])->format('d-m-Y');
+                                  $jammulai   = Carbon\Carbon::parse($jadwals['JadwalPraktikum']['waktu_mulai'])->format('H:i A');
+                                  $jamselesai = Carbon\Carbon::parse($jadwals['JadwalPraktikum']['waktu_selesai'])->format('H:i A');
                                 @endphp
                                 <tr>
                                   <td>{{$no = $no + 1}}</td>
                                   <td>{{$namamateri}}</td>
                                   <td>{{$namadosen}}</td>
-                                  <td>{{$jadwals->JadwalPraktikum->nama_kelas}}</td>
-                                  <td>{{$jadwals->JadwalPraktikum->ruangan}}</td>
-                                  <td>{{$jadwals->JadwalPraktikum->pertemuan}}</td>
+                                  <td>{{$dataPraktikum['nama_kelas']}}</td>
+                                  <td>{{$dataPraktikum['ruangan']}}</td>
+                                  <td>{{$dataPraktikum['pertemuan']}}</td>
                                   <td>{{$tanggal}}</td>
                                   <td>{{$jammulai}} - {{$jamselesai}}</td>
                                 </tr>

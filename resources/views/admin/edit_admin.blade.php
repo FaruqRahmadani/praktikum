@@ -41,7 +41,7 @@
               <div class="text-center">
                 <img src="/images/admin/{{Auth::guard('admin')->user()->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
                 <h6>Ganti foto</h6>
-                <input name="foto" type="file" class="form-control">
+                <input name="foto" type="file" class="form-control" accept="image/*">
               </div>
             </div>
             <!-- edit form column -->
@@ -49,19 +49,19 @@
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Nama</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="nama" type="text"  value="{{$data->nama}}">
+                    <input class="form-control" name="nama" type="text"  value="{{$data->nama}}" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Email</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="email" type="text" value="{{$data->email}}">
+                    <input class="form-control" name="email" type="email" value="{{$data->email}}" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="username" type="text" value="{{$data->username}}">
+                    <input class="form-control" name="username" type="text" value="{{$data->username}}" required pattern=".{3,4}">
                   </div>
                 </div>
                 <div class="form-group">

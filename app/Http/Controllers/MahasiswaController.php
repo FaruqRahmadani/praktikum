@@ -149,7 +149,7 @@ class MahasiswaController extends Controller
     $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
       $query->where('id_jadwal_dosen', $this->idJadwalDosen);
     }])->where('id_mahasiswa', $data->id)->get();
-
+    // dd($jadwal);
     return view('mahasiswa.jadwal_saya', ['data' => $data, 'jadwal' => $jadwal]);
   }
 
