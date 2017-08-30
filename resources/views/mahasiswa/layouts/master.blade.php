@@ -24,7 +24,7 @@
           <!-- START X-NAVIGATION -->
           <ul class="x-navigation">
             <li class="xn-logo">
-                <a href="mahasiswa.php">JPP UNISKA</a>
+                <a href="mahasiswa.php">Mahasiswa</a>
                 <a href="#" class="x-navigation-control"></a>
             </li>
             <li class="xn-profile">
@@ -46,7 +46,7 @@
               </div>
             </li>
             <li class="xn-title">Menu</li>
-              <li class="active">
+              <li>
                   <a href="/mahasiswa"><span class="fa fa-home"></span> <span class="xn-text">Home</span></a>
               </li>
               <li>
@@ -69,13 +69,6 @@
                         <a href="#" data-toggle="tooltip" title="Navigation" data-placement="bottom" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>
                     <!-- END TOGGLE NAVIGATION -->
-                    <!-- SEARCH -->
-                    <li class="xn-search">
-                        <form role="form">
-                            <input type="text" name="search" placeholder="Search..."/>
-                        </form>
-                    </li>
-                    <!-- END SEARCH -->
                     <!-- SIGN OUT -->
                     <li class="xn-icon-button pull-right">
                         <a href="#" data-toggle="tooltip" title="Log Out" data-placement="left" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
@@ -86,30 +79,22 @@
 
                 @yield('content')
                 <!-- MESSAGE BOX-->
-                <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
-                  <div class="mb-container">
-                    <div class="mb-middle">
-                      <div class="mb-title"><span class="fa fa-power-off"></span> Log <strong>Out</strong> ?</div>
-                      <div class="mb-content">
-                        <p>Anda Yakin Ingin Keluar?</p>
-                        <p>Tekan No Untuk Melanjutkan. Tekan Yes Untuk Keluar.</p>
-                      </div>
-                      <div class="mb-footer">
-                        <div class="pull-right">
-                          <a href="{{ route('logout') }}" class="btn btn-success btn-lg"
-                            onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                            Yes
-                          </a>
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              {{ csrf_field() }}
-                          </form>
-                          <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                      </div>
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-content">
+                            <h2 style="color: #ffffff";>Anda yakin ingin keluar?</h2>
+                            <h4 style="color: #ffffff";>Tekan No untuk melanjutkan. Tekan Yes untuk keluar.</h4>
                     </div>
-                  </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="login_dosen.php" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
         <!-- END MESSAGE BOX-->
 
         <!-- START PRELOADS -->

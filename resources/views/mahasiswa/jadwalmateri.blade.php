@@ -1,4 +1,7 @@
 @extends('mahasiswa.layouts.master')
+@section('tittle')
+  Mahasiswa -  {{$data->nama}}
+@endsection
 @section('content')
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
@@ -62,21 +65,21 @@
                                       <div class="col-md-5">
                                         <input type="text" class="form-control" name="pertemuan{{$i}}" id="pertemuan{{$i}}" readonly>
                                         <input type="hidden" class="form-control" name="idpertemuan{{$i}}" id="idpertemuan{{$i}}">
-                                        <button type="button" class="btn btn-info btn-rounded2" data-toggle="modal" data-target="#myModal{{$i}}">
-                                          <span class="fa fa-times"></span>Pilih
-                                        </button>
                                       </div>
+                                      <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#myModal{{$i}}">
+                                        <span class="fa fa-plus"></span>Pilih
+                                      </button>
+                                      {{ csrf_field() }}
+                                      <button type="reset" class="btn btn-danger btn-rounded">
+                                          <span class="fa fa-times"></span>Batal
+                                      </button>
+                                      <button type="submit" class="btn btn-primary btn-rounded">
+                                          <span class="fa fa-save"></span>Simpan
+                                      </button>
                                     </div>
-
                                   @endfor
 
-                                    {{ csrf_field() }}
-                                    <button type="reset" class="btn btn-danger btn-rounded2">
-                                        <span class="fa fa-times"></span>Batal
-                                    </button>
-                                    <button type="submit" class="btn btn-primary btn-rounded1">
-                                        <span class="fa fa-save"></span>Simpan
-                                    </button>
+
                                 </form>
 
                                 @for ($i=1; $i <= $jadwal->JadwalPraktikum->max('pertemuan') ; $i++)

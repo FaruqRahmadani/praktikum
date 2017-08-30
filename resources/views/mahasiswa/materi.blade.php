@@ -1,6 +1,6 @@
 @extends('mahasiswa.layouts.master')
 @section('tittle')
-  test
+  Mahasiswa -  {{$data->nama}}
 @endsection
 @section('content')
   <!-- START BREADCRUMB -->
@@ -43,7 +43,7 @@
                 @if ($jumlahmateri >= 2)
                   <td class="center"><button class="btn btn-success btn-rounded"><i class="fa fa-info-circle"></i>Dikunci</button></td>
                 @else
-                  <a href="/mahasiswa/materi/{{Crypt::encryptString($jadwals->id)}}"><td class="center"><button class="btn btn-success btn-rounded"><i class="fa fa-info-circle"></i> Informasi </button></td></a>
+                  <a href="/mahasiswa/materi/{{Crypt::encryptString($jadwals->id)}}"><td class="center"><button class="btn btn-info btn-rounded"><i class="fa fa-info-circle"></i> Informasi </button></td></a>
                 @endif
               </div>
             </div>

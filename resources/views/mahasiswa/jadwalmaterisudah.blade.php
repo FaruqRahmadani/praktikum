@@ -1,4 +1,7 @@
 @extends('mahasiswa.layouts.master')
+@section('tittle')
+  Mahasiswa -  {{$data->nama}}
+@endsection
 @section('content')
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
