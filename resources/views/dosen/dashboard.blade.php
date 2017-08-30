@@ -13,11 +13,13 @@
    <div class="page-content-wrap">
     <div class="row">
       <div class="col-md-12">
-        <h1>Praktikun FTI UNISKA</h1>
+        <h1>Program Praktikun FTI UNISKA MAB</h1>
           <div class="panel panel-default">
             <div class="panel-body">
-              <h2>Selamat Datang {{$datauser->nama}}</h2>
-              <h3>Selamat Datang di Praktikum UNISKA</h3>
+              <center>
+                <h2>Selamat Datang {{$datauser->nama}}</h2>
+                <h3>Selamat Datang di Program Praktikum UNISKA MAB</h3>
+              </center>
             </div>
           </div>
         </div>

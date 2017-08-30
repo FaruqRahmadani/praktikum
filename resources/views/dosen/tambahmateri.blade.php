@@ -27,19 +27,13 @@
 
                             <!-- START DEFAULT DATATABLE -->
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
-                                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
-                                    </ul>
-                                </div>
                                 <div class="panel-body">
-                                <div class="form-group">
+                                  <div class="table-container">
+                                    <div class="form-group">
                                         <label class="col-md-0 col-xs-0 control-label"></label>
-                                        <div class="col-md-3 col-xs-0">
+                                        <div class="col-md-2 col-xs-0">
                                             <select class="form-control select">
-                                                <option>Filter Jadwal Praktikum</option>
+                                                <option>Jadwal Praktikum</option>
                                                 <option>Reguler Pagi A </option>
                                                 <option>Reguler Pagi B</option>
                                                 <option>Reguler Pagi C</option>
@@ -81,7 +75,8 @@
                                     </table>
                                     {{-- {!! Form::submit('Simpan', ['class' => 'btn btn-primary btn-rounded']) !!}
                                     {!! Form::close() !!} --}}
-                                </div>
+                                   </div>
+                                 </div>
                                 </div>
                             </div>
                             <!-- END DEFAULT DATATABLE -->

@@ -2539,7 +2539,7 @@ label.valid {
   background-color: #95b75d;
   color: #FFF;
   border-color: #90b456;
-  width: 1092px; 
+  width: 1092px;
   margin-left: 10px;
 }
 .alert-info {
@@ -3486,13 +3486,13 @@ td.dataTables_empty {
 }
 .widget.widget-default {
   background: #ffffff;
-   
-   
-   
-   
-   
-   
-   
+
+
+
+
+
+
+
 }
 .widget.widget-primary {
   background: #1b1e24;
@@ -3515,7 +3515,7 @@ td.dataTables_empty {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#95b75d, endColorstr=#89ad4d, GradientType=0);
 }
 .widget.widget-info {
-background: #1caf9a !important;  
+background: #1caf9a !important;
 }
 .widget.widget-warning {
   background: #1caf9a;
@@ -4013,8 +4013,9 @@ background: #1caf9a !important;
 }
 .login-container .login-box .login-logo {
   background: url("../img/UNISKA.png") top center no-repeat;
-  width: 100%;
-  height: 50px;
+  width: 103%;
+  height: 56px;
+  margin-top: -63px;
   float: left;
   margin-bottom: 10px;
 }

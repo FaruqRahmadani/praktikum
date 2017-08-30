@@ -16,16 +16,13 @@
 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
-
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-
-
                             <!-- START DEFAULT DATATABLE -->
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                <div class="form-group">
-                                        <label class="col-md-0 col-xs-0 control-label"></label>
+                                  <div class="table-container">
+                                    <div class="form-group">
                                         {{-- <div class="col-md-3 col-xs-0">
                                           <form class="" action="{{url()->current()}}" method="post">
 
@@ -53,21 +50,21 @@
                                           </form>
                                         </div> --}}
                                         <label class="col-md-0 col-xs-0 control-label"></label>
-                                        {{-- <div class="col-md-2 col-xs-0"> --}}
+                                        <div class="col-md-2 col-xs-0">
                                         <form class="form-horizontal" method="POST" action="{{Request::url()}}">
-                                          <div style="width:12%">
+                                          <div style="width:80%">
                                               <select name="periode" class="form-control select">
                                                   @foreach ($periode as $dataPeriode)
                                                     <option value="{{$dataPeriode->id}}">{{$dataPeriode->periode}}</option>
                                                   @endforeach
                                               </select>
                                           </div>
-                                          {{ csrf_field() }}
-                                          <button type="submit" class="btn btn-primary btn-rounded btn-sm">
-                                            <span class="fa fa-filter"></span>Filter
-                                          </button>
+                                              {{ csrf_field() }}
+                                              <button type="submit" class="btn btn-primary btn-rounded8 btn-sm">
+                                                <span class="fa fa-filter"></span>Filter
+                                              </button>
                                         </form>
-                                  <div class="table-container">
+                                        </div>
                                     <table class="table datatable table-bordered">
                                         <thead>
                                             <tr>
@@ -97,16 +94,19 @@
                                                 <td>{{$jadwals->tanggal}}</td>
                                                 <td>{{Carbon\Carbon::parse($jadwals->waktu_mulai)->format('g:i A')}} - {{Carbon\Carbon::parse($jadwals->waktu_selesai)->format('g:i A')}}</td>
                                                 <td>{{count(App\AbsensiMahasiswa::where('id_jadwal_praktikum', $jadwals->id)->get())}} Orang</td>
-                                                <td><a href="/dosen/absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span> Cetak</button></a></td>
+                                                <td>
+                                                <center>
+                                                  <a href="/dosen/absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span></button></a></td>
+                                                </center>
                                               </tr>
                                             @endforeach
                                           @endforeach
                                         </tbody>
                                     </table>
-                                </div>
+                                  </div>
                                 </div>
                                   <a href="/dosen/cetakabsen/{{Crypt::encryptString($idperiode)}}" target="_blank">
-                                    <button class="btn btn-info"><span class="fa fa-print"></span> Print</button>
+                                    <button class="btn btn-primary btn-rounded"><span class="fa fa-print"></span> Cetak</button>
                                   </a>
                                 </div>
                             </div>

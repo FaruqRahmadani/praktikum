@@ -86,7 +86,7 @@ class DosenController extends Controller
       ]);
       $namagambar = $request->NIDN.'.'.$request->foto->getClientOriginalExtension();
       $request->foto->move(public_path('images/dosen'), $namagambar);
-      $updatedosen->gambar = $namagambar;
+      $updatedosen->foto = $namagambar;
     }
 
 
