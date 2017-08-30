@@ -34,7 +34,7 @@
               <span class="fa fa-filter"></span>Filter
             </button>
           </form>
-            <table class="table datatable">
+            <table class="table datatable table-bordered">
               <thead>
                 <tr>
                   <th><center>No</center></th>

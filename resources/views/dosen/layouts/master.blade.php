@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="/public-dosen/css/bootstrap.css" rel="stylesheet">
 
-        <link rel="icon" href="uniska.ico" type="image/x-icon" />
+        <link rel="icon" href="/public-dosen/img/uniska.ico" type="image/x-icon" />
         <!-- END META SECTION -->
 
         <!-- CSS INCLUDE -->
