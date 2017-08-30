@@ -69,17 +69,17 @@
                                       <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#myModal{{$i}}">
                                         <span class="fa fa-plus"></span>Pilih
                                       </button>
-                                      {{ csrf_field() }}
-                                      <button type="reset" class="btn btn-danger btn-rounded">
-                                          <span class="fa fa-times"></span>Batal
-                                      </button>
-                                      <button type="submit" class="btn btn-primary btn-rounded">
-                                          <span class="fa fa-save"></span>Simpan
-                                      </button>
                                     </div>
                                   @endfor
-
-
+                                  {{ csrf_field() }}
+                                  <div class="mright">
+                                    <button type="reset" class="btn btn-danger btn-rounded">
+                                      <span class="fa fa-times"></span>Batal
+                                    </button>
+                                    <button type="submit" class="btn btn-primary btn-rounded">
+                                      <span class="fa fa-save"></span>Simpan
+                                    </button>
+                                  </div>
                                 </form>
 
                                 @for ($i=1; $i <= $jadwal->JadwalPraktikum->max('pertemuan') ; $i++)

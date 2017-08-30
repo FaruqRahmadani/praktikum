@@ -2090,6 +2090,9 @@ ul.panel-controls > li > .dropdown-menu:before {
   padding: 3px 10px;
   font-weight: 600;
 }
+.mright{
+  text-align: right;
+}
 .btn.btn-rounded.btn-default:hover,
 .btn.btn-rounded.btn-default:focus,
 .btn.btn-rounded.btn-default:active,
