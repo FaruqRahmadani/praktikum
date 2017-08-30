@@ -101,5 +101,40 @@
         @endforeach
       </tbody>
     </table>
+    @php
+      $bulan = array(
+        '01' => 'Januari',
+        '02' => 'Februari',
+        '03' => 'Maret',
+        '04' => 'April',
+        '05' => 'Mei',
+        '06' => 'Juni',
+        '07' => 'Juli',
+        '08' => 'Agustus',
+        '09' => 'September',
+        '10' => 'Oktober',
+        '11' => 'November',
+        '12' => 'Desember'
+      )
+    @endphp
+    <table style="border: 0px solid #FFFFFF;">
+      <tbody>
+        <tr>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF; text-align:center;">Banjarmasin, {{Carbon\Carbon::now()->format('d')}} {{$bulan[date('m')].' '.date('Y')}}</td>
+        </tr>
+        <tr>
+          <td style="border: 0px solid #FFFFFF;"><br><br><br><br></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+          <td style="border: 0px solid #FFFFFF;"></td>
+        </tr>
+        <tr>
+          <td style="border: 0px solid black;"></td>
+          <td style="border: 0px solid black;"></td>
+          <td valign=bottom style="text-align:center; border:0px solid black">{{$admin->nama}}</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

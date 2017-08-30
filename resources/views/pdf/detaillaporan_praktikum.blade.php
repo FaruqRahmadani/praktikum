@@ -138,7 +138,7 @@
         <tr>
           <td style="border: 0px solid black;"></td>
           <td style="border: 0px solid black;"></td>
-          <td valign=bottom style="text-align:center; border:0px solid black">Admin</td>
+          <td valign=bottom style="text-align:center; border:0px solid black">{{$admin->nama}}</td>
         </tr>
       </tbody>
     </table>
