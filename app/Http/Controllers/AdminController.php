@@ -18,6 +18,7 @@ use App\Admin;
 use App\Materi;
 use App\Periode;
 use App\Berita;
+use App\Galeri;
 use Auth;
 use PDF;
 use Hash;
@@ -238,7 +239,42 @@ class AdminController extends Controller
 
   public function datagaleri()
   {
-    return view('admin.galeri');
+    $Galeri = Galeri::with('admin')->get();
+    return view('admin.galeri', ['galeri' => $Galeri]);
+
+    return redirect('/admin/galeri');
+  }
+
+  public function storeDataGaleri(Request $request)
+  {
+    $idAdmin = Auth::guard('admin')->user()->id;
+
+    $Galeri = Galeri::all();
+    if (count($Galeri) < 1) {
+      $id = 1;
+    } else {
+      $id = $Galeri->last()->id + 1;
+    }
+
+    $namagambar = $id.'.'.$request->foto->getClientOriginalExtension();
+
+    $Store = new Galeri;
+    $Store->id_admin = $idAdmin;
+    $Store->judul = $request->judul;
+    $Store->gambar = $namagambar;
+    $Store->save();
+
+    return redirect('/admin/galeri');
+  }
+
+  public function deleteDataGaleri($id)
+  {
+    $ids = Crypt::decryptString($id);
+    $Galeri = Galeri::find($ids);
+
+    $Galeri->delete();
+
+    return redirect('/admin/galeri');
   }
 
   public function datamateri()
