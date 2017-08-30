@@ -73,6 +73,8 @@ Route::group(['middleware' => 'mahasiswa'], function(){
 
 Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin', 'AdminController@dashboard');
+  Route::get('/admin/edit', 'AdminController@EditProfil');
+  Route::POST('/admin/edit', 'AdminController@storeEditProfil');
   Route::get('/admin/periode', 'AdminController@DataPeriode');
   Route::get('/admin/periode/tambah', 'AdminController@tambahDataPeriode');
   Route::POST('/admin/periode/tambah', 'AdminController@storetambahDataPeriode');

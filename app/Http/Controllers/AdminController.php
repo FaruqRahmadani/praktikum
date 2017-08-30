@@ -20,12 +20,45 @@ use App\Periode;
 use App\Berita;
 use Auth;
 use PDF;
+use Hash;
 
 class AdminController extends Controller
 {
   public function dashboard()
   {
       return view('admin.dashboard');
+  }
+
+  public function EditProfil()
+  {
+    $iduser   = Auth::guard('admin')->user()->id;
+    $Admin = Admin::find($iduser)->first();
+    return view('admin.edit_admin', ['data' => $Admin]);
+  }
+
+  public function storeEditProfil(Request $request)
+  {
+    $iduser   = Auth::guard('admin')->user()->id;
+    $Admin = Admin::find($iduser);
+
+    $Admin->nama = $request->nama;
+    $Admin->email = $request->email;
+    $Admin->username = $request->username;
+
+    if ($request->password != null) {
+      $this->validate($request, [
+        'password_lama' => 'required|string|min:6',
+        'password'      => 'required|string|min:6|confirmed',
+      ]);
+
+      if (Hash::check($request->password_lama, $Admin->password)) {
+        $Admin->password = bcrypt($request->password);
+      }
+    }
+
+    $Admin->save();
+
+    return redirect('/admin/edit')->with('status', 'Data Anda Telah di Update');
   }
 
   public function DataPeriode()

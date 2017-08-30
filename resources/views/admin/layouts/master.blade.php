@@ -29,14 +29,14 @@
           <li class="xn-profile">
             <div class="profile">
               <div class="profile-image">
-                <img src="/public-admin/assets/images/users/no-image.jpg" alt="John Doe"/>
+                <img src="/images/admin/{{Auth::guard('admin')->user()->foto}}" alt="Faruq"/>
               </div>
               <div class="profile-data">
                 <div class="profile-data-name">{{Auth::guard('admin')->user()->nama}}</div>
                 <div class="profile-data-title">Admin</div>
               </div>
               <div class="profile-controls">
-                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-pencil"></span></a>
+                <a href="/admin/edit" class="profile-control-left"><span class="fa fa-pencil"></span></a>
                 <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-info"></span></a>
               </div>
             </div>

@@ -74,8 +74,8 @@ class DosenController extends Controller
         'password'      => 'required|string|min:6|confirmed',
       ]);
 
-      if (Hash::check($request->password, $user->password)) {
-        $updateuser->password = $request->password;
+      if (Hash::check($request->password_lama, $user->password)) {
+        $updateuser->password = bcrypt($request->password);
       }
     }
 
