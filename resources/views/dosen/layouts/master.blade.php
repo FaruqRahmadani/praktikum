@@ -69,9 +69,6 @@
                             <li><a href="/dosen/absen"><span class="fa fa-print"></span>Cetak Absensi</a></li>
                         </ul>
                     </li>
-                    <li class="xn-icon-button">
-                        <a href="home.php" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span><span class="xn-text">Log Out</span></a>
-                    </li>
                 </ul>
                 <!-- END X-NAVIGATION -->
             </div>
@@ -84,12 +81,12 @@
                 <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
                     <!-- TOGGLE NAVIGATION -->
                     <li class="xn-icon-button">
-                        <a href="#" data-toggle="tooltip" title="Navigation" data-placement="right" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+                        <a href="#" data-toggle="tooltip" title="Navigasi" data-placement="right" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>
                     <!-- END TOGGLE NAVIGATION -->
                     <!-- SIGN OUT -->
                     <li class="xn-icon-button pull-right">
-                        <a href="#" data-toggle="tooltip" title="Log Out" data-placement="left" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+                        <a href="#" data-toggle="tooltip" title="Keluar" data-placement="left" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
                     </li>
                     <!-- END SIGN OUT -->
                 </ul>
@@ -115,34 +112,31 @@
         </div>
         <!-- END MESSAGE BOX-->
 
-       <!-- MESSAGE BOX-->
-        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
-            <div class="mb-container">
-                <div class="mb-middle">
-                    <div class="mb-title">
-                    <span class="fa fa-sign-out"></span> Keluar ?
-                    </div>
-                    <div class="mb-content">
-                            <h4 style="color: #ffffff";>Anda yakin ingin keluar?</h4>
-                            <h4 style="color: #ffffff";>Tekan No untuk melanjutkan. Tekan Yes untuk keluar.</h4>
-                    </div>
-                    <div class="mb-footer">
-                        <div class="pull-right">
-                          <a href="{{ route('logout') }}" class="btn btn-success btn-lg"
-                            onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                            Yes
-                          </a>
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              {{ csrf_field() }}
-                          </form>
-                          <button class="btn btn-default btn-lg mb-control-close">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END MESSAGE BOX-->
+        <!-- MESSAGE BOX-->
+         <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+             <div class="mb-container">
+                 <div class="mb-middle">
+                     <div class="mb-content">
+                             <h2 style="color: #ffffff";>Anda yakin ingin keluar?</h2>
+                             <h4 style="color: #ffffff";>Tekan No untuk melanjutkan. Tekan Yes untuk keluar.</h4>
+                     </div>
+                     <div class="mb-footer">
+                         <div class="pull-right">
+                           <a href="{{ route('logout') }}" class="btn btn-success btn-lg"
+                             onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                             Yes
+                           </a>
+                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                               {{ csrf_field() }}
+                           </form>
+                             <button class="btn btn-default btn-lg mb-control-close">No</button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!-- END MESSAGE BOX-->
 
        <!-- START PRELOADS -->
         <audio id="audio-alert" src="/public-dosen/audio/alert.mp3" preload="auto"></audio>

@@ -822,7 +822,7 @@ body.page-container-boxed .page-container {
 .x-navigation.x-navigation-custom > li > a {
   padding: 12px 10px 12px 12px;
   border-bottom: 0px;
-  font-size: 13px;
+  font-size: 12px;
   color: #CCC;
   border-left: 3px solid transparent;
 }
@@ -2172,7 +2172,7 @@ ul.panel-controls > li > .dropdown-menu:before {
   margin-top: 1px;
   font-weight: 600;
   float: left;
-  margin-left: -1px
+  margin-left: -6px
 }
 .btn.btn-rounded7 {
   background: transparent;
@@ -2185,6 +2185,18 @@ ul.panel-controls > li > .dropdown-menu:before {
   margin-left: 4px;
   margin-top: 35px;
   font-weight: 600;
+}
+.btn.btn-rounded8 {
+  background: transparent;
+  color: #22262e;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  border-width: 2px;
+  padding: 2px 10px;
+  font-weight: 600;
+  margin-left: 165px;
+  margin-top: -50px;
 }
 .btn.btn-rounded {
   background: transparent;
@@ -2262,6 +2274,9 @@ ul.panel-controls > li > .dropdown-menu:before {
   color: #1b1e24;
 }
 .btn.btn-rounded7.btn-primary {
+  color: #1b1e24;
+}
+.btn.btn-rounded8.btn-primary {
   color: #1b1e24;
 }
 .btn.btn-rounded.btn-primary:hover,

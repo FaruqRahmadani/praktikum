@@ -1,4 +1,4 @@
-@extends('dosen.layouts.master');
+@extends('dosen.layouts.master')
 @section('content')
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
@@ -16,36 +16,15 @@
 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
-
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-
-
                             <!-- START DEFAULT DATATABLE -->
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <a href="tambah_dosen.php">
-                                    <h3 class="panel-title"><span class="fa fa-plus"></span> Tambah Data</h3></a>
-
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
-                                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
-                                    </ul>
-                                </div>
                                 <div class="panel-body">
                                 <div class="form-group">
+                                  <div class="table-container">
                                         <label class="col-md-0 col-xs-0 control-label"></label>
-                                        <div class="col-md-3 col-xs-0">
-                                            <select class="form-control select">
-                                                <option>Filter Jadwal Praktikum</option>
-                                                <option>Reguler Pagi A </option>
-                                                <option>Reguler Pagi B</option>
-                                                <option>Reguler Pagi C</option>
-                                                <option>Reguler Malam A</option>
-                                                <option>NonReguler Pagi A</option>
-                                            </select>
-                                        </div>
-                                    <table class="table datatable">
+                                    <table class="table datatable table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -53,7 +32,6 @@
                                                 <th>NIDN</th>
                                                 <th>Nama</th>
                                                 <th>No HP</th>
-                                                <th>E-Mail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -61,7 +39,7 @@
                                           @foreach ($data as $datas)
                                             <tr>
                                               <td>{{$no = $no + 1}}</td>
-                                                <td><img src="/images/dosen/{{$datas->foto}}" width="80" height="100"></td>
+                                                <td><img src="/images/dosen/{{$datas->foto}}" width="80px" height="100px"></td>
                                                 <td>{{$datas->NIDN}}</td>
                                                 <td>
                                                     <a href="/dosen/datadosen/{{Crypt::encryptString($datas->id)}}">
@@ -70,11 +48,11 @@
                                                     </a>
                                                 </td>
                                                 <td class="center">{{$datas->no_hp}}</td>
-                                                <td class="center">{{$datas->email}}</td>
                                             </tr>
                                           @endforeach
                                         </tbody>
                                     </table>
+                                  </div>
                                 </div>
                                 </div>
                             </div>
