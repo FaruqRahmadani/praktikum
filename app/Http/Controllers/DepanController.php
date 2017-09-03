@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Materi;
 use App\Berita;
+use App\Galeri;
 
 class DepanController extends Controller
 {
@@ -12,7 +13,8 @@ class DepanController extends Controller
     {
       $Materi = Materi::all();
       $Berita = Berita::with('admin')->limit(3)->get();
+      $Galeri = Galeri::all();
       // dd($Berita);
-      return view('depan.index', ['materi' => $Materi, 'berita' => $Berita]);
+      return view('depan.index', ['materi' => $Materi, 'berita' => $Berita, 'galeri' => $Galeri]);
     }
 }

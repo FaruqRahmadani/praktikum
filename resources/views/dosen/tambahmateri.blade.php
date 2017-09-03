@@ -1,10 +1,11 @@
-@extends('dosen.layouts.master');
+@extends('dosen.layouts.master')
 @section('content')
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                 <li class="active">Menu</li>
                 <li class="active">Master Data</li>
                 <li><a href="data_dosen.php" data-toggle="tooltip" title="Go to Data Dosen" data-placement="bottom">Data Dosen</a></li>
+                <li class="active">Tambah Data</li>
                 </ul>
                 <!-- END BREADCRUMB -->
 
@@ -15,6 +16,7 @@
                 <!-- END PAGE TITLE -->
                 @if (session('status'))
                   <div class="alert alert-success">
+                  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                       {{ session('status') }}
                   </div>
                 @endif
@@ -42,7 +44,7 @@
                                             </select>
                                         </div>
                                         {{-- {!! Form::open(['url'=>url()->current(),'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!} --}}
-                                    <table class="table datatable">
+                                    <table class="table datatable table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -56,11 +58,12 @@
                                           <?php $no = 0; ?>
                                           @foreach ($data as $datas)
                                             <tr>
-                                              <td>{{$no = $no + 1}}</td>
+                                              <td><center>{{$no = $no + 1}}</center></td>
                                                 <td>{{$datas->kode_mk}}</td>
                                                 <td>{{$datas->materi_praktikum}}</td>
-                                                <td class="center">{{$datas->semester}}</td>
-                                                <td class="center">
+                                                <td><center>{{$datas->semester}}</center></td>
+                                                <td>
+                                                <center>
                                                     @if (count($jadwaldosen->where('id_praktikum', $datas->id)->first()) > 0)
                                                       {{-- <input type="checkbox" name="data{{$datas->id}}" value="true" disabled> --}}
                                                       <button class="btn btn-info btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom" disabled><span class="fa fa-check"></span> Sudah Ditambahkan</button>
@@ -68,6 +71,7 @@
                                                       {{-- <input type="checkbox" name="data{{$datas->id}}" value="true"> --}}
                                                       <a href="/dosen/materi/add/{{Crypt::encryptString($datas->id)}}"><button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom"><span class="fa fa-plus"></span> Tambah</button></a>
                                                     @endif
+                                                </center>
                                                 </td>
                                             </tr>
                                           @endforeach

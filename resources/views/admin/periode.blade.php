@@ -57,11 +57,12 @@
                         <td><center class="aktif">
                           @php
                             if ($dataPeriode->status == 1) {
-                              echo '<span class="fa fa-check"></span>Aktif';
+                              echo '<button class="btn btn-success"><span class="fa fa-check"></span>Aktif</button>';
                             } else {
-                              echo '<span class="fa fa-times"></span>Non Aktif';
+                              echo '<button class="btn btn-danger"><span class="fa fa-times"></span>Non Aktif</button>';
                             }
                           @endphp
+				</center>
                         <td>
                           <center>
                             <a href="/admin/periode/{{Crypt::encryptString($dataPeriode->id)}}/edit"><button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button></a>

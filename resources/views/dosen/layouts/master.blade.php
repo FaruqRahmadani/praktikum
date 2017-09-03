@@ -29,7 +29,7 @@
                     </li>
                     <li class="xn-profile">
                       <a href="" class="profile-mini">
-                        <img src="/images/dosen/{{$datauser->foto}}" alt="Fathul Hafidh"/>
+                        <img src="/images/dosen/{{$datauser->foto}}" alt="photo"/>
                       </a>
                         <div class="profile">
                             <div class="profile-image">

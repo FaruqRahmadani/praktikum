@@ -40,7 +40,7 @@
                   </select>
                 </div>
 
-                <table class="table datatable table-bordered">
+                <table class="table datatable table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>No</th>
@@ -61,12 +61,12 @@
                         <?php $semester = (date("y") - substr($datas->NPM,0,2))*2 ?>
                       @endif
                       @if ($semester >= 7)
-                        <?php $tipemahasiswa = 'Mahasiswa Intensif'; ?>
+                        <?php $tipemahasiswa = 'Kelas Intensif'; ?>
                       @else
-                        <?php $tipemahasiswa = 'Mahasiswa Reguler'; ?>
+                        <?php $tipemahasiswa = 'Kelas Reguler'; ?>
                       @endif
                       <tr>
-                        <td>{{$no = $no+1}}</td>
+                        <td><center>{{$no = $no+1}}</center></td>
                         <td><img src="/images/mahasiswa/{{$datas->foto}}" width="80" height="100"></td>
                         <td>{{$datas->NPM}}</td>
                         <td>
@@ -76,7 +76,7 @@
                           </a>
                         </td>
                         <td>{{$datas->no_hp}}</td>
-                        <td>{{$semester}}</td>
+                        <td><center>{{$semester}}</center></td>
                         <td>{{$tipemahasiswa}}</td>
                       </tr>
                     @endforeach

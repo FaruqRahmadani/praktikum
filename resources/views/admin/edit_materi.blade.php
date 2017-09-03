@@ -11,14 +11,13 @@
 
   <!-- PAGE TITLE -->
   <div class="page-title">
-      <h2>Tambah Data Materi</h2>
+      <h2>Edit Data Materi</h2>
   </div>
   <!-- END PAGE TITLE -->
 
     <div class="container">
 	    <div class="row">
         <div class="col-md-9 personal-info">
-          <h3>Edit Data Materi</h3>
 
             {!! Form::open(['url'=>Request::url(),'files'=>true,'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
               <div class="form-group">
@@ -56,8 +55,8 @@
                     <span class="fa fa-save" aria-hidden="true"></span>Save
                   </button>
                   {{-- {!! Form::submit('Save', ['class' => 'btn btn-primary btn-rounded']) !!} --}}
-                  <button type="reset" class="btn btn-success btn-rounded">
-                    <span class="fa fa-times-circle-o Close" aria-hidden="true"></span>Reset
+                  <button type="reset" class="btn btn-danger btn-rounded">
+                    <span class="fa fa-times" aria-hidden="true"></span>Reset
                   </button>
                 </div>
               </div>

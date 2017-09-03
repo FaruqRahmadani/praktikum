@@ -323,7 +323,7 @@ class DosenController extends Controller
 
     $pdf = PDF::loadView('pdf.absensi', ['data' => $data, 'dosen' => $Dosen, 'materi' => $Materi, 'JadwalPraktikum' => $JadwalPraktikum]);
     $pdf->setPaper('a4', 'potrait');
-  	return $pdf->stream('absensi.pdf');
+  	return $pdf->stream('absensi.pdf', ['Attachment'=>0]);
   }
 
   public function printAllAbsen($id){
@@ -335,7 +335,7 @@ class DosenController extends Controller
 
     $pdf = PDF::loadView('pdf.absensiAll', ['data' => $data, 'dosen' => $Dosen]);
     $pdf->setPaper('a4', 'potrait');
-  	return $pdf->stream('absensi.pdf');
+  	return $pdf->stream('absensi.pdf', ['Attachment'=>0]);
   }
 
   // public function cetakabsen(Request $request){

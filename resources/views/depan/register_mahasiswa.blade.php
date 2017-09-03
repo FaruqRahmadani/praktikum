@@ -11,20 +11,20 @@
 
                       <div class="form-group">
                           <div class="col-md-12">
-                              {{-- <input type="text" name="nomorinduk" class="form-control" placeholder="NPM"/ required autofocus" pattern="(?=.*[0-9]).{5,}" tittle="minimal sekian" value={{old('nomorinduk')}}> --}}
-                              {!! Form::text('nomorinduk', old('nomorinduk'),['placeholder' => 'NPM','class' => 'form-control', 'required', 'pattern' => '(?=.*[0-9]).{5,}']) !!}
+                              {{-- <input type="text" name="nomorinduk" class="form-control" placeholder="NPM"/ required autofocus" pattern="[0-9]{5,}"  value={{old('nomorinduk')}}> --}}
+                              {!! Form::text('nomorinduk', old('nomorinduk'),['placeholder' => 'NPM','class' => 'form-control', 'required', 'pattern' => '[0-9]{5,}','title'=>'NPM berupa angka 8 digit']) !!}
                           </div>
                       </div>
                       <div class="form-group">
                           <div class="col-md-12">
                               {{-- <input type="text" name="nama" class="form-control" placeholder="Nama"/ required value={{old('nama')}}> --}}
-                              {!! Form::text('nama', old('nama'),['placeholder' => 'Nama','class' => 'form-control', 'required']) !!}
+                              {!! Form::text('nama', old('nama'),['placeholder' => 'Nama','class' => 'form-control', 'required','pattern'=>'[a-zA-Z\s]{3,}','title'=>'nama tidak boleh mengandung angka,minimal 3 karakter']) !!}
                           </div>
                       </div>
                       <div class="form-group">
                           <div class="col-md-12">
-                              {{-- <input type="text" name="no_hp" class="form-control" placeholder="Nomor HP"/ required pattern="(?=.*[0-9]).{10,}" value={{old('no_hp')}}> --}}
-                              {!! Form::text('no_hp', old('no_hp'),['placeholder' => 'Nomor HP','class' => 'form-control', 'required', 'pattern' => '(?=.*[0-9]).{10,}']) !!}
+                              {{-- <input type="text" name="no_hp" class="form-control" placeholder="Nomor HP"/ required pattern="[0-9]{10,}" value={{old('no_hp')}}> --}}
+                              {!! Form::text('no_hp', old('no_hp'),['placeholder' => 'Nomor HP','class' => 'form-control', 'required', 'pattern' => '[0-9]{10,12}','title'=>'No.hp berupa angka 8-12 karakter']) !!}
                           </div>
                       </div>
                       <div class="form-group">
@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <div class="col-md-12">
                             {{-- <input type="text" name="username" class="form-control" placeholder="Username"/ required pattern=".{5,}" value={{old('username')}}> --}}
-                            {!! Form::text('username', old('username'),['placeholder' => 'Username','class' => 'form-control', 'required', 'pattern' => '.{5,}']) !!}
+                            {!! Form::text('username', old('username'),['placeholder' => 'Username','class' => 'form-control', 'required', 'pattern' => '.{5,}','title'=>'username minimal 5 karakter']) !!}
                         </div>
                     </div>
                     <div class="form-group">

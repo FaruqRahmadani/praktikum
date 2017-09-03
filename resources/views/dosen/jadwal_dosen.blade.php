@@ -5,7 +5,7 @@
                 <li class="active">Menu</li>
                 <li class="active">Proses Data</li>
                 <li><a href="jdwl_dosen.php" data-toggle="tooltip" title="Go to Jadwal Dosen" data-placement="bottom">Jadwal Dosen</a></li>
-
+                <li class="active">Tambah Data</li>
                 </ul>
                 <!-- END BREADCRUMB -->
 
@@ -54,7 +54,7 @@
                                                 <option>NonReguler Pagi A</option>
                                             </select>
                                         </div>
-                                    <table class="table datatable table-bordered">
+                                    <table class="table datatable table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -73,7 +73,7 @@
                                           @foreach ($data as $jadwaldosen)
                                             @foreach ($jadwaldosen->JadwalPraktikum as $jadwalpraktikum)
                                             <tr id="trow_1">
-                                                <td>{{$no = $no + 1}}</td>
+                                                <td><center>{{$no = $no + 1}}</center></td>
                                                 <td>{{$jadwaldosen->materi->materi_praktikum}}</td>
                                                 <td>{{$jadwalpraktikum->pertemuan}}</td>
                                                 <td>{{$jadwalpraktikum->nama_kelas}}</td>

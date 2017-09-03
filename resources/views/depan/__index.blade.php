@@ -244,7 +244,7 @@ http://www.tooplate.com/view/2089-meteor
                     </div>
                 </div>
                 <div class="projects-holder-3">
-                    {{-- <div class="filter-categories">
+                    <div class="filter-categories">
                         <ul class="project-filter">
                             <li class="filter" data-filter="all"><span>All</span></li>
                             <li class="filter" data-filter="nature"><span>Nature</span></li>
@@ -252,23 +252,89 @@ http://www.tooplate.com/view/2089-meteor
                             <li class="filter" data-filter="city"><span>City</span></li>
                             <li class="filter" data-filter="technology"><span>Technology</span></li>
                         </ul>
-                    </div> --}}
+                    </div>
                     <div class="projects-holder">
                         <div class="row">
-
-                          @foreach ($galeri as $dataGaleri)
                             <div class="col-md-3 col-sm-6 project-item mix workspace">
                               <div class="thumb">
-                                <div class="image">
-                                  <img src="/images/galeri/{{$dataGaleri->gambar}}">
-                                </div>
-                                <div class="hover-effect">
-                                  <a href="/images/galeri/{{$dataGaleri->gambar}}" data-lightbox="image-1"><i class="fa fa-search"></i></a>
-                                </div>
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_01.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_01.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
                               </div>
                             </div>
-                          @endforeach
-
+                            <div class="col-md-3 col-sm-6 project-item mix workspace">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_02.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_02.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix technology">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_03.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_03.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix city">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_04.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_04.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix nature">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_05.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_05.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix technology">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_06.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_06.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix workspace">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="/public-depan/img/portfolio_07.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_07.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 project-item mix city">
+                              <div class="thumb">
+                                  <div class="image">
+                                    <img src="img/portfolio_08.jpg">
+                                  </div>
+                                  <div class="hover-effect">
+                                    <a href="/public-depan/img/portfolio_big_08.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                  </div>
+                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -283,8 +349,7 @@ http://www.tooplate.com/view/2089-meteor
             <div class="row">
                 <div class="col-md-6">
                     <div class="copyright-text">
-                      <p>Made using <i class="fa fa-bolt"></i> power
-                      <p>Copyright &copy; 2017 FTI UNISKA
+                        <p>Copyright &copy; 2017 FTI UNISKA
                     </div>
                 </div>
                 <div class="col-md-6">

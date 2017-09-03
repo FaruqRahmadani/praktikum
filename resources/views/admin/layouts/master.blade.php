@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/public-admin/css/bootstrap.css" rel="stylesheet">
 
-    <link rel="icon" href="uniska.ico" type="image/x-icon" />
+    <link rel="icon" href="/public-admin/img/uniska.ico" type="image/x-icon" />
     <!-- END META SECTION -->
 
     <!-- CSS INCLUDE -->
@@ -27,6 +27,9 @@
             <a href="#" class="x-navigation-control"></a>
           </li>
           <li class="xn-profile">
+		<a href="#" class="profile-mini">
+                <img src="/images/admin/{{Auth::guard('admin')->user()->foto}}" alt="Faruq"/>
+                        </a>
             <div class="profile">
               <div class="profile-image">
                 <img src="/images/admin/{{Auth::guard('admin')->user()->foto}}" alt="Faruq"/>
@@ -170,6 +173,9 @@
 <script type="text/javascript" src="/public-admin/js/plugins/owl/owl.carousel.min.js"></script>
 
 <script type="text/javascript" src="/public-admin/js/plugins/moment.min.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/dropzone/dropzone.min.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/filetree/jqueryFileTree.js"></script>
 <script type="text/javascript" src="/public-admin/js/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- END THIS PAGE PLUGINS-->
 
@@ -183,9 +189,8 @@
 <script type="text/javascript" src="/public-admin/js/ckeditor/ckeditor.js"></script>
 
 
-<script type="text/javascript" src="/public-admin/js/plugins/dropzone/dropzone.min.js"></script>
-<script type="text/javascript" src="/public-admin/js/plugins/fileinput/fileinput.min.js"></script>
-<script type="text/javascript" src="/public-admin/js/plugins/filetree/jqueryFileTree.js"></script>
+<!-- END TEMPLATE -->
+
 
 {{-- JS DAPAT DARI FILE PERIODE  --}}
 <script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-timepicker.min.js"></script> --
@@ -214,7 +219,6 @@
         blueimp.Gallery(links, options);
     };
 </script>
-<!-- END TEMPLATE -->
 <!-- END SCRIPTS -->
 </body>
 </html>

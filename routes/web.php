@@ -88,6 +88,8 @@ Route::group(['middleware' => 'admin'], function(){
   Route::get('/admin/datadosen/{id}/edit', 'AdminController@editDataDosen');
   Route::POST('/admin/datadosen/{id}/edit', 'AdminController@storeeditDataDosen');
   Route::get('/admin/galeri', 'AdminController@datagaleri');
+  Route::POST('/admin/galeri', 'AdminController@storeDataGaleri');
+  Route::get('/admin/galeri/{id}/delete', 'AdminController@deleteDataGaleri');
   Route::get('/admin/datamateri', 'AdminController@datamateri');
   Route::get('/admin/tambahmateri', 'AdminController@formtambahmateri');
   Route::POST('/admin/tambahmateri', 'AdminController@storetambahmateri');

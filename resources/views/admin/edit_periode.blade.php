@@ -51,8 +51,8 @@
                     <label class="col-md-3 col-xs-12 control-label"></label>
                     <div class="col-md-6 col-xs-12">
                       {{ csrf_field() }}
-                      <button type="submit" class="btn btn-primary btn-rounded1"><span class="fa fa-save"></span>Simpan</button>
-                      <button type="reset" class="btn btn-danger btn-rounded2"><span class="fa fa-times"></span>Batal</button>
+                      <button type="submit" class="btn btn-primary btn-rounded"><span class="fa fa-save"></span>Simpan</button>
+                      <button type="reset" class="btn btn-danger btn-rounded"><span class="fa fa-times"></span>Batal</button>
                     </div>
                   </div>
                 </form>
