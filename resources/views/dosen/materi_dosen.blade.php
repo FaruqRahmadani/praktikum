@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="panel-body">
                                   <div class="table-container">
-                                    <table class="table datatable table-bordered">
+                                    <table class="table datatable table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -45,10 +45,10 @@
                                           @foreach ($data as $datas)
                                             {{-- {{dd($datas->materi->first()->kode_mk)}} --}}
                                             <tr>
-                                              <td>{{$no = $no + 1}}</td>
+                                              <td><center>{{$no = $no + 1}}</center></td>
                                                 <td>{{$datas['materi']['kode_mk']}}</td>
                                                 <td>{{$datas['materi']['materi_praktikum']}}</td>
-                                                <td class="center">{{$datas['materi']['semester']}}</td>
+                                                <td><center>{{$datas['materi']['semester']}}</center></td>
                                             </tr>
                                           @endforeach
                                         </tbody>

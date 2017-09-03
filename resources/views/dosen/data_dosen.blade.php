@@ -24,7 +24,7 @@
                                 <div class="form-group">
                                   <div class="table-container">
                                         <label class="col-md-0 col-xs-0 control-label"></label>
-                                    <table class="table datatable table-bordered">
+                                    <table class="table datatable table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -38,7 +38,7 @@
                                           <?php $no = 0; ?>
                                           @foreach ($data as $datas)
                                             <tr>
-                                              <td>{{$no = $no + 1}}</td>
+                                              <td><center>{{$no = $no + 1}}</center></td>
                                                 <td><img src="/images/dosen/{{$datas->foto}}" width="80px" height="100px"></td>
                                                 <td>{{$datas->NIDN}}</td>
                                                 <td>

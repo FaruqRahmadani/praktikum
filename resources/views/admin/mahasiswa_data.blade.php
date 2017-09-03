@@ -24,7 +24,7 @@
         <!-- START DEFAULT DATATABLE -->
         <div class="panel panel-default">
           <div class="panel-body">
-            <table class="table datatable">
+            <table class="table datatable table-bordered">
               <thead>
                 <tr>
                   <th><center>No</center></th>

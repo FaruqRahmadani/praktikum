@@ -44,31 +44,31 @@
                 <div class="form-group">
                   <label class="col-lg-3 control-label">NIDN</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="NIDN" type="text" value="{{$data->NIDN}}">
+                    <input class="form-control" name="NIDN" type="text" value="{{$data->NIDN}}" required pattern="[0-9]{8,}" title="NIDN berupa angka minimal 8 digit" maxlength="25">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Nama</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="nama" type="text"  value="{{$data->nama}}">
+                    <input class="form-control" name="nama" type="text"  value="{{$data->nama}}" required pattern="[a-zA-Z\s.,]{3,}" title="nama tidak boleh mengandung angka" maxlength="50">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Email</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="email" type="text" value="{{$data->email}}">
+                    <input class="form-control" name="email" type="text" value="{{$data->email}}" maxlength="50">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">No Hp</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="no_hp" type="text" value="{{$data->no_hp}}">
+                    <input class="form-control" name="no_hp" type="text" value="{{$data->no_hp}}"  required pattern="[0-9]{8,12}" title="No.hp berupa angka 8-12 digit" maxlength="12">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="username" type="text" value="{{$username}}">
+                    <input class="form-control" name="username" type="text" value="{{$username}}" required pattern=".{5,}" title=" username minimal 5 karakter" maxlength="25">
                   </div>
                 </div>
                 <div class="form-group">

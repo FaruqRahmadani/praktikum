@@ -49,19 +49,19 @@
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Nama</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="nama" type="text"  value="{{$data->nama}}" required>
+                    <input class="form-control" name="nama" type="text"  value="{{$data->nama}}" required pattern="['a-zA-Z\s']{3,}" title="nama tidak boleh mengandung angka,minimal 3 karakter" maxlength="50">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Email</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="email" type="email" value="{{$data->email}}" required>
+                    <input class="form-control" name="email" type="email" value="{{$data->email}}" required maxlength="50">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="username" type="text" value="{{$data->username}}" required pattern=".{3,4}">
+                    <input class="form-control" name="username" type="text" value="{{$data->username}}" required pattern=".{5,}"title="username minimal 5 krakter" maxlength="25">
                   </div>
                 </div>
                 <div class="form-group">

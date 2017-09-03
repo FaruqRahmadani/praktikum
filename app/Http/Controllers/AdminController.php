@@ -57,6 +57,12 @@ class AdminController extends Controller
       }
     }
 
+    if ($request->foto != null) {
+      $namagambar = $iduser.'.'.$request->foto->getClientOriginalExtension();
+      $request->foto->move(public_path('images/admin'), $namagambar);
+      $Admin->foto = $namagambar;
+    }
+
     $Admin->save();
 
     return redirect('/admin/edit')->with('status', 'Data Anda Telah di Update');
@@ -82,7 +88,7 @@ class AdminController extends Controller
 
   public function storetambahDataPeriode(Request $request)
   {
-    dd($request);
+    // dd($request);
 
     $Periode = new Periode;
 
@@ -150,11 +156,8 @@ class AdminController extends Controller
 
     if($request->foto != null)
     {
-      $this->validate($request, [
-        'foto' => 'image',
-      ]);
       $namagambar = $request->NIDN.'.'.$request->foto->getClientOriginalExtension();
-      $request->foto->move(public_path('images/dosen'), $namagambar);
+      $request->foto->move(public_path('images/mahasiswa'), $namagambar);
       $Mahasiswa->foto = $namagambar;
     }
 
@@ -257,6 +260,7 @@ class AdminController extends Controller
     }
 
     $namagambar = $id.'.'.$request->foto->getClientOriginalExtension();
+    $request->foto->move(public_path('images/galeri'), $namagambar);
 
     $Store = new Galeri;
     $Store->id_admin = $idAdmin;
@@ -396,7 +400,7 @@ class AdminController extends Controller
 
     $pdf = PDF::loadView('pdf.absensi', ['data' => $data, 'dosen' => $Dosen, 'materi' => $Materi, 'JadwalPraktikum' => $JadwalPraktikum]);
     $pdf->setPaper('a4', 'potrait');
-    return $pdf->stream('absensi.pdf');
+    return $pdf->stream('absensi.pdf', ['Attachment'=>0]);
   }
 
   public function viewLaporanPraktikum()
@@ -423,7 +427,7 @@ class AdminController extends Controller
 
     $pdf = PDF::loadView('pdf.laporan_praktikum', ['data' => $JadwalDosen, 'periode' => $Periode, 'admin' => $Admin]);
     $pdf->setPaper('a4', 'potrait');
-    return $pdf->stream('absensi.pdf');
+    return $pdf->stream('absensi.pdf', ['Attachment'=>0]);
   }
 
   public function viewDetailLaporanPraktikum()
@@ -454,7 +458,7 @@ class AdminController extends Controller
 
     $pdf = PDF::loadView('pdf.detaillaporan_praktikum', ['dosen' => $Dosen, 'periode' => $Periode, 'jadwaldosen' => $JadwalDosen, 'admin' => $Admin]);
     $pdf->setPaper('a4', 'potrait');
-    return $pdf->stream('absensi.pdf');
+    return $pdf->stream('absensi.pdf', ['Attachment'=>0]);
   }
 
   public function tambahberita()

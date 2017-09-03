@@ -27,7 +27,7 @@
                                           <form class="" action="{{url()->current()}}" method="post">
 
                                             <select class="form-control select" name="filter">
-                                                <option disabled selected>Filter Jadwal Praktikum</option>
+                                                <option disabled selected>Jadwal Praktikum</option>
                                                 @php
                                                   $kelas = '';
                                                 @endphp
@@ -50,22 +50,24 @@
                                           </form>
                                         </div> --}}
                                         <label class="col-md-0 col-xs-0 control-label"></label>
-                                        <div class="col-md-2 col-xs-0">
+                                        <div class="col-md-3 col-xs-0">
                                         <form class="form-horizontal" method="POST" action="{{Request::url()}}">
-                                          <div style="width:80%">
+                                          <div style="max-width:50%">
                                               <select name="periode" class="form-control select">
                                                   @foreach ($periode as $dataPeriode)
                                                     <option value="{{$dataPeriode->id}}">{{$dataPeriode->periode}}</option>
                                                   @endforeach
                                               </select>
                                           </div>
+                                            <div class="col-md-12">
                                               {{ csrf_field() }}
                                               <button type="submit" class="btn btn-primary btn-rounded8 btn-sm">
                                                 <span class="fa fa-filter"></span>Filter
                                               </button>
+                                            </div>
                                         </form>
                                         </div>
-                                    <table class="table datatable table-bordered">
+                                    <table class="table datatable table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -86,17 +88,17 @@
                                           @foreach ($data as $datas)
                                             @foreach ($datas->JadwalPraktikum as $jadwals)
                                               <tr>
-                                                <td>{{$no = $no+1}}</td>
+                                                <td><center>{{$no = $no+1}}</center></td>
                                                 <td>{{$datas->materi->materi_praktikum}}</td>
                                                 <td>{{$jadwals->nama_kelas}}</td>
                                                 <td>{{$jadwals->ruangan}}</td>
-                                                <td>{{$jadwals->pertemuan}}</td>
+                                                <td><center>{{$jadwals->pertemuan}}</center></td>
                                                 <td>{{$jadwals->tanggal}}</td>
                                                 <td>{{Carbon\Carbon::parse($jadwals->waktu_mulai)->format('g:i A')}} - {{Carbon\Carbon::parse($jadwals->waktu_selesai)->format('g:i A')}}</td>
-                                                <td>{{count(App\AbsensiMahasiswa::where('id_jadwal_praktikum', $jadwals->id)->get())}} Orang</td>
+                                                <td><center>{{count(App\AbsensiMahasiswa::where('id_jadwal_praktikum', $jadwals->id)->get())}} Orang<center></td>
                                                 <td>
                                                 <center>
-                                                  <a href="/dosen/absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span></button></a></td>
+                                                  <a href="/dosen/absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-primary btn-rounded btn-sm" title="Cetak"data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span></button></a></td>
                                                 </center>
                                               </tr>
                                             @endforeach

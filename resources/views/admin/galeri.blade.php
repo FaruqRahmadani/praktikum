@@ -19,7 +19,7 @@
 
     <!-- START CONTENT FRAME RIGHT -->
     <div class="content-frame-right">
-
+	{{-- <form enctype="multipart/form-data" class="form-horizontal">                                         --}}
         <div class="form-group">
           <div class="col-md-12">
             {!! Form::open(['url'=>url()->current(),'files'=>true,'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
@@ -27,13 +27,11 @@
             <input type="text" name="judul" class="form-control" required>
             <label>Upload Gallery</label>
             <input type="file" name="foto" multiple class="file" data-preview-file-type="any"/ required accept="image/*">
-            <button type="submit" class="btn btn-primary btn-rounded">
-              <span class="fa fa-save" aria-hidden="true"></span>
-              Upload
-            </button>
+
             {!! Form::close()!!}
           </div>
         </div>
+	{{-- </form> --}}
    </div>
     <!-- END CONTENT FRAME RIGHT -->
 

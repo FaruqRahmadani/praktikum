@@ -20,7 +20,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
 						<div class="panel-title">
-							<a href="/admin/berita" class="btn btn-primary btn-rounded"><span class="fa fa-plus"></span>Tambah Berita</a>
+							<a href="/admin/berita/add" class="btn btn-primary btn-rounded"><span class="fa fa-plus"></span>Tambah Berita</a>
 						</div>
           </div>
           <div class="panel-body">

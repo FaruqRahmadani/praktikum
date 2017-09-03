@@ -5,7 +5,7 @@
     <li class="active">Menu</li>
     <li class="active">Master Data</li>
     <li class="active">Periode</li>
-    <li class="active">Tambah Data</li>
+    <li class="active">Tambah Data Periode</li>
   </ul>
   <!-- END BREADCRUMB -->
 
@@ -17,7 +17,7 @@
             <div class="panel-heading">
             <!-- START VALIDATIONENGINE PLUGIN -->
               <div class="block">
-                <h2>Tambah Data</h2>
+                <h2>Tambah Data Periode</h2>
                 <hr>
                 {{-- <div class="alert alert-success" role="alert">
                   <div class=class="col-md-5">
@@ -59,8 +59,8 @@
                     <label class="col-md-3 col-xs-12 control-label"></label>
                       <div class="col-md-6 col-xs-12">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-primary btn-rounded1"><span class="fa fa-save"></span>Simpan</button>
-                        <button type="reset" class="btn btn-danger btn-rounded2"><span class="fa fa-times"></span>Batal</button>
+                        <button type="submit" class="btn btn-primary btn-rounded"><span class="fa fa-save"></span>Simpan</button>
+                        <button type="reset" class="btn btn-danger btn-rounded"><span class="fa fa-times"></span>Batal</button>
                       </div>
                   </div>
                 </form>

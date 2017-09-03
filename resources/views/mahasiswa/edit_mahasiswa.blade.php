@@ -49,10 +49,10 @@
                     @endif
                     <br>
                       <div class="form-group">
-                        <label class="col-lg-3 control-label">NIDN</label>
+                        <label class="col-lg-3 control-label">NPM</label>
                         <div class="col-lg-8">
-                          {{-- <input class="form-control" name="NIDN" type="text" value="{{$data->NIDN}}"> --}}
-                          {!! Form::text('NPM', $data->NPM ,['class' => 'form-control', 'required', 'pattern' => '(?=.*[0-9]).{5,}']) !!}
+                          {{-- <input class="form-control" name="NIDN" type="text" value="{{$data->NIDN}}" > --}}
+                          {!! Form::text('NPM', $data->NPM ,['class' => 'form-control', 'required', 'pattern' => '[0-9]{5,8}','title'=>'NPM berupa angka 8 digit','maxlength'=>'8']) !!}
                         </div>
                       </div>
 
@@ -60,28 +60,28 @@
                         <label class="col-lg-3 control-label">Nama</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="nama" type="text" value="{{$data->nama}}"> --}}
-                          {!! Form::text('nama', $data->nama ,['class' => 'form-control', 'required', 'pattern' => '.{2,}']) !!}
+                          {!! Form::text('nama', $data->nama ,['class' => 'form-control', 'required', 'pattern' => '[a-zA-Z\s]{3,}','title'=>'nama tidak bolaeh mengandung angka','maxlength'=>'50']) !!}
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">E-mail</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="email" type="text" value="{{$data->email}}"> --}}
-                          {!! Form::email('email', $data->email ,['class' => 'form-control', 'required']) !!}
+                          {!! Form::email('email', $data->email ,['class' => 'form-control', 'required','maxlength'=>'50']) !!}
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">No Hp</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="no_hp" type="text" value="{{$data->no_hp}}"> --}}
-                          {!! Form::text('no_hp', $data->no_hp ,['class' => 'form-control', 'required', 'pattern' => '(?=.*[0-9]).{10,}']) !!}
+                          {!! Form::text('no_hp', $data->no_hp ,['class' => 'form-control', 'required', 'pattern' => '[0-9]{10,12}','title'=>'No.hp berupa angka 10-12 digit','maxlength'=>'12']) !!}
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Username</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="username" type="text" value="{{$username}}"> --}}
-                          {!! Form::text('username', $username ,['class' => 'form-control', 'required', 'pattern' => '.{5,}']) !!}
+                          {!! Form::text('username', $username ,['class' => 'form-control', 'required', 'pattern' => '.{5,}','title'=>'Username minimal 5 karakter','maxlength'=>'25']) !!}
                         </div>
                       </div>
                       <div class="form-group">
@@ -95,7 +95,7 @@
                         <label class="col-lg-3 control-label">Password</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="password" type="password" value="" placeholder="Isi Jika Ingin Ganti Password"> --}}
-                          {!! Form::text('password', '' ,['class' => 'form-control', 'placeholder' => 'Isi Jika Ingin Ganti Password']) !!}
+                          {!! Form::text('password', '' ,['class' => 'form-control', 'placeholder' => 'Masukkan Password Baru']) !!}
 
                         </div>
                       </div>
@@ -103,7 +103,7 @@
                         <label class="col-lg-3 control-label">Confirm Password</label>
                         <div class="col-lg-8">
                           {{-- <input class="form-control" name="password_confirmation" type="password" value="" placeholder="Isi Jika Ingin Ganti Password"> --}}
-                          {!! Form::text('password_confirmation', '' ,['class' => 'form-control', 'placeholder' => 'Isi Jika Ingin Ganti Password']) !!}
+                          {!! Form::text('password_confirmation', '' ,['class' => 'form-control', 'placeholder' => 'Konfirmasi Password Baru']) !!}
                         </div>
                       </div>
 

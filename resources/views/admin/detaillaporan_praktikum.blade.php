@@ -22,7 +22,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
 						<h3>{{$dosen->nama}}</h3>
-						<h4>{{$periode->periode}}</h4>
+						<h3>{{$periode->periode}}</h3>
             <table class="table datatable table-bordered">
               <thead>
                 <tr>

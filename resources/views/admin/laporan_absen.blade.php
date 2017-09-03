@@ -65,13 +65,13 @@
                     <td><center>{{$jadwals->tanggal}}</center>
                     <td><center>{{Carbon\Carbon::parse($jadwals->waktu_mulai)->format('g:i A')}} - {{Carbon\Carbon::parse($jadwals->waktu_selesai)->format('g:i A')}}</center>
                     <td><center>{{count(App\AbsensiMahasiswa::where('id_jadwal_praktikum', $jadwals->id)->get())}} Orang</center>
-                    <td><a href="/admin/laporan_absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span> Print</button></a></td>
+                    <td><a href="/admin/laporan_absen/{{Crypt::encryptString($jadwals->id)}}" target="_blank"><button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-print"></span> Print</button></a></td>
                   </tr>
                   @endforeach
                 @endforeach
               </tbody>
             </table>
-						{{-- <button class="btn btn-info btn-rounded" onclick="myfunction()"><span class="fa fa-print"></span>Print</button>
+						{{-- <button class="btn btn-primary btn-rounded" onclick="myfunction()"><span class="fa fa-print"></span>Print</button>
 						<script type="text/javascript">
 							function myfunction() {
 								window.print();
