@@ -43,7 +43,6 @@ class MahasiswaController extends Controller
 
     $index=0;
 
-    //Menghitung Jumlah Materi yang Sudah di Ambil
     // $AbsensiMahasiswa = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
     if (count($JadwalDosen) < 1) {
       $this->idJadwalDosen[1] = 01012011;
@@ -60,6 +59,7 @@ class MahasiswaController extends Controller
       }
     }
 
+    //Menghitung Jumlah Materi yang Sudah di Ambil
     $JumlahMateri = 0;
     $DumpIdJadwalDosen = 0;
     foreach ($AbsensiMahasiswa as $dataAbsensiMahasiswa) {

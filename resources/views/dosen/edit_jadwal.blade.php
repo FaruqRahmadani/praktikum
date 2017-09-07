@@ -38,14 +38,14 @@
                                     <div class="form-group">
                                         <label class="col-md-5 control-label"><h4><b>Nama Kelas:</b></h4></label>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" name="nama_kelas" value="{{$data->nama_kelas}}">
+                                            <input type="text" class="form-control" name="nama_kelas" value="{{$data->nama_kelas}}" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-5 control-label"><h4><b>Ruangan:</b></h4></label>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" name="ruangan" value="{{$data->ruangan}}">
+                                            <input type="text" class="form-control" name="ruangan" value="{{$data->ruangan}}" required>
                                         </div>
                                     </div>
 
@@ -53,7 +53,10 @@
                                         <label class="col-md-5 control-label"><h4><b>Tanggal:</b></h4></label>
                                         <div class="col-md-5">
                                             <div class="input-group">
-                                                <input type="text" class="form-control datepicker" data-date="2017-08-07" data-date-format="dd-mm-yyyy" data-date-viewmode="" name="tanggal" value="{{$data->tanggal}}">
+                                                @php
+                                                  $dateNow = Carbon\Carbon::now()->format('Y-m-d');
+                                                @endphp
+                                                <input type="date" class="form-control datepicker" name="tanggal" value="{{$dateNow}}" min="{{$dateNow}}" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                             </div>
                                         </div>
