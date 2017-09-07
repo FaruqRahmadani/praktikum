@@ -41,6 +41,8 @@ class MahasiswaController extends Controller
     $semester = (((date('y'))-(substr($data->NPM, 0, 2)))*2)+$tambahsemester;
     $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester)->where('id_periode', $Periode);
 
+    $index=0;
+
     //Menghitung Jumlah Materi yang Sudah di Ambil
     // $AbsensiMahasiswa = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
     if (count($JadwalDosen) < 1) {
