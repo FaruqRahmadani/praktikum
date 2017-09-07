@@ -29,12 +29,26 @@
                                   </div>
                                 @endif
 
+                                @if (session('validasi'))
+                                  <div class="alert alert-danger" role="alert">
+                                    <div class=class="col-md-5">
+                                      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                      <h4>{{ session('validasi') }}</h4>
+                                    </div>
+                                  </div>
+                                @endif
+
                                 @if(count($errors) > 0)
-                                  <ul>
-                                    @foreach ($errors->all() as $error)
-                                      <li> {{$error}} </li>
-                                    @endforeach
-                                  </ul>
+                                  <div class="alert alert-danger" role="alert">
+                                    <div class=class="col-md-5">
+                                      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                      <ul>
+                                        @foreach ($errors->all() as $error)
+                                          <li><h4> {{$error}} </h4></li>
+                                        @endforeach
+                                      </ul>
+                                    </div>
+                                  </div>
                                 @endif
                                 <form class="form-horizontal" method="POST" action="{{Request::url()}}">
                                     <div class="form-group">
