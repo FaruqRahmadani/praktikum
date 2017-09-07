@@ -24,6 +24,7 @@
         <!-- START DEFAULT DATATABLE -->
         <div class="panel panel-default">
           <div class="panel-body">
+          <div class="table-container">
             <table class="table datatable table-bordered">
               <thead>
                 <tr>
@@ -64,9 +65,11 @@
               </tbody>
             </table>
           </div>
+          </div>
         </div>
         <!-- END DEFAULT DATATABLE -->
       </div>
       <!-- END SIMPLE DATATABLE -->
     </div>
+  </div>
 @endsection

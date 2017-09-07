@@ -5,6 +5,13 @@
             <div class="login-box animated fadeInDown">
                 <div class="login-logo"></div>
                 <div class="login-body">
+                  @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-success">
+                            {{ $error }}
+                        </div>
+                    @endforeach
+                  @endif
                     <div class="login-title"><strong>Selamat Datang</strong>, Silakan Register (Mahasiswa)</div>
                     {{-- <form action="{{ route('register') }}" class="form-horizontal" enctype="multipart/form-data" method="post"> --}}
                       {!! Form::open(['url'=>route('register'),'files'=>true,'class'=>'form-horizontal', 'method' => 'POST', 'role' => 'form']) !!}

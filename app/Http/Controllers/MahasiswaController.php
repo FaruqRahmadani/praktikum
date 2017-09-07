@@ -141,14 +141,20 @@ class MahasiswaController extends Controller
 
     //Supaya yang tampil periode sekarang aja !
     $index = 0;
-    foreach ($JadwalDosen as $dataJadwalDosen) {
-      $index+=1;
-      $this->idJadwalDosen[$index] = $dataJadwalDosen->id;
+    if (count($JadwalDosen) < 1) {
+      $this->idJadwalDosen = 01012011;
+      $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
+        $query->where('id_jadwal_dosen', $this->idJadwalDosen);
+      }])->where('id_mahasiswa', $this->idJadwalDosen)->get();
+    } else {
+      foreach ($JadwalDosen as $dataJadwalDosen) {
+        $index+=1;
+        $this->idJadwalDosen[$index] = $dataJadwalDosen->id;
+      }
+      $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
+        $query->where('id_jadwal_dosen', $this->idJadwalDosen);
+      }])->where('id_mahasiswa', $data->id)->get();
     }
-
-    $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
-      $query->where('id_jadwal_dosen', $this->idJadwalDosen);
-    }])->where('id_mahasiswa', $data->id)->get();
     // dd($jadwal);
     return view('mahasiswa.jadwal_saya', ['data' => $data, 'jadwal' => $jadwal]);
   }

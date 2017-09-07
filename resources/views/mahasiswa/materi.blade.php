@@ -23,6 +23,11 @@
         Anda Telah Mengambil Jumlah Maksimal Materi Yang di Perbolehkan
     </div>
   @endif
+  @if (count($jadwal) == 0)
+    <div class="alert alert-success">
+        Materi Belum Tersedia
+    </div>
+  @endif
   <!-- END PAGE TITLE -->
   <div class="container">
 		<div class="row">
