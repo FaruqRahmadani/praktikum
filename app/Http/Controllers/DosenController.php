@@ -207,7 +207,7 @@ class DosenController extends Controller
       'pertemuan'        => 'required|digits_between:1,35',
       'nama_kelas'       => 'required|string|min:6',
       'ruangan'          => 'required|string|min:6',
-      'tanggal'          => 'required||date_format:Y-m-d|after:'.date('Y-m-d'),
+      'tanggal'          => 'required|date_format:Y-m-d',
       'waktu_mulai'      => 'required|date_format:g:i A',
       'waktu_selesai'    => 'required|date_format:g:i A',
     ]);

@@ -54,8 +54,8 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label"><h4><b>Materi Praktikum:</b></h4></label>
                                         <div class="col-md-3">
-                                            <select class="form-control select" name="materi_praktikum">
-                                                <option value="Ini Kisahnya Angkanya Banyak Banar">-Pilih-</option>
+                                            <select class="form-control select" name="materi_praktikum" required>
+                                                <option value="">-Pilih-</option>
                                                 @foreach ($data as $datas)
                                                   <option value="{{$datas->id}}">{{$datas->materi->materi_praktikum}} | Kelas : {{count($datapraktikum->where('id_jadwal_dosen', $datas->id)->where('pertemuan', '1'))}} - Pertemuan : {{count($datapraktikum->where('id_jadwal_dosen', $datas->id))}}</option>
                                                 @endforeach
@@ -66,7 +66,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label"><h4><b>Pertemuan:</b></h4></label>
                                         <div class="col-md-3">
-                                           <select class="form-control select" name="pertemuan">
+                                           <select class="form-control select" name="pertemuan" required title="Silahkan Pilih Pertemuan">
                                                 <option value="">-Pilih-</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -79,14 +79,14 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label"><h4><b>Nama Kelas:</b></h4></label>
                                         <div class="col-md-3">
-                                            <input type="text" class="form-control" name="nama_kelas" value="{{old('nama_kelas')}}">
+                                            <input type="text" class="form-control" name="nama_kelas" value="{{old('nama_kelas')}}" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-3 control-label"><h4><b>Ruangan:</b></h4></label>
                                         <div class="col-md-3">
-                                            <input type="text" class="form-control" name="ruangan" value="{{old('ruangan')}}">
+                                            <input type="text" class="form-control" name="ruangan" value="{{old('ruangan')}}" required>
                                         </div>
                                     </div>
 
@@ -94,7 +94,10 @@
                                         <label class="col-md-3 control-label"><h4><b>Tanggal:</b></h4></label>
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <input type="text" class="form-control datepicker" data-date="2017-08-07" data-date-format="dd-mm-yyyy" data-date-viewmode="" name="tanggal" value="{{date('Y-m-d')}}">
+                                                @php
+                                                  $dateNow = Carbon\Carbon::now()->format('Y-m-d');
+                                                @endphp
+                                                <input type="date" class="form-control datepicker" name="tanggal" value="{{$dateNow}}" min="{{$dateNow}}" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                             </div>
                                         </div>
