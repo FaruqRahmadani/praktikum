@@ -30,6 +30,7 @@ class MahasiswaController extends Controller
     $data   = Mahasiswa::where('id_user', $iduser)->first();
 
     $Periode = Periode::all()->last()->id;
+    $JadwalDosen = JadwalDosen::where('id_periode', $Periode)->get();
 
     //kalo september (semester ganjil) tambah 1
     if (date('n') > 8){
@@ -40,8 +41,25 @@ class MahasiswaController extends Controller
     $semester = (((date('y'))-(substr($data->NPM, 0, 2)))*2)+$tambahsemester;
     $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester)->where('id_periode', $Periode);
 
+    $index=0;
+
     //Menghitung Jumlah Materi yang Sudah di Ambil
-    $AbsensiMahasiswa = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
+    // $AbsensiMahasiswa = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
+    if (count($JadwalDosen) < 1) {
+      $this->idJadwalDosen[1] = 01012011;
+      $AbsensiMahasiswa = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
+        $query->where('id_jadwal_dosen', $this->idJadwalDosen);
+      }])->where('id_mahasiswa', '01012011')->get();
+    } else {
+      foreach ($JadwalDosen as $dataJadwalDosen) {
+        $index+=1;
+        $this->idJadwalDosen[$index] = $dataJadwalDosen->id;
+        $AbsensiMahasiswa = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
+          $query->where('id_jadwal_dosen', $this->idJadwalDosen);
+        }])->where('id_mahasiswa', $data->id)->get();
+      }
+    }
+
     $JumlahMateri = 0;
     $DumpIdJadwalDosen = 0;
     foreach ($AbsensiMahasiswa as $dataAbsensiMahasiswa) {
@@ -141,14 +159,20 @@ class MahasiswaController extends Controller
 
     //Supaya yang tampil periode sekarang aja !
     $index = 0;
-    foreach ($JadwalDosen as $dataJadwalDosen) {
-      $index+=1;
-      $this->idJadwalDosen[$index] = $dataJadwalDosen->id;
+    if (count($JadwalDosen) < 1) {
+      $this->idJadwalDosen = 01012011;
+      $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
+        $query->where('id_jadwal_dosen', $this->idJadwalDosen);
+      }])->where('id_mahasiswa', $this->idJadwalDosen)->get();
+    } else {
+      foreach ($JadwalDosen as $dataJadwalDosen) {
+        $index+=1;
+        $this->idJadwalDosen[$index] = $dataJadwalDosen->id;
+      }
+      $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
+        $query->where('id_jadwal_dosen', $this->idJadwalDosen);
+      }])->where('id_mahasiswa', $data->id)->get();
     }
-
-    $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
-      $query->where('id_jadwal_dosen', $this->idJadwalDosen);
-    }])->where('id_mahasiswa', $data->id)->get();
     // dd($jadwal);
     return view('mahasiswa.jadwal_saya', ['data' => $data, 'jadwal' => $jadwal]);
   }

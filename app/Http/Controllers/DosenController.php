@@ -195,7 +195,8 @@ class DosenController extends Controller
   public function tambahjadwal(){
     $iduser   = Auth::user()->id;
     $datauser = Dosen::where('id_user', $iduser)->first();
-    $data     = JadwalDosen::with('materi')->where('id_dosen', $datauser->id)->get();
+    $Periode  = Periode::all()->last()->id;
+    $data     = JadwalDosen::with('materi')->where('id_dosen', $datauser->id)->where('id_periode', $Periode)->get();
     $datapraktikum = JadwalPraktikum::all();
     return view('dosen.tambah_jadwal', ['datauser' => $datauser, 'data' => $data, 'datapraktikum' => $datapraktikum]);
   }
@@ -212,6 +213,16 @@ class DosenController extends Controller
     ]);
     $waktumulai   = Carbon::parse($request->waktu_mulai)->format('H:i:s');
     $waktuselesai = Carbon::parse($request->waktu_selesai)->format('H:i:s');
+
+    //Validasi Pertemuan
+    if ($request->pertemuan != 1) {
+      $PertemuanTerakhir = JadwalPraktikum::all()->where('id_jadwal_dosen', $request->id_jadwal_dosen)->where('pertemuan', $request->pertemuan-1);
+      if (count($PertemuanTerakhir) < 1) {
+        return redirect('/dosen/jadwal/add')->with('validasi', 'Tambahkan Pertemuan Sebelumnya Terlebih Dahulu')
+                                            ->withInput();
+      }
+    }
+    // dd('asd');
 
     $store = new JadwalPraktikum;
     $store->id_jadwal_dosen = $request->materi_praktikum;

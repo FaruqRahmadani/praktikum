@@ -74,8 +74,8 @@ p {
     z-index: 10000;
     transition: all 0.2s ease-in-out;
     height: 80px;
-    background-color:transparent;  
-    
+    background-color:transparent;
+
     text-align: center;
     line-height: 40px;
 }
@@ -90,6 +90,23 @@ p {
 }
 
 .navbar-nav>li>a {
+	color: #fff!important;
+	font-size: 13px;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-shadow: none;
+	line-height: 80px;
+	padding: 0px;
+	letter-spacing: 0.5px;
+}
+
+.image{
+  width: 200px;
+  height: auto;
+
+}
+
+.dropdown open>a {
 	color: #fff!important;
 	font-size: 13px;
 	font-weight: 300;
@@ -388,6 +405,7 @@ ul.cd-hero-slider {
 
 .project-item .thumb img {
 	width: 100%;
+  height: 500%;
 	overflow: hidden;
 }
 
@@ -464,6 +482,7 @@ ul.cd-hero-slider {
 
 .blog-item .thumb {
 	position: relative;
+  height: 200%;
 }
 
 .blog-item .text-content {
