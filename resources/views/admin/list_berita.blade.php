@@ -12,6 +12,11 @@
   <div class="page-title">
     <h2>Data Berita </h2>
   </div>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <!-- PAGE CONTENT WRAPPER -->
   <div class="page-content-wrap">
     <div class="row">

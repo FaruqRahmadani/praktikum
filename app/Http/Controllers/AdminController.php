@@ -514,7 +514,7 @@ class AdminController extends Controller
     $data->judul    = $request->judul_artikel;
     $data->konten   = $request->isi_artikel;
     $data->save();
-    return redirect('/admin')->with('status', 'Berita Telah Di Edit');
+    return redirect('/admin/berita')->with('status', 'Berita Telah Di Edit');
   }
 
   public function deleteberita($id)
@@ -522,6 +522,6 @@ class AdminController extends Controller
     $ids = Crypt::decryptString($id);
     $data = Berita::find($ids);
     $data->delete();
-    return redirect('/admin')->with('status', 'Berita Telah Di Hapus');
+    return redirect('/admin/berita')->with('status', 'Berita Telah Di Hapus');
   }
 }
