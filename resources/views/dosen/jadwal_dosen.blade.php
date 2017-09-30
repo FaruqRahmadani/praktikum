@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="panel-body">
                                 <div class="form-group">
-                                    <div class="table-container">
+                                    {{-- <div class="table-container">
                                         <label class="col-md-0 col-xs-0 control-label"></label>
                                         <div class="col-md-2 col-xs-0">
                                             <select class="form-control select">
@@ -58,7 +58,7 @@
                                                 <option>Reguler Malam A</option>
                                                 <option>NonReguler Pagi A</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                     <table class="table datatable table-bordered table-hover">
                                         <thead>
                                             <tr>
