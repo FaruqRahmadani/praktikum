@@ -29,6 +29,10 @@
                             <div class="alert alert-danger">
                                 Periode {{$periode->periode}} Telah Di Tutup
                             </div>
+                          @else
+                            <div class="alert alert-info">
+                                Periode {{$periode->periode}} Akan Di Tutup Pada Tanggal : {{Carbon\Carbon::parse($periode->tanggal_tutup)->format('d M Y')}}
+                            </div>
                           @endif
                             <!-- START DEFAULT DATATABLE -->
                             <div class="panel panel-default">
