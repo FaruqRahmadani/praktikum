@@ -28,7 +28,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Foto</th>
+                                                <th><center>Foto</center></th>
                                                 <th>NIDN</th>
                                                 <th>Nama</th>
                                                 <th>No HP</th>

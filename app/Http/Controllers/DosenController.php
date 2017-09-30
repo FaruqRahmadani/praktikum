@@ -216,7 +216,7 @@ class DosenController extends Controller
 
     //Validasi Pertemuan
     if ($request->pertemuan != 1) {
-      $PertemuanTerakhir = JadwalPraktikum::all()->where('id_jadwal_dosen', $request->id_jadwal_dosen)->where('pertemuan', $request->pertemuan-1);
+      $PertemuanTerakhir = JadwalPraktikum::all()->where('id_jadwal_dosen', $request->materi_praktikum)->where('pertemuan', $request->pertemuan-1);
       if (count($PertemuanTerakhir) < 1) {
         return redirect('/dosen/jadwal/add')->with('validasi', 'Tambahkan Pertemuan Sebelumnya Terlebih Dahulu')
                                             ->withInput();

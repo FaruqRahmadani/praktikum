@@ -47,10 +47,10 @@
                     <td>
                       <center>
                         <a href="/admin/berita/{{Crypt::encryptString($beritas->id)}}/edit">
-                          <button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button>
+                          <button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button>
                         </a>
                         <a href="/admin/berita/{{Crypt::encryptString($beritas->id)}}/delete">
-                          <button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" title="Delete" data-placement="bottom"><span class="fa fa-close"></span></button>
+                          <button class="btn btn-danger btn-rounded btn-sm" data-toggle="tooltip" title="Delete" data-placement="bottom"><span class="fa fa-times"></span></button>
                         </a>
                       </center>
                     </td>
