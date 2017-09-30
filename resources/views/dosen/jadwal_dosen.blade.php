@@ -25,12 +25,17 @@
                                 {{ session('status') }}
                             </div>
                           @endif
-
+                          @if ($periode->status == '0')
+                            <div class="alert alert-danger">
+                                Periode {{$periode->periode}} Telah Di Tutup
+                            </div>
+                          @endif
                             <!-- START DEFAULT DATATABLE -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a href="/dosen/jadwal/add">
-                                    <h3 class="panel-title"><span class="fa fa-plus"></span> Tambah Data</h3></a>
+                                    <a {{($periode->status == '1' ? 'href=/dosen/jadwal/add' : "" )}}>
+                                      <h3 class="panel-title"><span class="fa fa-plus"></span> Tambah Data</h3>
+                                    </a>
                                 </div>
                                 <div class="panel-body">
                                 <div class="form-group">
