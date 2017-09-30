@@ -57,9 +57,10 @@
                                             <select class="form-control select" name="materi_praktikum" required>
                                                 <option value="">-Pilih-</option>
                                                 @foreach ($data as $datas)
-                                                  <option value="{{$datas->id}}">{{$datas->materi->materi_praktikum}} | Kelas : {{count($datapraktikum->where('id_jadwal_dosen', $datas->id)->where('pertemuan', '1'))}} - Pertemuan : {{count($datapraktikum->where('id_jadwal_dosen', $datas->id))}}</option>
+                                                  <option value="{{$datas->id}}" {{$datas->id == old('materi_praktikum') ? 'selected' : ''}}>{{$datas->materi->materi_praktikum}} | Kelas : {{count($datapraktikum->where('id_jadwal_dosen', $datas->id)->where('pertemuan', '1'))}} - Pertemuan : {{count($datapraktikum->where('id_jadwal_dosen', $datas->id))}}</option>
                                                 @endforeach
                                             </select>
+                                            {{-- {{dd(old())}} --}}
                                         </div>
                                     </div>
 
@@ -68,14 +69,12 @@
                                         <div class="col-md-3">
                                            <select class="form-control select" name="pertemuan" required title="Silahkan Pilih Pertemuan">
                                                 <option value="">-Pilih-</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
+                                                @for ($i=1; $i <= 4; $i++)
+                                                  <option value="{{$i}}" {{$i == old('pertemuan') ? 'selected' : ''}}>{{$i}}</option>
+                                                @endfor
                                             </select>
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label class="col-md-3 control-label"><h4><b>Nama Kelas:</b></h4></label>
                                         <div class="col-md-3">
