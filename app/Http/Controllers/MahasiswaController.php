@@ -29,7 +29,7 @@ class MahasiswaController extends Controller
     $iduser = Auth::user()->id;
     $data   = Mahasiswa::where('id_user', $iduser)->first();
 
-    $Periode = Periode::all()->last()->id;
+    $Periode = Periode::all()->last();
     $JadwalDosen = JadwalDosen::where('id_periode', $Periode)->get();
 
     //kalo september (semester ganjil) tambah 1
@@ -39,7 +39,7 @@ class MahasiswaController extends Controller
       $tambahsemester = 0;
     }
     $semester = (((date('y'))-(substr($data->NPM, 0, 2)))*2)+$tambahsemester;
-    $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester)->where('id_periode', $Periode);
+    $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester)->where('id_periode', $Periode->id);
 
     $index=0;
 
@@ -69,7 +69,7 @@ class MahasiswaController extends Controller
       }
     }
 
-    return view('mahasiswa.materi', ['data' => $data, 'jadwal' => $jadwal, 'jumlahmateri' => $JumlahMateri]);
+    return view('mahasiswa.materi', ['data' => $data, 'jadwal' => $jadwal, 'jumlahmateri' => $JumlahMateri, 'periode' => $Periode]);
   }
 
   public function showmateri($id){

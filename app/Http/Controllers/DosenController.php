@@ -186,10 +186,10 @@ class DosenController extends Controller
   public function datajadwal(){
     $iduser        = Auth::user()->id;
     $datauser      = Dosen::where('id_user', $iduser)->first();
-    $idPeriode = Periode::all()->last()->id;
-    $data          = JadwalDosen::with('JadwalPraktikum', 'materi')->where('id_dosen', $datauser->id)->where('id_periode', $idPeriode)->get();
+    $Periode       = Periode::all()->last();
+    $data          = JadwalDosen::with('JadwalPraktikum', 'materi')->where('id_dosen', $datauser->id)->where('id_periode', $Periode->id)->get();
 
-    return view('dosen.jadwal_dosen', ['datauser' => $datauser, 'data' => $data]);
+    return view('dosen.jadwal_dosen', ['datauser' => $datauser, 'data' => $data, 'periode' => $Periode]);
   }
 
   public function tambahjadwal(){

@@ -25,16 +25,25 @@
                                 {{ session('status') }}
                             </div>
                           @endif
-
+                          @if ($periode->status == '0')
+                            <div class="alert alert-danger">
+                                Periode {{$periode->periode}} Telah Di Tutup
+                            </div>
+                          @else
+                            <div class="alert alert-info">
+                                Periode {{$periode->periode}} Akan Di Tutup Pada Tanggal : {{Carbon\Carbon::parse($periode->tanggal_tutup)->format('d M Y')}}
+                            </div>
+                          @endif
                             <!-- START DEFAULT DATATABLE -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a href="/dosen/jadwal/add">
-                                    <h3 class="panel-title"><span class="fa fa-plus"></span> Tambah Data</h3></a>
+                                    <a {{($periode->status == '1' ? 'href=/dosen/jadwal/add' : "" )}}>
+                                      <h3 class="panel-title"><span class="fa fa-plus"></span> Tambah Data</h3>
+                                    </a>
                                 </div>
                                 <div class="panel-body">
                                 <div class="form-group">
-                                    <div class="table-container">
+                                    {{-- <div class="table-container">
                                         <label class="col-md-0 col-xs-0 control-label"></label>
                                         <div class="col-md-2 col-xs-0">
                                             <select class="form-control select">
@@ -53,7 +62,7 @@
                                                 <option>Reguler Malam A</option>
                                                 <option>NonReguler Pagi A</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                     <table class="table datatable table-bordered table-hover">
                                         <thead>
                                             <tr>

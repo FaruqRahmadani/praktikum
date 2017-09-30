@@ -12,7 +12,7 @@ class DepanController extends Controller
     public function index()
     {
       $Materi = Materi::all();
-      $Berita = Berita::with('admin')->limit(3)->get();
+      $Berita = Berita::with('admin')->limit(4)->orderBy('id', 'desc')->get();
       $Galeri = Galeri::all();
       // dd($Berita);
       return view('depan.index', ['materi' => $Materi, 'berita' => $Berita, 'galeri' => $Galeri]);

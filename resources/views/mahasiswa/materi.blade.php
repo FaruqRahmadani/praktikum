@@ -19,15 +19,25 @@
     </div>
   @endif
   @if ($jumlahmateri >= 2)
-    <div class="alert alert-success">
+    <div class="alert alert-warning">
         Anda Telah Mengambil Jumlah Maksimal Materi Yang di Perbolehkan
     </div>
   @endif
   @if (count($jadwal) == 0)
-    <div class="alert alert-success">
+    <div class="alert alert-info">
         Materi Belum Tersedia
     </div>
   @endif
+  @if ($periode->status == 0)
+    <div class="alert alert-danger">
+          Periode {{$periode->periode}} Telah Di Tutup
+    </div>
+  @else
+    <div class="alert alert-info">
+        Periode {{$periode->periode}} Akan Di Tutup Pada Tanggal : {{Carbon\Carbon::parse($periode->tanggal_tutup)->format('d M Y')}}
+    </div>
+  @endif
+  {{-- {{dd($periode)}} --}}
   <!-- END PAGE TITLE -->
   <div class="container">
 		<div class="row">
