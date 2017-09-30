@@ -49,9 +49,11 @@
                         <a href="/admin/berita/{{Crypt::encryptString($beritas->id)}}/edit">
                           <button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button>
                         </a>
+                        {{-- Hapus Tanpa Validasi Ini
                         <a href="/admin/berita/{{Crypt::encryptString($beritas->id)}}/delete">
                           <button class="btn btn-danger btn-rounded btn-sm" data-toggle="tooltip" title="Delete" data-placement="bottom"><span class="fa fa-times"></span></button>
-                        </a>
+                        </a> --}}
+                        <button class="btn btn-danger btn-rounded btn-sm" title="Delete" data-placement="bottom" ><span class="fa fa-times" onclick="idHapus('/admin/berita/{{Crypt::encryptString($beritas->id)}}/delete')" data-toggle="modal" data-target="#modal-konfirmasi"></span></button>
                       </center>
                     </td>
                   </tr>
@@ -71,4 +73,33 @@
 <!-- END PAGE CONTENT -->
 </div>
 <!-- END PAGE CONTAINER -->
+
+{{-- Validasi Hapus Berita  --}}
+<div id="modal-konfirmasi" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Konfirmasi</h4>
+      </div>
+      <div class="modal-body btn-info">
+          Apakah Anda yakin ingin menghapus data ini ?
+      </div>
+      <div class="modal-footer">
+          <a href="#" class="btn btn-danger" id="tombolHapus">Hapus</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+      </div>
+
+      </div>
+  </div>
+</div>
+
+<script>
+function idHapus(id)
+{
+  document.getElementById("tombolHapus").href = id;
+}
+</script>
+
 @endsection
