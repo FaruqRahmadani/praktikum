@@ -1983,8 +1983,8 @@ ul.panel-controls > li > .dropdown-menu:before {
   border-color: #DDD;
 }
 .btn-danger {
-  background-color: #E04B4A;
-  border-color: #E04B4A;
+  background-color: #ff0000;
+  border-color: #ff0000;
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -2091,6 +2091,18 @@ ul.panel-controls > li > .dropdown-menu:before {
   border-width: 2px;
   padding: 3px 10px;
   font-weight: 600;
+  margin-left: 2px;
+}
+.btn.btn-rounded1 {
+  background: transparent;
+  color: #22262e;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  border-width: 2px;
+  padding: 3px 10px;
+  font-weight: 600;
+  margin-left: 76px;
 }
 .mright{
   text-align: right;
@@ -2129,18 +2141,23 @@ ul.panel-controls > li > .dropdown-menu:before {
 .btn.btn-rounded.btn-info:focus,
 .btn.btn-rounded.btn-info:active,
 .btn.btn-rounded.btn-info.active {
-  border-color: #29b2e1;
-  color: #29b2e1;
+  background-color: #1caf9a;
+  border-color: #1caf9a;
+  color: #ffffff;
 }
 .btn.btn-rounded.btn-danger {
-  color: #E04B4A;
+  color: #ff0000;
+}
+.btn.btn-rounded1.btn-danger {
+  color: #ff0000;
 }
 .btn.btn-rounded.btn-danger:hover,
 .btn.btn-rounded.btn-danger:focus,
 .btn.btn-rounded.btn-danger:active,
 .btn.btn-rounded.btn-danger.active {
-  border-color: #a43f3e;
-  color: #a43f3e;
+  background-color: #ff0000;
+  border-color: #ff0000;
+  color: #ffffff;
 }
 .btn.btn-rounded.btn-primary {
   color: #1b1e24;
@@ -2149,8 +2166,9 @@ ul.panel-controls > li > .dropdown-menu:before {
 .btn.btn-rounded.btn-primary:focus,
 .btn.btn-rounded.btn-primary:active,
 .btn.btn-rounded.btn-primary.active {
+  background-color: #101215;
   border-color: #101215;
-  color: #101215;
+  color: #ffffff;
 }
 .btn:active,
 .btn.active {
@@ -2418,8 +2436,8 @@ label.valid {
   background-color: #15ad15;
   color: #FFF;
   border-color: #15ad15;
-  width: 1092px;
-  margin-left: 10px;
+  width: 1180px;
+  margin-left: -315px;
 }
 .alert-info {
   background-color: #1caf9a;
