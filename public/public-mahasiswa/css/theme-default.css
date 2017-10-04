@@ -297,7 +297,7 @@ body.page-container-boxed .page-container {
   float: left;
   width: 100%;
   line-height: 19px;
-  color: #ffffff;
+  color: #8b91a0;
   font-size: 13px;
   font-weight: 400;
   padding: 15px 10px 15px 15px;
@@ -908,10 +908,10 @@ body.page-container-boxed .page-container {
  color: #FFF;
  height: 50px;
  text-align: center;
- background: #1caf9a;
+ background: #15ad15;
 }
 .x-navigation > li.xn-logo > a:first-child:hover {
-  background-color: #1caf9a;
+  background-color: #82ed6f;
 }
 .x-navigation > li.xn-profile {
   padding: 0px;
@@ -1070,7 +1070,8 @@ body.page-container-boxed .page-container {
   text-align: center;
 }
 .profile .profile-image img {
-  width: 100px;
+  width: 120px;
+  height: 150px;
   border: 3px solid #FFF;
   -moz-border-radius: 20%;
   -webkit-border-radius: 20%;
@@ -1114,13 +1115,13 @@ body.page-container-boxed .page-container {
   transition: all 200ms ease;
 }
 .profile .profile-controls a.profile-control-left {
-  left: 15px;
-  top: 53px;
+  left: 10px;
+  top: 73px;
   text-align: center;
 }
 .profile .profile-controls a.profile-control-right {
-  right: 15px;
-  top: 53px;
+  right: 10px;
+  top: 73px;
   text-align: center;
 }
 .profile .profile-controls a .fa,
@@ -1129,8 +1130,9 @@ body.page-container-boxed .page-container {
   margin-right: auto;
 }
 .profile .profile-controls a:hover {
-  border-color: #FFF;
-  color: #FFF;
+  border-color: #15ad15;
+  background: #15ad15;
+  box-shadow: inset 0 0 0 3px #15ad15;
 }
 /* X-NAVIGATION FEATURES */
 .x-navigation.x-navigation-minimized .profile {

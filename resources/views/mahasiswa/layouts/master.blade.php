@@ -66,12 +66,12 @@
                 <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
                     <!-- TOGGLE NAVIGATION -->
                     <li class="xn-icon-button">
-                        <a href="#" data-toggle="tooltip" title="Navigation" data-placement="bottom" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+                        <a href="#" data-toggle="tooltip" title="Navigasi" data-placement="right" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>
                     <!-- END TOGGLE NAVIGATION -->
                     <!-- SIGN OUT -->
                     <li class="xn-icon-button pull-right">
-                        <a href="#" data-toggle="tooltip" title="Log Out" data-placement="left" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
+                        <a href="#" data-toggle="tooltip" title="Keluar" data-placement="left" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
                     </li>
                     <!-- END SIGN OUT -->
                 </ul>
