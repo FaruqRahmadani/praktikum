@@ -30,7 +30,7 @@
   @endif
   @if ($periode->status == 0)
     <div class="alert alert-danger">
-          Periode {{$periode->periode}} Telah Di Tutup
+          <h4>Periode {{$periode->periode}} Telah Di Tutup</h4>
     </div>
   @else
     <div class="alert alert-info">
