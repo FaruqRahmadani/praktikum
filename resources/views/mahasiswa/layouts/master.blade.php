@@ -40,8 +40,8 @@
                     <div class="profile-data-title">{{$data->NPM}}</div>
                 </div>
                 <div class="profile-controls">
-                    <a href="/mahasiswa/editprofil" data-toggle="tooltip" title="Edit Data" data-placement="bottom" class="profile-control-left"><span class="fa fa-edit"></span></a>
-                    <a href="/mahasiswa/profil" data-toggle="tooltip" title="Detail" data-placement="bottom" class="profile-control-right"><span class="fa fa-list"></span></a>
+                    <a href="/mahasiswa/editprofil"  data-toggle="tooltip" title="Edit Profil" data-placement="bottom" class="profile-control-right"><span class="fa fa-pencil"></span></a>
+                    <a href="/mahasiswa/profil" data-toggle="tooltip" title="Profil" data-placement="bottom" class="profile-control-left"><span class="glyphicon glyphicon-user"></span></a>
                 </div>
               </div>
             </li>

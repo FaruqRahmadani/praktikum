@@ -142,7 +142,6 @@
     </div>
   </div>
 </div>
-</div>
 <!-- END MESSAGE BOX-->
 
 
