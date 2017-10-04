@@ -17,7 +17,7 @@
           <div class="block">
             <h2>Edit Profil</h2>
             <!-- left column -->
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success1" role="alert">
               <div class=class"col-md-5">
                 <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4>Data Profil Dosen Berhasil Disimpan.</h4>

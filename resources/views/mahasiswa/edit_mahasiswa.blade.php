@@ -9,6 +9,7 @@
                     <li class="active">Profil</li>
                 </ul>
                 <!-- END BREADCRUMB -->
+          <div class="panel-heading">
                  <div class="row">
                  <div class="page-title">
                     <h2>Edit Profil</h2>
@@ -34,11 +35,10 @@
                   </div>
 
                   <!-- edit form column -->
-                  <div class="col-md-4 personal-info">
-                    <div class="alert alert-info alert-dismissable">
+                  <div class="col-md-3 personal-info">
+                    <div class="alert alert-success1 alert-dismissable">
                       <a class="panel-close close" data-dismiss="alert">×</a>
-                      <i class="fa fa-warning"></i>
-                        Silakan Edit Foto Dan Profil Anda.
+                        <h4>Silakan Edit Foto Dan Profil Anda.<h4>
                     </div>
                     @if(count($errors) > 0)
                       <ul>
@@ -87,22 +87,22 @@
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Password Lama</label>
                         <div class="col-lg-8">
-                          {{-- <input class="form-control" name="password_lama" type="password" value="" placeholder="Isi Jika Ingin Ganti Password"> --}}
-                          {!! Form::text('password_lama', '' ,['class' => 'form-control', 'placeholder' => 'Isi Jika Ingin Ganti Password']) !!}
+                          {{-- <input class="form-control" name="password_lama" type="password" value="" placeholder="Masukkan Password Lama"> --}}
+                          {!! Form::text('password_lama', '' ,['class' => 'form-control', 'placeholder' => 'Masukkan Password Lama']) !!}
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-lg-3 control-label">Password</label>
+                        <label class="col-lg-3 control-label">Password Baru</label>
                         <div class="col-lg-8">
-                          {{-- <input class="form-control" name="password" type="password" value="" placeholder="Isi Jika Ingin Ganti Password"> --}}
+                          {{-- <input class="form-control" name="password" type="password" value="" placeholder="Masukkan Password Baru"> --}}
                           {!! Form::text('password', '' ,['class' => 'form-control', 'placeholder' => 'Masukkan Password Baru']) !!}
 
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-lg-3 control-label">Confirm Password</label>
+                        <label class="col-lg-3 control-label">Konfirmasi Password</label>
                         <div class="col-lg-8">
-                          {{-- <input class="form-control" name="password_confirmation" type="password" value="" placeholder="Isi Jika Ingin Ganti Password"> --}}
+                          {{-- <input class="form-control" name="password_confirmation" type="password" value="" placeholder="Masukkan Ulang Password"> --}}
                           {!! Form::text('password_confirmation', '' ,['class' => 'form-control', 'placeholder' => 'Konfirmasi Password Baru']) !!}
                         </div>
                       </div>
@@ -127,6 +127,7 @@
                   </div>
               </div>
             </div>
+          </div>
             <!-- END PAGE CONTENT -->
         </div>
         <!-- END PAGE CONTAINER -->
