@@ -76,7 +76,15 @@
                                     @endif
                                   @endforeach
                                   @if ($jumlah > 0)
-                                  <table class="table datatable">
+                                  <div class="page-content-wrap">
+                                  <div class="row">
+                                  <div class="col-md-12 col-xs-12">
+                                  <div class="panel panel-default">
+                                  <div class="panel-body">
+                                  <div class="form-group">
+                                  <div class="table-container">
+                                  <div class="col-md-12">
+                                  <table class="table datatable table-bordered table-hover">
                                     <thead>
                                       <tr>
                                         <th>Pertemuan Ke -</th>
@@ -109,7 +117,14 @@
                                     </tbody>
                                   </table>
                                     {{ csrf_field() }}
-
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
                                 </form>
                             </div>
                             <!-- END VALIDATIONENGINE PLUGIN -->
