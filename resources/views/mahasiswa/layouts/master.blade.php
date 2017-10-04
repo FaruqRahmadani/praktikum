@@ -47,7 +47,7 @@
             </li>
             <li class="xn-title">Menu</li>
               <li>
-                  <a href="/mahasiswa"><span class="fa fa-home"></span> <span class="xn-text">Home</span></a>
+                  <a href="/mahasiswa"><span class="fa fa-home"></span> <span class="xn-text">Beranda</span></a>
               </li>
               <li>
                   <a href="/mahasiswa/materi"><span class="fa fa-table"></span> <span class="xn-text">Materi</span></a>
