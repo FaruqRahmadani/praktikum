@@ -9,8 +9,11 @@
                     <li class="active">Profil</li>
                 </ul>
                 <!-- END BREADCRUMB -->
+          <div class="page-content-wrap">
+          <div class="row">
+          <div class="col-md-12">
+          <div class="panel panel-default">
           <div class="panel-heading">
-                 <div class="row">
                  <div class="page-title">
                     <h2>Edit Profil</h2>
                 </div>
@@ -25,9 +28,9 @@
                   {!! Form::open(['url'=>url()->current(),'files'=>true,'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                   <div class="col-md-3">
                     <div class="text-center">
-                         <img src="/images/mahasiswa/{{$data->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
-                      <h6>Ganti foto</h6>
-                      {{-- <input type="file" name="foto" class="form-control"> --}}
+                         <img style="margin-left: -30px;margin-top: 65px;" src="/images/mahasiswa/{{$data->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
+                      <h6 style="margin-left: -30px;">Ganti foto</h6>
+                      {{-- <input style="margin-left: -310px;" type="file" name="foto" class="form-control"> --}}
                       {!! Form::file('foto', ['class' => 'form-control', 'accept' => 'image/*']) !!}
 
 
@@ -38,7 +41,7 @@
                   <div class="col-md-3 personal-info">
                     <div class="alert alert-success1 alert-dismissable">
                       <a class="panel-close close" data-dismiss="alert">×</a>
-                        <h4>Silakan Edit Foto Dan Profil Anda.<h4>
+                        <h4>Silakan Edit Foto Dan Profil Anda.</h4>
                     </div>
                     @if(count($errors) > 0)
                       <ul>
@@ -109,24 +112,28 @@
 
                       <div class="form-group">
                         <label class="col-md-3 control-label"></label>
-                        <div class="col-md-8">
+                        <div class="col-md-9">
+                          <button type="submit" class="btn btn-primary btn-rounded">
+                            <span class="fa fa-save" aria-hidden="true"></span>
+                            Simpan
+                          </button>
                           <button type="reset" class="btn btn-danger btn-rounded">
                             <span class="fa fa-times" aria-hidden="true"></span>
                             Batal
                           </button>
-                          {{-- <button type="submit" class="btn btn-primary btn-rounded">
-                            <span class="fa fa-save" aria-hidden="true"></span>
-                            Simpan
-                          </button> --}}
-
-                          {!! Form::submit('Simpan', ['class' => 'btn btn-primary btn-rounded']) !!}
+                          {{-- {!! Form::submit('Simpan', ['class' => 'btn btn-primary btn-rounded']) !!} --}}
                         </div>
                       </div>
+
                       {!! Form::close() !!}
                     </form>
                   </div>
               </div>
             </div>
+          </div>
+          </div>
+          </div>
+          </div>
           </div>
             <!-- END PAGE CONTENT -->
         </div>
