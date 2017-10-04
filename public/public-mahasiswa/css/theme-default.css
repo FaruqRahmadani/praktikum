@@ -2410,9 +2410,16 @@ label.valid {
   line-height: 21px;
 }
 .alert-success {
-  background-color: #95b75d;
+  background-color: #15ad15;
   color: #FFF;
-  border-color: #90b456;
+  border-color: #15ad15;
+}
+.alert-success1 {
+  background-color: #15ad15;
+  color: #FFF;
+  border-color: #15ad15;
+  width: 1092px;
+  margin-left: 10px;
 }
 .alert-info {
   background-color: #1caf9a;
@@ -2594,7 +2601,7 @@ h3 small,
 }
 h4,
 .h4 {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 16px;
   font-weight: 400;
 }
