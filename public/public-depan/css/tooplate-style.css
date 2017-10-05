@@ -22,7 +22,7 @@ p {
 }
 .primary-button a {
 	display: inline-block;
-	background-color: #a2cf8d;
+	background-color: #15ad15;
 	padding: 12px 18px;
 	color: #fff;
 	font-size: 11px;
@@ -53,6 +53,13 @@ p {
 	color: #fff;
 }
 .section-heading h4 {
+	text-align: center;
+	font-size: 17px;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #121212;
+}
+.section-heading h5 {
 	text-align: center;
 	font-size: 17px;
 	text-transform: uppercase;
@@ -171,11 +178,11 @@ p {
 }
 .navbar-inverse .navbar-toggle {
 	margin-top: 22px;
-    border-color: #a2cf8d;
-    background-color: #a2cf8d;
+    border-color: #15ad15;
+    background-color: #15ad15;
 }
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-	background-color: #a2cf8d;
+	background-color: #15ad15;
 }
 bootstrap.min.css:5
 .navbar-toggle {
@@ -260,7 +267,7 @@ ul.cd-hero-slider {
 }
 
 .service-item:hover {
-	background-color: #a2cf8d;
+	background-color: #15ad15;
 }
 
 .service-item h4 {
@@ -390,7 +397,7 @@ ul.cd-hero-slider {
 }
 
 .filter-categories ul li.active span {
-  color: #a2cf8d;
+  color: #15ad15;
 }
 
 .project-item {
@@ -428,7 +435,7 @@ ul.cd-hero-slider {
 	height: 46px;
 	background-color: #fff;
 	line-height: 46px;
-	color: #a2cf8d;
+	color: #15ad15;
 	border-radius: 50%;
 	font-size: 18px;
 }
@@ -462,8 +469,17 @@ ul.cd-hero-slider {
 	color: #fff;
 }
 
+#blog .section-heading h5 {
+	color: #000;
+}
+
+
 #blog .section-heading .line-dec {
 	background-color: #fff;
+}
+
+#blog .section-heading .line-dec1 {
+	background-color: #000;
 }
 
 #blog .pop, .pop2, .pop3 {
@@ -525,6 +541,7 @@ ul.cd-hero-slider {
 }
 
 .pop span, .pop2 span, .pop3 span {
+  
 	margin-bottom: 20px;
 	cursor: pointer;
 	width: 44px;
@@ -533,7 +550,7 @@ ul.cd-hero-slider {
 	line-height: 44px;
 	color: #fff;
 	text-align: center;
-	background-color: #a2cf8d;
+	background-color: #15ad15;
 }
 
 .pop span:hover, .pop2 span:hover, .pop3 span:hover {
@@ -559,7 +576,7 @@ ul.cd-hero-slider {
 .fact-item .counter {
 	font-size: 24px;
 	font-weight: 700;
-	color: #a2cf8d;
+	color: #15ad15;
 }
 
 .fact-item span {
@@ -631,7 +648,7 @@ ul.cd-hero-slider {
 
 #contact button {
 	display: inline-block;
-	background-color: #a2cf8d;
+	background-color: #15ad15;
 	padding: 12px 18px;
 	color: #fff;
 	font-size: 11px;
@@ -666,7 +683,7 @@ footer p {
 footer em {
 	font-style: normal;
 	font-weight: 700;
-	color: #a2cf8d;
+	color: #15ad15;
 }
 
 footer ul {
@@ -686,7 +703,7 @@ footer ul li a {
 	line-height: 36px;
 	text-align: center;
 	display: inline-block;
-	background-color: #a2cf8d;
+	background-color: #15ad15;
 	color: #202628;
 	border-radius: 50%;
 }
