@@ -5,7 +5,7 @@
 @section('content')
   <!-- START BREADCRUMB -->
   <ul class="breadcrumb">
-      <li class="active"><a href="mahasiswa.php">Home</a></li>
+      <li class="active"><a href="mahasiswa.php">Beranda</a></li>
   </ul>
   <!-- END BREADCRUMB -->
 
