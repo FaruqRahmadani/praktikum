@@ -15,6 +15,10 @@
 //     return view('welcome');
 // });
 Route::get('/', 'DepanController@index');
+Route::get('/forgotpassword', 'DepanController@ForgotPassword');
+Route::POST('/forgotpassword', 'DepanController@storeForgotPassword');
+Route::get('/forgotpassword/{id}/{waktu}', 'DepanController@EditForgotPassword');
+Route::POST('/forgotpassword/{id}/{waktu}', 'DepanController@storeEditForgotPassword');
 
 Auth::routes();
 

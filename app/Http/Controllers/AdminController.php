@@ -161,6 +161,18 @@ class AdminController extends Controller
       $Mahasiswa->foto = $namagambar;
     }
 
+    if($request->password != null)
+    {
+      $this->validate($request, [
+        // 'password_lama' => 'required|string|min:6',
+        'password'      => 'required|string|min:6|confirmed',
+      ]);
+
+      // if (Hash::check($request->password, $user->password)) {
+      // }
+      $User->password = bcrypt($request->password);
+    }
+
     $User->username = $request->username;
     $Mahasiswa->NPM    = $request->NPM;
     $Mahasiswa->nama    = $request->nama;
@@ -219,19 +231,20 @@ class AdminController extends Controller
     if($request->password != null)
     {
       $this->validate($request, [
-        'password_lama' => 'required|string|min:6',
+        // 'password_lama' => 'required|string|min:6',
         'password'      => 'required|string|min:6|confirmed',
       ]);
 
-      if (Hash::check($request->password, $user->password)) {
-        $User->password = $request->password;
-      }
+      // if (Hash::check($request->password, $user->password)) {
+      // }
+      $User->password = bcrypt($request->password);
     }
 
     $User->username = $request->username;
     $Dosen->NIDN    = $request->NIDN;
     $Dosen->nama    = $request->nama;
     $Dosen->email   = $request->email;
+    $Dosen->status  = $request->status;
     $Dosen->no_hp   = $request->no_hp;
 
     $User->save();

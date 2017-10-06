@@ -49,26 +49,30 @@
                     <li>
                         <a href="/dosen"><span class="fa fa-home"></span><span class="xn-text">Beranda</span></a>
                     </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Master Data</span></a>
-                        <ul>
-                            <li><a href="/dosen/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
-                            <li><a href="/dosen/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
-                        </ul>
-                    </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Proses Data</span></a>
-                        <ul>
-                            <li><a href="/dosen/materi"><span class="fa fa-file"></span>Materi Dosen</a></li>
-                            <li><a href="/dosen/jadwal"><span class="fa fa-file"></span>Jadwal Dosen</a></li>
-                        </ul>
-                    </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Absensi</span></a>
-                        <ul>
-                            <li><a href="/dosen/absen"><span class="fa fa-print"></span>Cetak Absensi</a></li>
-                        </ul>
-                    </li>
+
+                    @if ($datauser->status == '1')
+                      <li class="xn-openable">
+                          <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Master Data</span></a>
+                          <ul>
+                              <li><a href="/dosen/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
+                              <li><a href="/dosen/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
+                          </ul>
+                      </li>
+                      <li class="xn-openable">
+                          <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Proses Data</span></a>
+                          <ul>
+                              <li><a href="/dosen/materi"><span class="fa fa-file"></span>Materi Dosen</a></li>
+                              <li><a href="/dosen/jadwal"><span class="fa fa-file"></span>Jadwal Dosen</a></li>
+                          </ul>
+                      </li>
+                      <li class="xn-openable">
+                          <a href="#"><span class="fa fa-bars"></span> <span class="xn-text">Absensi</span></a>
+                          <ul>
+                              <li><a href="/dosen/absen"><span class="fa fa-print"></span>Cetak Absensi</a></li>
+                          </ul>
+                      </li>
+                    @endif
+
                 </ul>
                 <!-- END X-NAVIGATION -->
             </div>

@@ -33,6 +33,7 @@
                   <th><center>No HP</center></th>
                   <th><center>E-Mail</center></th>
                   <th><center>Username</center></th>
+                  <th><center>Status</center></th>
                   <th><center>Tools<center></th>
                 </tr>
               </thead>
@@ -46,6 +47,7 @@
                     <td><center>{{$datas->no_hp}}</center></td>
                     <td><center>{{$datas->email}}</center></td>
                     <td><center>{{$datas->user->username}}</center></td>
+                    <td><center>{{$datas->status == 0? 'Tidak Aktif' : 'Aktif'}}</center></td>
                     <td>
                       <center>
                         <a href="/admin/datadosen/{{Crypt::encryptString($datas->id)}}/edit" title="Edit Data"class="btn btn-primary btn-rounded"><span class="fa fa-edit"
