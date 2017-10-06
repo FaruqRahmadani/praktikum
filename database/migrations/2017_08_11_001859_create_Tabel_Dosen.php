@@ -21,6 +21,7 @@ class CreateTabelDosen extends Migration
           $table->string('no_hp', 12);
           $table->string('foto', 255);
           $table->string('email', 50);
+          $table->tinyInteger('status')->default('0');
           $table->timestamps();
       });
     }

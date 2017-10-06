@@ -4,6 +4,11 @@
             <div class="login-box animated fadeInDown">
                 <div class="login-logo"></div>
                 <div class="login-body">
+                  @if (session('status'))
+                    <div class="alert alert-info">
+                      {{session('status')}}
+                    </div>
+                  @endif
                   @if(count($errors) > 0)
                     <div class="alert alert-info">
                       <ul>
@@ -31,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-6">
-                            <a href="#" class="btn btn-link btn-block">Lupa Password?</a>
+                            <a href="/forgotpassword" class="btn btn-link btn-block">Lupa Password?</a>
                         </div>
                         <div class="col-md-6">
                           {{ csrf_field() }}
