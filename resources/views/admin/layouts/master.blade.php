@@ -52,13 +52,14 @@
             <a href="#"><span class="fa fa-table"></span> <span class="xn-text">Master Data</span></a>
             <ul>
               <li><a href="/admin/periode"><span class="fa fa-calendar-o"></span>Periode</a></li>
+              <li><a href="/admin/dataadmin"><span class="fa fa-users"></span>Data Admin</a></li>
               <li><a href="/admin/datamahasiswa"><span class="fa fa-users"></span>Data Mahasiswa</a></li>
               <li><a href="/admin/datadosen"><span class="fa fa-users"></span>Data Dosen</a></li>
-              <li><a href="/admin/galeri"><span class="fa fa-users"></span>Data Galeri</a></li>
 		          <li><a href="/admin/datamateri"><span class="fa fa-users"></span>Data Materi</a></li>
 		          {{-- <li><a href="absen.php"><span class="fa fa-users"></span>Data Absen Praktikum</a></li> --}}
 		        </ul>
           </li>
+          <li><a href="/admin/galeri"><span class="glyphicon glyphicon-file"></span>Galeri</a></li>
           <li>
             <a href="/admin/berita"><span class="glyphicon glyphicon-file"></span> <span class="xn-text">Berita</span></a>
             {{-- <ul>

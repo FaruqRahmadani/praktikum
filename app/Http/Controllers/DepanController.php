@@ -11,6 +11,7 @@ use App\User;
 use App\Materi;
 use App\Berita;
 use App\Galeri;
+use App\Periode;
 use Mail;
 
 class DepanController extends Controller
@@ -95,4 +96,12 @@ class DepanController extends Controller
       return redirect('/login')->with('status', 'Password Telah di Update, Silahkan Login');
     }
 
+    public function TutupPeriode()
+    {
+      $Periode = Periode::all()->last();
+      if ($Periode->tanggal_tutup < Carbon::now()) {
+        $Periode->status = '0';
+        $Periode->save();
+      }
+    }
 }
