@@ -20,6 +20,8 @@ Route::POST('/forgotpassword', 'DepanController@storeForgotPassword');
 Route::get('/forgotpassword/{id}/{waktu}', 'DepanController@EditForgotPassword');
 Route::POST('/forgotpassword/{id}/{waktu}', 'DepanController@storeEditForgotPassword');
 
+Route::get('/cronjob/trigger/periode', 'DepanController@TutupPeriode');
+
 Auth::routes();
 
 Route::get('/home', 'DashboardController@index')->name('home');
@@ -85,6 +87,9 @@ Route::group(['middleware' => 'admin'], function(){
   Route::POST('/admin/periode/tambah', 'AdminController@storetambahDataPeriode');
   Route::get('/admin/periode/{id}/edit', 'AdminController@editDataPeriode');
   Route::POST('/admin/periode/{id}/edit', 'AdminController@storeeditDataPeriode');
+  Route::get('/admin/dataadmin', 'AdminController@DataAdmin');
+  Route::get('/admin/tambahAdmin', 'AdminController@tambahDataAdmin');
+  Route::POST('/admin/tambahAdmin', 'AdminController@StoretambahDataAdmin');
   Route::get('/admin/datamahasiswa', 'AdminController@datamahasiswa');
   Route::get('/admin/datamahasiswa/{id}/edit', 'AdminController@editDataMahasiswa');
   Route::POST('/admin/datamahasiswa/{id}/edit', 'AdminController@storeeditDataMahasiswa');

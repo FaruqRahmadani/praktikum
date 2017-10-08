@@ -48,19 +48,30 @@ http://www.tooplate.com/view/2089-meteor
                         <li><a href="#" class="scroll-link" data-id="blog">Berita</a></li>
                         <li><a href="#" class="scroll-link" data-id="about">Materi</a></li>
                         <li><a href="#" class="scroll-link" data-id="portfolio">Galery</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Daftar <b class="caret"></b></a>
+                        @if (Auth::guest())
+                          @if (count(Auth::guard('admin')->user()) > 0)
+                            <li><a href="/admin">{{Auth::guard('admin')->user()->nama}}</a></li>
+                          @else
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Daftar <b class="caret"></b></a>
                               <ul class="dropdown-menu message-dropdown">
-                              <li>
-                      			<a href="/registermahasiswa"> Mahasiswa</a>
-                              </li>
-                              <li>
-                      			<a href="/registerdosen"> Dosen</a>
-                              </li>
+                                <li>
+                                  <a href="/registermahasiswa"> Mahasiswa</a>
+                                </li>
+                                <li>
+                                  <a href="/registerdosen"> Dosen</a>
+                                </li>
                               </ul>
+                            </li>
                           </li>
-                        </li>
-                        <li><a href="/login">Log in</a></li>
+                          <li><a href="/login">Log in</a></li>
+                          @endif
+                        @else
+                          @if (count(Auth::user()) > 0)
+                            <li><a href="/dashboard">Dashboard {{Auth::user()->username}}</a></li>
+                          @endif
+                        @endif
+
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

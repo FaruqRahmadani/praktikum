@@ -18,7 +18,13 @@
     <body>
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
-
+        @if ($datauser->status == '0')
+          <div class="alert alert-danger">
+            <ul>
+              Akun Anda Belum Di Aktifkan, Silahkan Hubungi Admin
+            </ul>
+          </div>
+        @endif
             <!-- START PAGE SIDEBAR -->
             <div class="page-sidebar">
                 <!-- START X-NAVIGATION -->

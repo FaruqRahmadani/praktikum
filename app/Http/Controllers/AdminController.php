@@ -121,6 +121,35 @@ class AdminController extends Controller
     return redirect('/admin/periode')->with('status', 'Data Periode Telah di Update');
   }
 
+  public function DataAdmin()
+  {
+    $data = Admin::all();
+    return view('admin.admin_data', ['data' => $data]);
+  }
+
+  public function tambahDataAdmin()
+  {
+    return view('admin.tambah_admin');
+  }
+
+  public function StoretambahDataAdmin(Request $request)
+  {
+
+    $this->validate($request, [
+      'username' => 'required|unique:tabel_admin',
+    ]);
+
+    $Admin = new Admin;
+
+    $Admin->nama = $request->nama;
+    $Admin->username = $request->username;
+    $Admin->password = bcrypt($request->password);
+    $Admin->email = $request->email;
+    $Admin->foto = 'default.png';
+    $Admin->save();
+    return redirect('/admin/dataadmin')->with('status', 'Data Admin '.$request->nama.' Telah di Tambahkan');
+  }
+
   public function datamahasiswa()
   {
     $data = Mahasiswa::with('user')->get();
