@@ -39,8 +39,8 @@
                 <div class="profile-data-title">Admin</div>
               </div>
               <div class="profile-controls">
-                <a href="/admin/edit" class="profile-control-left"><span class="fa fa-pencil"></span></a>
-                <a href="/admin/profil" class="profile-control-right"><span class="fa fa-info"></span></a>
+                <a href="/admin/edit" data-toggle="tooltip" title="Edit Profil" data-placement="bottom" class="profile-control-left"><span class="fa fa-pencil"></span></a>
+                <a href="/admin/profil" data-toggle="tooltip" title="Profil" data-placement="bottom" class="profile-control-right"><span class="glyphicon glyphicon-user"></span></a>
               </div>
             </div>
           </li>
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-    
+
 <!-- frontend -->
       <!-- START DASHBOARD CHART -->
       <div class="chart-holder" id="dashboard-area-1" style="height: 0px;"></div>
@@ -123,11 +123,8 @@
   <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
     <div class="mb-container">
       <div class="mb-middle">
-        <div class="mb-title">
-          <span class="fa fa-sign-out"></span> Keluar ?
-        </div>
         <div class="mb-content">
-          <h4 style="color: #ffffff";>Anda yakin ingin keluar?</h4>
+          <h2 style="color: #ffffff";>Anda yakin ingin keluar?</h2>
           <h4 style="color: #ffffff";>Tekan No untuk melanjutkan. Tekan Yes untuk keluar.</h4>
         </div>
         <div class="mb-footer">
