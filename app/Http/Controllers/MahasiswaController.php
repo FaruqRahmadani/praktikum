@@ -39,7 +39,14 @@ class MahasiswaController extends Controller
       $tambahsemester = 0;
     }
     $semester = (((date('y'))-(substr($data->NPM, 0, 2)))*2)+$tambahsemester;
-    $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester)->where('id_periode', $Periode->id);
+
+    //Periode 1 Hidden, 0 Buka
+    if ($Periode->status == '0') {
+      $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '<=', $semester)->where('id_periode', $Periode->id);
+    } else {
+      $jadwal = JadwalDosen::with('materi','dosen')->get()->where('materi.semester', '=', '01012011')->where('id_periode', $Periode->id);
+    }
+
 
     $index=0;
 
