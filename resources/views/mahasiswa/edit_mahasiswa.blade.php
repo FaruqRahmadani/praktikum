@@ -28,17 +28,17 @@
                   {!! Form::open(['url'=>url()->current(),'files'=>true,'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!}
                   <div class="col-md-3">
                     <div class="text-center">
-                         <img style="margin-left: -30px;margin-top: 65px;" src="/images/mahasiswa/{{$data->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
+                         <img style="margin-left: -30px;margin-top: 2px;" src="/images/mahasiswa/{{$data->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
                       <h6 style="margin-left: -30px;">Ganti foto</h6>
-                      {{-- <input style="margin-left: 40px;" type="file" name="foto" class="form-control"> --}}
-                      {!! Form::file('foto', ['class' => 'form-control', 'accept' => 'image/*']) !!}
+                      <input style="margin-left: -30px;" type="file" name="foto" class="form-control">
+                      {{-- Form::file('foto', ['class' => 'form-control', 'accept' => 'image/*']) --}}
 
 
                     </div>
                   </div>
 
                   <!-- edit form column -->
-                  <div class="col-md-3 personal-info">
+                  <div class="col-md-5 personal-info">
                     <div class="alert alert-success1 alert-dismissable">
                       <a class="panel-close close" data-dismiss="alert">×</a>
                         <h4>Silakan Edit Foto Dan Profil Anda.</h4>
