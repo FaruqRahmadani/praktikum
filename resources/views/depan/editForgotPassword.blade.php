@@ -15,18 +15,28 @@
                     <form action="{{Request::url()}}" class="form-horizontal" method="post">
                       <div class="form-group">
                         <div class="col-md-12">
+                          <label style="color:white;">NPM</label>
                             <input type="text" name="NPM" class="form-control" placeholder="Masukan NPM"/ required value={{$mahasiswa->NPM}} disabled>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <div class="col-md-12">
+                          <label style="color:white;">Nama</label>
                             <input type="text" name="Nama" class="form-control" placeholder="Masukan NPM"/ required value={{$mahasiswa->nama}} disabled>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <div class="col-md-12">
+                            <label style="color:white;">Username</label>
+                            <input type="text" name="Nama" class="form-control" placeholder="Masukan NPM"/ required value={{$user->username}} disabled>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-md-12">
+                          <label style="color:white;">Ubah Password</label>
                             <input type="password" name="password" class="form-control" placeholder="Password"/ required pattern=".{6,}" title="Minimal 6 Karakter" autofocus>
                         </div>
                       </div>

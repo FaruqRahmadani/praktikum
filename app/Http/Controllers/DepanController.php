@@ -71,8 +71,9 @@ class DepanController extends Controller
         $ids = Crypt::decryptString($id);
 
         $Mahasiswa = Mahasiswa::find($ids);
+        $User = User::find($Mahasiswa->id_user);
 
-        return view('depan.editForgotPassword', ['mahasiswa' => $Mahasiswa]);
+        return view('depan.editForgotPassword', ['mahasiswa' => $Mahasiswa, 'user' => $User]);
       } catch (DecryptException $e) {
         abort(404);
       }
