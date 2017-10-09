@@ -30,7 +30,7 @@
                     <div class="text-center">
                          <img style="margin-left: -30px;margin-top: 65px;" src="/images/mahasiswa/{{$data->foto}}" alt="" class="img-rounded img-responsive" class="avatar img-circle" alt="avatar"/>
                       <h6 style="margin-left: -30px;">Ganti foto</h6>
-                      {{-- <input style="margin-left: -310px;" type="file" name="foto" class="form-control"> --}}
+                      {{-- <input style="margin-left: 40px;" type="file" name="foto" class="form-control"> --}}
                       {!! Form::file('foto', ['class' => 'form-control', 'accept' => 'image/*']) !!}
 
 
