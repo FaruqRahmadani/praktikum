@@ -181,9 +181,6 @@ http://www.tooplate.com/view/2089-meteor
                   </div>
                 </div>
               @endforeach
-              <div class="primary-button">
-                <a href="#" class="scroll-link" data-id="blog">Read More</a>
-              </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -195,10 +192,10 @@ http://www.tooplate.com/view/2089-meteor
                       $no+=1;
                     @endphp
                     <div class="pop{{$no == 1? '':$no}}">
-                      <span>✖</span>
                       <p>@php
                         echo $dataBerita->konten;
                       @endphp</p>
+                      <span>✖</span>
                     </div>
                   @endforeach
                 </div>
@@ -212,8 +209,8 @@ http://www.tooplate.com/view/2089-meteor
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h4>Materi</h4>
-                        <div class="line-dec"></div>
+                        <h5>Materi</h5>
+                        <div class="line-dec1"></div>
                     </div>
                 </div>
             </div>
@@ -294,7 +291,6 @@ http://www.tooplate.com/view/2089-meteor
             <div class="row">
                 <div class="col-md-6">
                     <div class="copyright-text">
-                      <p>Made using <i class="fa fa-bolt"></i> power
                       <p>Copyright &copy; 2017 FTI UNISKA
                     </div>
                 </div>

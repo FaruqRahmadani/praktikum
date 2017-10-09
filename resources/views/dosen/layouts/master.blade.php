@@ -108,7 +108,7 @@
                 <div class="mb-middle">
                     <div class="mb-title"><span class="fa fa-times"></span> Hapus Data?</div>
                     <div class="mb-content">
-                        <h4 style="color: #ffffff";>Anda yakin ingin menghapus baris ini?</h4>
+                        <h2 style="color: #ffffff";>Anda yakin ingin menghapus baris ini?</h2>
                         <h4 style="color: #ffffff";>Tekan Yes jika kamu yakin.</h4>
                     </div>
                     <div class="mb-footer">

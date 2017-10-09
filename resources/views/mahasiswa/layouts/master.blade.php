@@ -40,14 +40,14 @@
                     <div class="profile-data-title">{{$data->NPM}}</div>
                 </div>
                 <div class="profile-controls">
-                    <a href="/mahasiswa/editprofil" data-toggle="tooltip" title="Edit Data" data-placement="bottom" class="profile-control-left"><span class="fa fa-edit"></span></a>
-                    <a href="/mahasiswa/profil" data-toggle="tooltip" title="Detail" data-placement="bottom" class="profile-control-right"><span class="fa fa-list"></span></a>
+                    <a href="/mahasiswa/editprofil"  data-toggle="tooltip" title="Edit Profil" data-placement="bottom" class="profile-control-right"><span class="fa fa-pencil"></span></a>
+                    <a href="/mahasiswa/profil" data-toggle="tooltip" title="Profil" data-placement="bottom" class="profile-control-left"><span class="glyphicon glyphicon-user"></span></a>
                 </div>
               </div>
             </li>
             <li class="xn-title">Menu</li>
               <li>
-                  <a href="/mahasiswa"><span class="fa fa-home"></span> <span class="xn-text">Home</span></a>
+                  <a href="/mahasiswa"><span class="fa fa-home"></span> <span class="xn-text">Beranda</span></a>
               </li>
               <li>
                   <a href="/mahasiswa/materi"><span class="fa fa-table"></span> <span class="xn-text">Materi</span></a>
@@ -66,12 +66,12 @@
                 <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
                     <!-- TOGGLE NAVIGATION -->
                     <li class="xn-icon-button">
-                        <a href="#" data-toggle="tooltip" title="Navigation" data-placement="bottom" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+                        <a href="#" data-toggle="tooltip" title="Navigasi" data-placement="right" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>
                     <!-- END TOGGLE NAVIGATION -->
                     <!-- SIGN OUT -->
                     <li class="xn-icon-button pull-right">
-                        <a href="#" data-toggle="tooltip" title="Log Out" data-placement="left" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
+                        <a href="#" data-toggle="tooltip" title="Keluar" data-placement="left" class="mb-control" data-box="#mb-signout"><span class="fa fa-power-off"></span></a>
                     </li>
                     <!-- END SIGN OUT -->
                 </ul>

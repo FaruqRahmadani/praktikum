@@ -5,7 +5,7 @@
 @section('content')
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
-                    <li><a href="mahasiswa.php">Home</a></li>
+                    <li><a href="mahasiswa.php">Beranda</a></li>
 					<li class="active"><a href="jadwal_saya.php">Jadwal Saya</a></li>
 
                 </ul>
@@ -19,11 +19,14 @@
 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
-
-                    <div class="row">
+                <div class="row">
+                <div class="col-md-12 col-xs-12">
+                <div class="panel panel-default">
+                <div class="panel-body">
+                <div class="form-group">
+                <div class="table-container">
                         <div class="col-md-12">
-
-                          <table class="table datatable">
+                          <table class="table datatable table-bordered table-hover">
                             <thead>
                               <tr>
                                 <th>No</th>
@@ -68,8 +71,15 @@
                             </tbody>
                           </table>
                         </div>
-                    </div>
-
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 </div>
                 <!-- PAGE CONTENT WRAPPER -->
             </div>

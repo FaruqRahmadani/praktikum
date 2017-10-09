@@ -31,12 +31,12 @@
   @if ($periode->status == 1)
     <div class="alert alert-info">
           Periode "{{$periode->periode}}" Akan di Buka Pada Tanggal {{Carbon\Carbon::parse($periode->tanggal_tutup)->format('d M Y')}}
-    </div>
+  @endif
   {{-- @else
     <div class="alert alert-info">
         Periode {{$periode->periode}} Akan Di Tutup Pada Tanggal : {{Carbon\Carbon::parse($periode->tanggal_tutup)->format('d M Y')}}
-    </div> --}}
-  @endif
+    </div>
+  @endif --}}
   {{-- {{dd($periode)}} --}}
   <!-- END PAGE TITLE -->
   <div class="container">

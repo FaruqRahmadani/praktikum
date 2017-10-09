@@ -104,12 +104,16 @@
           </div>
         </div>
       </div>
+    
+<!-- frontend -->
       <!-- START DASHBOARD CHART -->
-      <div class="chart-holder" id="dashboard-area-1" style="height: 200px;"></div>
+      <div class="chart-holder" id="dashboard-area-1" style="height:0px;"></div>
         <div class="block-full-width">
         </div>
         <!-- END DASHBOARD CHART -->
       </div>
+      <!-- master -->
+
       <!-- END PAGE CONTENT WRAPPER -->
     </div>
     <!-- END PAGE CONTENT -->
@@ -194,17 +198,17 @@
 
 
 {{-- JS DAPAT DARI FILE PERIODE  --}}
-<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-timepicker.min.js"></script> --
-<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-colorpicker.js"></script> --
-<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-select.js"></script> --
-<script type="text/javascript" src="/public-admin/js/plugins/tagsinput/jquery.tagsinput.min.js"></script> --
-<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-file-input.js"></script> --
-<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-select.js"></script> --
-<script type="text/javascript" src="/public-admin/js/plugins/tagsinput/jquery.tagsinput.min.js"></script> --
-<script type='text/javascript' src='/public-admin/js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script> --
-<script type='text/javascript' src='/public-admin/js/plugins/validationengine/jquery.validationEngine.js'></script> --
-<script type='text/javascript' src='/public-admin/js/plugins/jquery-validation/jquery.validate.js'></script> --
-<script type='text/javascript' src='/public-admin/js/plugins/maskedinput/jquery.maskedinput.min.js'></script> --
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-select.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-file-input.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/bootstrap/bootstrap-select.js"></script>
+<script type="text/javascript" src="/public-admin/js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+<script type='text/javascript' src='/public-admin/js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+<script type='text/javascript' src='/public-admin/js/plugins/validationengine/jquery.validationEngine.js'></script>
+<script type='text/javascript' src='/public-admin/js/plugins/jquery-validation/jquery.validate.js'></script>
+<script type='text/javascript' src='/public-admin/js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
 
 <script>
     document.getElementById('links').onclick = function (event) {
