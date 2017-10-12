@@ -166,7 +166,13 @@ class DosenController extends Controller
     $idPeriode = Periode::all()->last()->id;
     $data = Materi::all();
     $jadwaldosen = JadwalDosen::where('id_dosen', $datauser->id)->where('id_periode', $idPeriode)->get();
-    return view('dosen.tambahmateri', ['datauser' => $datauser, 'data' => $data, 'jadwaldosen' => $jadwaldosen]);
+    $index = 0;
+    foreach ($jadwaldosen as $JDosen) {
+      $index=+1;
+      $idJadwalDosen[$index] = $JDosen->id;
+    }
+    $JadwalPraktikum = JadwalPraktikum::whereIn('id_jadwal_dosen', $idJadwalDosen)->get();
+    return view('dosen.tambahmateri', ['datauser' => $datauser, 'data' => $data, 'jadwaldosen' => $jadwaldosen, 'jadwalpraktikum' => $JadwalPraktikum, 'idPeriode' => $idPeriode]);
   }
 
   public function storetambahmateri($id){
@@ -181,6 +187,13 @@ class DosenController extends Controller
     $store->id_periode = $periode->id;
     $store->save();
     return redirect('/dosen/materi/add')->with('status', 'Data Materi '.$data->materi_praktikum.' Telah di Tambahkan');
+  }
+
+  public function storeHapusMateri($id){
+    $idx = Crypt::decryptString($id);
+    $JadwalDosen = JadwalDosen::find($idx);
+    $JadwalDosen->delete();
+    return redirect('/dosen/materi/add')->with('status', 'Data Materi Telah di Hapuskan');
   }
 
   public function datajadwal(){

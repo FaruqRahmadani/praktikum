@@ -104,7 +104,7 @@
           </div>
         </div>
       </div>
-    
+
 <!-- frontend -->
       <!-- START DASHBOARD CHART -->
       <div class="chart-holder" id="dashboard-area-1" style="height:0px;"></div>
@@ -148,7 +148,6 @@
   </div>
 </div>
 <!-- END MESSAGE BOX-->
-
 
 
 <!-- START PRELOADS -->

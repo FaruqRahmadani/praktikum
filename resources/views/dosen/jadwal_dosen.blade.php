@@ -101,17 +101,29 @@
                                                 <td>
                                                 <center>
                                                   @if ($jadwalpraktikum->tipe == 1)
+                                                    @if ($periode->status == 0)
+                                                      <button class="btn btn-danger btn-rounded btn-sm" data-toggle="tooltip" title="Non-Aktifkan" data-placement="bottom" disabled><span class="fa fa-minus-square"></span> Non-Aktifkan</button>
+                                                    @else
                                                     <a href="/dosen/jadwal/{{Crypt::encryptString($jadwalpraktikum->id)}}/{{Crypt::encryptString('0')}}">
                                                       <button class="btn btn-danger btn-rounded btn-sm" data-toggle="tooltip" title="Non-Aktifkan" data-placement="bottom"><span class="fa fa-minus-square"></span> Non-Aktifkan</button>
                                                     </a>
-                                                  @else
-                                                    <a href="/dosen/jadwal/{{Crypt::encryptString($jadwalpraktikum->id)}}/{{Crypt::encryptString('1')}}">
-                                                      <button class="btn btn-success btn-rounded btn-sm" data-toggle="tooltip" title="Aktifkan" data-placement="bottom"><span class="fa fa-check-square"></span> Aktifkan</button>
-                                                    </a>
                                                   @endif
-                                                  <a href="/dosen/jadwal/edit/{{Crypt::encryptString($jadwalpraktikum->id)}}">
-                                                    <button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button>
-                                                  </a>
+                                                  @else
+                                                    @if ($periode->status == 0)
+                                                      <button class="btn btn-success btn-rounded btn-sm" data-toggle="tooltip" title="Aktifkan" data-placement="bottom" disabled><span class="fa fa-check-square"></span> Aktifkan</button>
+                                                    @else
+                                                      <a href="/dosen/jadwal/{{Crypt::encryptString($jadwalpraktikum->id)}}/{{Crypt::encryptString('1')}}">
+                                                        <button class="btn btn-success btn-rounded btn-sm" data-toggle="tooltip" title="Aktifkan" data-placement="bottom"><span class="fa fa-check-square"></span> Aktifkan</button>
+                                                      </a>
+                                                    @endif
+                                                  @endif
+                                                  @if ($periode->status == 0)
+                                                    <button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom" disabled><span class="fa fa-pencil"></span></button>
+                                                  @else
+                                                    <a href="/dosen/jadwal/edit/{{Crypt::encryptString($jadwalpraktikum->id)}}">
+                                                      <button class="btn btn-primary btn-rounded btn-sm" data-toggle="tooltip" title="Edit" data-placement="bottom"><span class="fa fa-pencil"></span></button>
+                                                    </a>
+                                                @endif
                                                 <center>
                                                 </td>
                                             </tr>

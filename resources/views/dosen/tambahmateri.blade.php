@@ -33,7 +33,7 @@
                                   <div class="table-container">
                                     <div class="form-group">
                                         <label class="col-md-0 col-xs-0 control-label"></label>
-                                        <div class="col-md-2 col-xs-0">
+                                        {{-- <div class="col-md-2 col-xs-0">
                                             <select class="form-control select">
                                                 <option>Jadwal Praktikum</option>
                                                 <option>Reguler Pagi A </option>
@@ -42,7 +42,7 @@
                                                 <option>Reguler Malam A</option>
                                                 <option>NonReguler Pagi A</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         {{-- {!! Form::open(['url'=>url()->current(),'class'=>'register-form', 'method' => 'POST', 'class' => 'form-horizontal', 'role' => 'form']) !!} --}}
                                     <table class="table datatable table-bordered table-hover">
                                         <thead>
@@ -51,7 +51,7 @@
                                                 <th>Kode MK</th>
                                                 <th>Materi Praktikum</th>
                                                 <th>Semester Minimal</th>
-                                                <th>Tambah</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,10 +65,18 @@
                                                 <td>
                                                 <center>
                                                     @if (count($jadwaldosen->where('id_praktikum', $datas->id)->first()) > 0)
-                                                      {{-- <input type="checkbox" name="data{{$datas->id}}" value="true" disabled> --}}
-                                                      <button class="btn btn-info btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom" disabled><span class="fa fa-check"></span> Sudah Ditambahkan</button>
+                                                      @php
+                                                        $getID = $datas->id;
+                                                        $JadwalPraktikum = app\JadwalDosen::where('id_praktikum', $getID)->where('id_dosen', $datauser->id)->where('id_periode', $idPeriode)->first()->id;
+                                                        $JumlahKelas = count(app\JadwalPraktikum::where('id_jadwal_dosen', $JadwalPraktikum)->get());
+                                                      @endphp
+                                                      @if ($JumlahKelas > 0)
+                                                        <button class="btn btn-info btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom" disabled><span class="fa fa-check"></span> Hapus</button>
+                                                      @else
+                                                        <a href="/dosen/materi/add/{{Crypt::encryptString($JadwalPraktikum)}}/hapus"><button class="btn btn-danger btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom"><span class="fa fa-times"></span> Hapus</button></a>
+                                                      @endif
+                                                      {{-- <button class="btn btn-info btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom" disabled><span class="fa fa-check"></span> Sudah Ditambahkan</button> --}}
                                                     @else
-                                                      {{-- <input type="checkbox" name="data{{$datas->id}}" value="true"> --}}
                                                       <a href="/dosen/materi/add/{{Crypt::encryptString($datas->id)}}"><button class="btn btn-default btn-rounded btn-sm" data-toggle="tooltip" title="Tambahkan Materi {{$datas->materi_praktikum}}" data-placement="bottom"><span class="fa fa-plus"></span> Tambah</button></a>
                                                     @endif
                                                 </center>

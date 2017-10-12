@@ -53,6 +53,7 @@ Route::group(['middleware' => 'dosen'], function(){
   Route::DELETE('/dosen/materi/{id}', 'DosenController@deletemateri');
   Route::get('/dosen/materi/add', 'DosenController@tambahmateri');
   Route::get('/dosen/materi/add/{id}', 'DosenController@storetambahmateri');
+  Route::get('/dosen/materi/add/{id}/hapus', 'DosenController@storeHapusMateri');
   Route::get('/dosen/jadwal', 'DosenController@datajadwal');
   Route::get('/dosen/jadwal/add', 'DosenController@tambahjadwal');
   Route::POST('/dosen/jadwal/add', 'DosenController@storetambahjadwal');
