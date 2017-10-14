@@ -176,9 +176,13 @@ class MahasiswaController extends Controller
         $index+=1;
         $this->idJadwalDosen[$index] = $dataJadwalDosen->id;
       }
+
       $jadwal = AbsensiMahasiswa::with(['JadwalPraktikum' => function($query) {
         $query->where('id_jadwal_dosen', $this->idJadwalDosen);
       }])->where('id_mahasiswa', $data->id)->get();
+
+      // EDITAN BARU NI SAGAN TANGGAL ERROR JAR TGL 14 - 10 - 2017
+    // $jadwal = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
     }
     // dd($jadwal);
     return view('mahasiswa.jadwal_saya', ['data' => $data, 'jadwal' => $jadwal]);

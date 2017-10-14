@@ -412,7 +412,13 @@ ul.cd-hero-slider {
 
 .project-item .thumb img {
 	width: 100%;
-  height: 500%;
+  height: 200%;
+	overflow: hidden;
+}
+
+.project-item .thumb1 img {
+	width: 100%;
+  height: 100px;
 	overflow: hidden;
 }
 
@@ -420,6 +426,17 @@ ul.cd-hero-slider {
 	position: absolute;
 	background-color: rgba(162, 207, 141, 0.95);
 	width: 100%;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.5s;
+}
+
+.project-item .hover-effect-1 {
+	position: absolute;
+	background-color: rgba(162, 207, 141, 0.95);
+	width: 0;
 	top: 0;
 	bottom: 0;
 	opacity: 0;
@@ -439,14 +456,35 @@ ul.cd-hero-slider {
 	border-radius: 50%;
 	font-size: 18px;
 }
+.project-item .hover-effect-1 i {
+	text-align: center;
+	margin-top: 35%;
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+	background-color: #fff;
+	line-height: 46px;
+	color: #15ad15;
+	border-radius: 50%;
+	font-size: 18px;
+}
 
 .project-item .hover-effect i:hover {
 	background-color: #5c9d7d;
 	color: #fff;
 	transition: all 0.5s;
 }
+.project-item .hover-effect-1 i:hover {
+	background-color: #5c9d7d;
+	color: #fff;
+	transition: all 0.5s;
+}
 
 .project-item:hover .hover-effect {
+	opacity: 1;
+	visibility: visible;
+}
+.project-item:hover .hover-effect-1 {
 	opacity: 1;
 	visibility: visible;
 }
@@ -541,7 +579,7 @@ ul.cd-hero-slider {
 }
 
 .pop span, .pop2 span, .pop3 span {
-  
+
 	margin-bottom: 20px;
 	cursor: pointer;
 	width: 44px;

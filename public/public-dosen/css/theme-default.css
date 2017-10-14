@@ -2257,7 +2257,6 @@ ul.panel-controls > li > .dropdown-menu:before {
 .btn.btn-rounded.btn-info:focus,
 .btn.btn-rounded.btn-info:active,
 .btn.btn-rounded.btn-info.active {
-  background-color: #29b2e1;
   border-color: #29b2e1;
   color: #29b2e1;
 }
@@ -2579,7 +2578,7 @@ label.valid {
   background-color: #15ad15;
   color: #FFF;
   border-color: #15ad15;
-  width: 1188px;
+  width: 1092px;
   margin-left: 10px;
 }
 .alert-info {
