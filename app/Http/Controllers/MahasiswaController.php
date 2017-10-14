@@ -99,6 +99,9 @@ class MahasiswaController extends Controller
         $status = 'Jadwal Materi Belum Tersedia';
       }
 
+      $data   = Mahasiswa::where('id_user', $iduser)->first();
+      $jadwal = AbsensiMahasiswa::with('JadwalPraktikum')->where('id_mahasiswa', $data->id)->get();
+
       return view('mahasiswa.jadwalmaterisudah', ['data' => $data, 'idjadwaldosen' =>$ids, 'absensi' => $absensi, 'jadwal' => $jadwal, 'status' => $status]);
     }
     return view('mahasiswa.jadwalmateri', ['data' => $data, 'jadwal' => $jadwal]);
