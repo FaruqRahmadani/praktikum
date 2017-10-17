@@ -56,7 +56,7 @@
               <div class="title">Semester Minimal : {{($jadwals['materi']['semester'])}}</div>
               <div class="content">
                 @if ($jumlahmateri >= 2)
-                  <td class="center"><button class="btn btn-success btn-rounded"><i class="fa fa-info-circle"></i>Dikunci</button></td>
+                  <td class="center"><button class="btn btn-success btn-rounded" disabled><i class="fa fa-info-circle"></i>Dikunci</button></td>
                 @else
                   <a href="/mahasiswa/materi/{{Crypt::encryptString($jadwals->id)}}"><td class="center"><button class="btn btn-info btn-rounded"><i class="fa fa-info-circle"></i> Informasi </button></td></a>
                 @endif

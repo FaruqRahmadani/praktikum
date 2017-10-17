@@ -45,7 +45,6 @@
                                 $no = 0;
                               @endphp
                               {{-- {{dd($jadwal->last())}}) --}}
-                              {{-- {{dd($jadwal)}} --}}
                               @foreach ($jadwal as $jadwals)
                                 @php
                                   $dataPraktikum = App\JadwalPraktikum::find($jadwals['id_jadwal_praktikum']);
